@@ -1,0 +1,18 @@
+{
+  "AWS":{
+    "host"     : "horus-db.cvwr8tc2lb0u.eu-west-1.rds.amazonaws.com",
+    "user"     : "admin",
+    "password" : "doogle12",
+    "port"     : "3307",
+    "timezone" : "utc",
+    "database" : "horus_test"
+  },
+  "local":{
+    "host"     : "localhost",
+    "user"     : "root",
+    "password" : "admin",
+    "port"     : "3307",
+    "timezone" : "utc",
+    "database" : "horus_test"
+  }
+}
