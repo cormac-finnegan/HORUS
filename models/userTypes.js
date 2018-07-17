@@ -1,4 +1,4 @@
-var db = require('../db')
+var db = require('../AWS_db');
 
 // Get by ID
 exports.getUserTypeByID = function(id, callback) {

@@ -12,8 +12,11 @@ const BASE_PATH = "/horus";
 
 var path = require('path');
 global.appRoot = path.resolve(__dirname);
+AWS_DB = require(appRoot + '\\AWS_db');
+LOCAL_DB = require(appRoot + '\\local_db');
 
 module.exports = {appRoot : appRoot};
+module.exports = {DB : AWS_DB};
 
 app.set('views', __dirname + '/views'); // general config
 app.set('view engine', 'html');
