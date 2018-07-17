@@ -1,9 +1,9 @@
 var db = require('../db')
 
 // Get by ID
-exports.getUserTypeByID = function(id, callback) {
+exports.getToolByID = function(id, callback) {
     console.log('ID: ' + id);
-    db.query('SELECT * FROM User_Type where id = ' + id + ';', function (error, results) {
+    db.query('SELECT * FROM Tool_Inventory where id = ' + id + ';', function (error, results) {
 
         //console.log(this.sql);
         var message = {
@@ -28,9 +28,9 @@ exports.getUserTypeByID = function(id, callback) {
 };
 
 // Get all user types
-exports.getAllUserTypes = function(callback) {
+exports.getAllTools = function(callback) {
 
-   db.query('SELECT * FROM User_Type;', function (error, results, sql) {
+    db.query('SELECT * FROM Tool_Inventory;', function (error, results, sql) {
         //console.log(sql);
         var message = {
             error: undefined,
@@ -55,13 +55,13 @@ exports.getAllUserTypes = function(callback) {
 
 
 // Add a new user type
-exports.addUserType = function(userType, callback) {
+exports.addTool = function(Tool, callback) {
 
-    let jsonObject = JSON.parse(userType);
+    let jsonObject = JSON.parse(Tool);
 
-    console.log(jsonObject.User_Type.type);
+    console.log(jsonObject.Tool_Inventory.type);
 
-    db.query('INSERT INTO User_Type (id, type) VALUES (\''+jsonObject.User_Type.type+'\');', function (error, results) {
+    db.query('INSERT INTO Tool_Inventory (id,type,description,status,induction_date,MISC) VALUES (null, \''+jsonObject.Tool_Inventory.type+'\');', function (error, results) {
         //console.log(sql);
         var message = {
             error: undefined,
@@ -85,10 +85,10 @@ exports.addUserType = function(userType, callback) {
 };
 
 
-// delete a userType by ID
-exports.deleteUserTypeByID = function(id, callback) {
+// delete a Tool by ID
+exports.deleteToolByID = function(id, callback) {
     console.log('ID: ' + id);
-    db.query('DELETE FROM User_Type where id = ' + id + ';', function (error, results) {
+    db.query('DELETE FROM Tool_Inventory where id = ' + id + ';', function (error, results) {
 
         //console.log(this.sql);
         var message = {

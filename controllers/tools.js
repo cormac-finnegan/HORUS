@@ -1,9 +1,10 @@
-var userTypeModel = require('../models/userTypes.js');
+var toolModel = require('../models/tools.js');
 
-var userTypes = function (app) {
-    app.get("/userTypes", function(req, res) {
 
-        userTypeModel.getAllUserTypes(function(callback) {
+module.exports = function (BASE_PATH, app) {
+    app.get(BASE_PATH + "/toolInventory", function(req, res) {
+
+        toolModel.getAllTools(function(callback) {
 
             if(callback.error === null){
                 res.status(200).send(callback.results);
@@ -13,10 +14,10 @@ var userTypes = function (app) {
         });
     });
 
-    app.get("/userTypes/:id", function(req, res) {
+    app.get(BASE_PATH + "/toolInventory/:id", function(req, res) {
         let id = req.params.id;
 
-        userTypeModel.getUserTypeByID(id, function(callback) {
+        toolModel.getToolByID(id, function(callback) {
 
             if(callback.error === null){
                 res.status(200).send(callback.results);
@@ -26,10 +27,10 @@ var userTypes = function (app) {
         });
     });
 
-    app.post("/userTypes", function(req, res) {
+    app.post(BASE_PATH + "/toolInventory", function(req, res) {
         let newUser = req.body;
 
-        userTypeModel.addUserType(JSON.stringify(newUser), function(callback) {
+        toolModel.addTool(JSON.stringify(newUser), function(callback) {
 
             if(callback.error === null){
                 res.status(200).send(callback.results);
@@ -41,22 +42,19 @@ var userTypes = function (app) {
         //res.status(200).send(newUser);
     });
 
-    app.delete("/userTypes/:id", function(req, res) {
+    app.delete(BASE_PATH + "/toolInventory/:id", function(req, res) {
         let id = req.params.id;
 
-        userTypeModel.deleteUserTypeByID(id, function(callback) {
+        toolModel.deleteToolByID(id, function(callback) {
 
             if(callback.error === null){
                 res.status(200).send(callback.results);
             }else{
                 res.status(404).send(callback.error.code);
+
             }
         });
 
         //res.status(200).send(newUser);
     });
 };
-
-module.exports = userTypes;
-
-

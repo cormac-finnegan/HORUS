@@ -2,8 +2,18 @@ var express = require('express')
     , app = express()
     , bodyParser = require('body-parser')
     , port = process.env.PORT || 3000;
-var http = require('http');
-var routes = require("./controllers/routes.js");
+var router = express.Router();
+var trackerNodes = require("./controllers/trackerNodes.js");
+var home = require("./controllers/home.js");
+var userTypes = require("./controllers/userTypes.js");
+var tools = require("./controllers/tools.js");
+
+const BASE_PATH = "/horus";
+
+var path = require('path');
+global.appRoot = path.resolve(__dirname);
+
+module.exports = {appRoot : appRoot};
 
 app.set('views', __dirname + '/views'); // general config
 app.set('view engine', 'html');
@@ -19,14 +29,31 @@ app.get('/500', function(req, res, next){// trigger a generic (500) error
     next(new Error('keyboard cat!'));
 });
 
-app.use(express.static(__dirname + '/public'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(require('./controllers'))
-var wiki = require('./controllers/wiki');
-app.use('/wiki', wiki);
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+//app.use(require('./controllers'));
 
-routes(app);
+/**********************************************************************************************************************/
+
+router.use(function (req,res,next) {
+    console.log("/" + req.method);
+    next();
+});
+
+
+
+app.use("/",router);
+
+/**********************************************************************************************************************/
+
+home(BASE_PATH, app);
+userTypes(BASE_PATH, app);
+tools(BASE_PATH, app);
+trackerNodes(BASE_PATH, app);
+
+
+
 
 var server = app.listen(3000, function() {
     console.log('Listening on port ' + server.address().port)

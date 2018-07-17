@@ -11,6 +11,7 @@ var connection = mysql.createConnection({
     user     : 'root',
     password : 'admin',
     port     : '3307',
+    timezone : 'utc',
     database : TEST_DB
 });
 

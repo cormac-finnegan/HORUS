@@ -1,0 +1,10 @@
+{
+  "name": "Grand Canyon National Park",
+  "center-coordinates":{
+    "latitude": "36.213497",
+    "longitude": "-112.058096"
+  },
+  "defaults":{
+    "zoom": "8"
+  }
+}
