@@ -1,7 +1,7 @@
-var db = require('../AWS_db');
+var db = require('../db');
 
 // Get by ID
-exports.getToolByID = function(id, callback) {
+exports.getToolByID = function (id, callback) {
     console.log('ID: ' + id);
     db.query('SELECT * FROM Tool_Inventory where id = ' + id + ';', function (error, results) {
 
@@ -10,14 +10,14 @@ exports.getToolByID = function(id, callback) {
             error: undefined,
             results: undefined
         };
-        if(error){
+        if (error) {
             console.log(error);
             message = {
                 error: error,
                 results: null
             };
-        }else{
-            console.log(results);
+        } else {
+            //console.log(results);
             message = {
                 error: null,
                 results: results
@@ -28,7 +28,7 @@ exports.getToolByID = function(id, callback) {
 };
 
 // Get all user types
-exports.getAllTools = function(callback) {
+exports.getAllTools = function (callback) {
 
     db.query('SELECT * FROM Tool_Inventory;', function (error, results, sql) {
         //console.log(sql);
@@ -36,14 +36,14 @@ exports.getAllTools = function(callback) {
             error: undefined,
             results: undefined
         };
-        if(error){
+        if (error) {
             console.log(error);
             message = {
                 error: error,
                 results: null
             };
-        }else{
-            console.log(results);
+        } else {
+            //console.log(results);
             message = {
                 error: null,
                 results: results
@@ -55,25 +55,52 @@ exports.getAllTools = function(callback) {
 
 
 // Add a new user type
-exports.addTool = function(Tool, callback) {
+exports.addTool = function (Tool, callback) {
 
     let jsonObject = JSON.parse(Tool);
 
-    console.log(jsonObject.Tool_Inventory.type);
-
-    db.query('INSERT INTO Tool_Inventory (id,type,description,status,induction_date,MISC) VALUES (null, \''+jsonObject.Tool_Inventory.type+'\');', function (error, results) {
+    db.query('INSERT INTO Tool_Inventory (id,type,description,status,induction_date,MISC) VALUES (\'' + jsonObject.id + '\', \'' + jsonObject.type + '\', \'' + jsonObject.description + '\', \'' + jsonObject.status + '\', \'' + jsonObject.induction_date + '\', \'' + jsonObject.MISC + '\' );', function (error, results) {
         //console.log(sql);
         var message = {
             error: undefined,
             results: undefined
         };
-        if(error){
+        if (error) {
             console.log(error);
             message = {
                 error: error,
                 results: null
             };
-        }else{
+        } else {
+            console.log(results);
+            message = {
+                error: null,
+                results: results
+            };
+        }
+        
+        callback(message);
+    });
+};
+
+
+// delete a Tool by ID
+exports.deleteToolByID = function (id, callback) {
+    console.log('ID: ' + id);
+    db.query('DELETE FROM Tool_Inventory where id = ' + id + ';', function (error, results) {
+
+        //console.log(this.sql);
+        var message = {
+            error: undefined,
+            results: undefined
+        };
+        if (error) {
+            console.log(error);
+            message = {
+                error: error,
+                results: null
+            };
+        } else {
             console.log(results);
             message = {
                 error: null,
@@ -84,28 +111,26 @@ exports.addTool = function(Tool, callback) {
     });
 };
 
-
-// delete a Tool by ID
-exports.deleteToolByID = function(id, callback) {
-    console.log('ID: ' + id);
-    db.query('DELETE FROM Tool_Inventory where id = ' + id + ';', function (error, results) {
-
+// count the total number of tools
+exports.toolCount = function (callback) {
+    db.query('SELECT count(*) FROM Tool_Inventory;', function (error, results, row) {
         //console.log(this.sql);
         var message = {
             error: undefined,
             results: undefined
         };
-        if(error){
+        if (error) {
             console.log(error);
             message = {
                 error: error,
                 results: null
             };
-        }else{
-            console.log(results);
+        } else {
             message = {
                 error: null,
-                results: results
+                results: {
+                    "count": results[0]['count(*)']
+                }
             };
         }
         callback(message);

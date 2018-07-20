@@ -1,6 +1,6 @@
 var trackerNodeModel = require('../models/trackerNodes.js');
 
-module.exports = function (BASE_PATH, app) {
+module.exports = function (app) {
 
     app.get(BASE_PATH + "/trackerNode", function(req, res) {
 

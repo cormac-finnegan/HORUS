@@ -1,60 +1,103 @@
 var toolModel = require('../models/tools.js');
 
 
-module.exports = function (BASE_PATH, app) {
-    app.get(BASE_PATH + "/toolInventory", function(req, res) {
+module.exports = function (app) {
+    app.get("/rest/toolInventory", function (req, res) {
 
-        toolModel.getAllTools(function(callback) {
+        toolModel.getAllTools(function (callback) {
 
-            if(callback.error === null){
+            if (callback.error === null) {
                 res.status(200).send(callback.results);
-            }else{
+            } else {
                 res.status(404).send(callback.error.code);
             }
         });
     });
 
-    app.get(BASE_PATH + "/toolInventory/:id", function(req, res) {
+    app.get("/rest/toolInventory/:id(\\d+*)", function (req, res) {
         let id = req.params.id;
 
-        toolModel.getToolByID(id, function(callback) {
+        toolModel.getToolByID(id, function (callback) {
 
-            if(callback.error === null){
+            if (callback.error === null) {
                 res.status(200).send(callback.results);
-            }else{
+            } else {
                 res.status(404).send(callback.error.code);
             }
         });
     });
 
-    app.post(BASE_PATH + "/toolInventory", function(req, res) {
-        let newUser = req.body;
+    app.post("/rest/toolInventory", function (req, res) {
+        let newTool = req.body;
+        newTool = JSON.stringify(newTool);
 
-        toolModel.addTool(JSON.stringify(newUser), function(callback) {
+        toolModel.toolCount(function (callback) {
+            var JSONObj = JSON.parse(newTool);
+            JSONObj.id = callback.results.count + 1;
+            newTool = JSON.stringify(JSONObj);
 
-            if(callback.error === null){
-                res.status(200).send(callback.results);
-            }else{
-                res.status(404).send(callback.error.code);
-            }
+            toolModel.addTool(newTool, function (callback) {
+                if (callback.error === null) {
+                    res.status(200).send(callback.results);
+                } else {
+                    res.status(404).send(callback.error.code);
+                }
+            });
         });
-
-        //res.status(200).send(newUser);
     });
 
-    app.delete(BASE_PATH + "/toolInventory/:id", function(req, res) {
+    app.delete("/rest/toolInventory/:id", function (req, res) {
         let id = req.params.id;
 
-        toolModel.deleteToolByID(id, function(callback) {
+        toolModel.deleteToolByID(id, function (callback) {
 
-            if(callback.error === null){
+            if (callback.error === null) {
                 res.status(200).send(callback.results);
-            }else{
+            } else {
                 res.status(404).send(callback.error.code);
 
             }
         });
 
-        //res.status(200).send(newUser);
+        //res.status(200).send(newTool);
+    });
+
+    app.put("/rest/toolInventory/:id", function (req, res) {
+        let id = req.params.id;
+
+        toolModel.deleteToolByID(id, function (callback) {
+            if (callback.error === null) {
+                let newTool = req.body;
+                newTool = JSON.stringify(newTool);
+
+                var JSONObj = JSON.parse(newTool);
+                JSONObj.id = id;
+                newTool = JSON.stringify(JSONObj);
+
+                toolModel.addTool(newTool, function (callback) {
+                    if (callback.error === null) {
+                        //res.status(200).send(callback.results);
+                    } else {
+                        res.status(404).send(callback.error.code);
+                    }
+                });
+
+            } else {
+                res.status(404).send(callback.error.code);
+            }
+        });
+
+        //res.status(200).send(newTool);
+    });
+
+    app.get("/rest/toolInventory/count", function (req, res) {
+
+        toolModel.toolCount(function (callback) {
+            if (callback.error === null) {
+                res.status(200).send(callback.results);
+            } else {
+                res.status(404).send(callback.error.code);
+            }
+        });
     });
 };

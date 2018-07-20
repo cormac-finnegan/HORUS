@@ -1,5 +1,5 @@
 var userTypeModel = require('../models/userTypes.js');
-module.exports = function (BASE_PATH, app) {
+module.exports = function (app) {
 
     app.get(BASE_PATH + "/userTypes", function (req, res) {
 
