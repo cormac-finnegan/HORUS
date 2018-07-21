@@ -64,24 +64,14 @@ module.exports = function (app) {
 
     app.put("/rest/toolInventory/:id", function (req, res) {
         let id = req.params.id;
+        let newTool = req.body;
+        newTool = JSON.stringify(newTool);
+        newTool = JSON.parse(newTool);
 
-        toolModel.deleteToolByID(id, function (callback) {
+        toolModel.modifyTool(id, newTool, function (callback) {
             if (callback.error === null) {
-                let newTool = req.body;
-                newTool = JSON.stringify(newTool);
-
-                var JSONObj = JSON.parse(newTool);
-                JSONObj.id = id;
-                newTool = JSON.stringify(JSONObj);
-
-                toolModel.addTool(newTool, function (callback) {
-                    if (callback.error === null) {
-                        //res.status(200).send(callback.results);
-                    } else {
-                        res.status(404).send(callback.error.code);
-                    }
-                });
-
+                res.status(200).send(callback.results);
+                //console.log(JSON.stringify(callback.results))
             } else {
                 res.status(404).send(callback.error.code);
             }

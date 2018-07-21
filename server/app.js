@@ -46,7 +46,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 router.use(function (req, res, next) {
     console.log("/" + req.method + ": res " + res);
-
+    //res.header("Content-Type",'application/json');
     next();
 });
 
