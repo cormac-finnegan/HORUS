@@ -6,7 +6,7 @@ let mysql = require('mysql');
 
 var TEST_DB = require('./config/test.json').AWS;
 exports.DEV_DB = require('./config/dev.json').AWS;
-var LOCAL_TEST_DB = require('./config/test.json').local
+var LOCAL_TEST_DB = require('./config/test.json').local;
 
 var pool  = mysql.createPool(LOCAL_TEST_DB);
 

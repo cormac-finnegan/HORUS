@@ -1,12 +1,19 @@
 var userTypeModel = require('../models/userTypes.js');
 module.exports = function (app) {
 
-    app.get(BASE_PATH + "/userTypes", function (req, res) {
+    app.get("/rest/userTypes", function (req, res) {
 
         userTypeModel.getAllUserTypes(function (callback) {
 
+            /*var test = JSON.parse(JSON.stringify(callback.results))
+
+            console.log(test)*/
+
+            console.log(JSON.stringify(callback.results))
+
             if (callback.error === null) {
-                res.status(200).send(callback.results);
+                res.send(JSON.stringify(callback.results));
+                //return callback.results;
             } else {
                 res.status(404).send(callback.error.code);
             }
@@ -15,7 +22,7 @@ module.exports = function (app) {
 
     });
 
-    app.get(BASE_PATH + "/userTypes/:id", function (req, res) {
+    app.get("/rest/userTypes/:id", function (req, res) {
         let id = req.params.id;
 
         userTypeModel.getUserTypeByID(id, function (callback) {
@@ -28,7 +35,7 @@ module.exports = function (app) {
         });
     });
 
-    app.post(BASE_PATH + "/userTypes", function (req, res) {
+    app.post("/rest/userTypes", function (req, res) {
         let newUser = req.body;
 
         userTypeModel.addUserType(JSON.stringify(newUser), function (callback) {
@@ -43,7 +50,7 @@ module.exports = function (app) {
         //res.status(200).send(newUser);
     });
 
-    app.delete(BASE_PATH + "/userTypes/:id", function (req, res) {
+    app.delete("/rest/userTypes/:id", function (req, res) {
         let id = req.params.id;
 
         userTypeModel.deleteUserTypeByID(id, function (callback) {

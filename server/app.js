@@ -17,6 +17,11 @@ global.BASE_PATH = "/horus";
 
 let path = require('path');
 global.appRoot = path.resolve(__dirname);
+
+global.projRoot = path.resolve(__dirname + '/..');
+
+console.log('\nProject Root: ' + projRoot)
+
 AWS_DB = require(appRoot + '/AWS_db');
 LOCAL_DB = require(appRoot + '/local_db');
 
@@ -37,6 +42,10 @@ app.get('/500', function (req, res, next) {// trigger a generic (500) error
     next(new Error('keyboard cat!'));
 });
 
+//Angular static path
+app.use(express.static(path.join(__dirname + 'client')));
+
+
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -49,6 +58,11 @@ router.use(function (req, res, next) {
     //res.header("Content-Type",'application/json');
     next();
 });
+
+
+/*app.get('*', function(req,res){
+    res.sendFile(projRoot, '/public/index.html');
+});*/
 
 
 app.use("/", router);

@@ -14,9 +14,10 @@ module.exports = function (app) {
     // home page
     app.get(BASE_PATH, function (req, res, next) {
         //res.send('Hello World');
-        console.log('Horus');
+        console.log('Horus: ' + projRoot + '/public/index.html');
 
-        res.sendFile(appRoot + '/views/index.html');
+        res.sendFile('/public/index.html', { root : projRoot});
+
 
         //
 

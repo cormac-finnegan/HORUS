@@ -1,4 +1,4 @@
-var db = require('../AWS_db');
+var db = require('../db');
 
 // Get by ID
 exports.getUserTypeByID = function(id, callback) {
@@ -11,13 +11,13 @@ exports.getUserTypeByID = function(id, callback) {
             results: undefined
         };
         if(error){
-            console.log(error);
+            //console.log(error);
             message = {
                 error: error,
                 results: null
             };
         }else{
-            console.log(results);
+            //console.log(results);
             message = {
                 error: null,
                 results: results
@@ -37,13 +37,13 @@ exports.getAllUserTypes = function(callback) {
             results: undefined
         };
         if(error){
-            console.log(error);
+            //console.log(error);
             message = {
                 error: error,
                 results: null
             };
         }else{
-            console.log(results);
+            //console.log(results);
             message = {
                 error: null,
                 results: results
