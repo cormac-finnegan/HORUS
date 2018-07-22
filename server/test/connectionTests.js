@@ -17,30 +17,24 @@ var mysql = require('mysql');
 let testDBParams = require('../config/test.json').local;
 
 
-/*before(function (done) {
- console.log("\n\n - - - shared before - - - \n\n");
- db.query('INSERT INTO Tool_Inventory(id,type,description,status,induction_date,MISC) VALUES ' +
- '(1, \'tracker\', \'A tracking device used for geolocation of visitors by the HORUS system\', 0, \'2017-11-16\', \'\'),' +
- '(2, \'tracker\', \'A tracking device used for geolocation of visitors by the HORUS system\', 0, \'2017-11-16\', \'\'),' +
- '(3, \'tracker\', \'A tracking device used for geolocation of visitors by the HORUS system\', 0, \'2017-11-16\', \'\');'
- , null, function (error, rows) {
+it('Successful connection to AWS test database', function (done) {
+    var connection = mysql.createConnection(testDBParams);
+    connection.connect(function (err) {
+        assert.equal(err, null);
+        done()
+    });
+});
 
- done();
- });
- });*/
-
+it('Failure to connect to AWS test database', function (done) {
+    var connection = mysql.createConnection('testDBParams');
+    connection.connect(function (err) {
+        //console.log(err)
+        assert.equal(err.code, 'ECONNREFUSED');
+        done()
+    });
+});
 
 suite('GET /tools', function () {
-    /*    beforeEach(function(done){
-
-
-     });
-
-     afterEach(function (done) {
-
-     // runs before all tests in this block
-
-     });*/
 
     // In this test it's expected a task list of two tasks
     describe('GET /tools', function () {
@@ -189,7 +183,7 @@ suite('GET /tools', function () {
                 })
                 .end(function (err, res) {
 
-                    /*request.get('/rest/toolInventory/3')
+                    request.get('/rest/toolInventory/3')
                         .expect(200)
                         .end(function (err, res) {
                             var compareJSONString = JSON.stringify({
@@ -207,7 +201,7 @@ suite('GET /tools', function () {
 
                             expect(compareJSONObj).to.deep.equal(compareBodyObj);
                             done(err);
-                        });*/
+                        });
                     done(err);
                 });
             db.query('DELETE FROM Tool_Inventory;', null, function (error, rows) {
