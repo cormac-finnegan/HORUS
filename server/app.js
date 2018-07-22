@@ -17,8 +17,8 @@ global.BASE_PATH = "/horus";
 
 let path = require('path');
 global.appRoot = path.resolve(__dirname);
-AWS_DB = require(appRoot + '\\AWS_db');
-LOCAL_DB = require(appRoot + '\\local_db');
+AWS_DB = require(appRoot + '/AWS_db');
+LOCAL_DB = require(appRoot + '/local_db');
 
 module.exports = {appRoot: appRoot};
 module.exports = {DB: AWS_DB};

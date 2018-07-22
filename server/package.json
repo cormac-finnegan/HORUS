@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/cormac-finnegan/HORUS#readme",
   "dependencies": {
+    "@angular/cli": "^6.0.8",
     "ajax": "0.0.4",
+    "angular-cli": "^1.0.0-beta.28.3",
     "async": "^2.6.1",
     "bootstrap": "^4.1.2",
     "cookie-parser": "~1.4.3",
