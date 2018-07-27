@@ -1,0 +1,117 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="trackingApp">
+<head>
+  <!-- META -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+  <title>Node/Angular Prototype View (User Types)</title>
+
+  <!-- SCROLLS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+  <style>
+    html                    { overflow-y:scroll; }
+    body                    { padding-top:50px; }
+    #trackingNode-list      { margin-bottom:30px; }
+  </style>
+
+  <!-- SPELLS -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+
+  <script type="text/javascript">// public/core.js
+
+  var trackingApp = angular.module('trackingApp', []);
+
+  function trackingController($scope, $http) {
+    $scope.formData = {};
+
+
+    // when landing on the page, get all trackingNodes and show them
+    $http.get('/rest/trackerNode')
+
+      .success(function(data) {
+        $scope.trackingNodes = data;
+        console.log('\nInside code data : '+JSON.stringify(data) + '\n');
+      })
+      .error(function(data) {
+        console.log('Error: ' + data);
+      });
+
+    // delete a trackingNode after checking it
+    $scope.deleteUserType = function(id) {
+      $http.delete('/rest/trackerNode/' + id)
+      //After delete, get al list of all of the usertypes again and return the list as the success data
+        .success(function() {
+          $http.get('/rest/trackerNode')
+            .success(function(data) {
+              $scope.trackingNodes = data;
+              console.log('\nInside code data : '+JSON.stringify(data) + '\n');
+            })
+            .error(function(data) {
+              console.log('Error: ' + data);
+            });
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
+    };
+
+  }</script>
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS -->
+<body ng-controller="trackingController">
+
+
+
+<script>
+
+  function myMap() {
+    var mapProp= {
+      center:new google.maps.LatLng(36.213497,-112.058096),
+      zoom:8,
+    };
+    map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  }
+  myMap()
+</script>
+<div class="container">
+
+
+
+  <!-- HEADER AND TODO COUNT -->
+  <div class="jumbotron text-center">
+    <h1>Angular + Rest enabled list of User Types <span class="label label-info">{{ trackingNodes.length }}</span></h1>
+  </div>
+  <!-- LOOP OVER THE TODOS IN $scope.trackingNodes -->
+  <div ng-repeat="trackingNode in trackingNodes">
+    <label>
+      <input type="checkbox" ng-click="deleteUserType(trackingNode.id)"> {{ trackingNode.id }} {{ trackingNode.latitude }} {{ trackingNode.longitude }}
+    </label>
+  </div>
+
+  <div id="googleMap" style="height:600px;width:600px;"></div>
+  <!-- FORM TO CREATE TODOS -->
+  <!--<div id="trackingNode-form" class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+          <form>
+              <div class="form-group">
+
+                  &lt;!&ndash; BIND THIS VALUE TO formData.text IN ANGULAR &ndash;&gt;
+                  <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
+              </div>
+
+              &lt;!&ndash; createToDo() WILL CREATE NEW TODOS &ndash;&gt;
+              <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+          </form>
+      </div>
+  </div>-->
+
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1UmC67CAXLqXEVveyorSifBI_pgJBjbQ&callback=myMap"></script>
+</body>
+</html>

@@ -13,7 +13,7 @@ module.exports = function (app) {
 
             if (callback.error === null) {
                 res.send(JSON.stringify(callback.results));
-                //return callback.results;
+                //return calhlback.results;
             } else {
                 res.status(404).send(callback.error.code);
             }
@@ -64,4 +64,17 @@ module.exports = function (app) {
 
         //res.status(200).send(newUser);
     });
+
+    // home page
+    app.get(BASE_PATH+'/userTypes', function (req, res, next) {
+        //res.send('Hello World');
+        console.log('Horus: ' + projRoot + '/public/index.html');
+
+        res.sendFile('/public/index.html', { root : projRoot});
+
+
+        //
+
+    });
+
 }

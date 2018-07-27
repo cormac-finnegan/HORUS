@@ -26,7 +26,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "../public/core.js"
+
             ]
           },
           "configurations": {

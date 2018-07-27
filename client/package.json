@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -11,8 +11,9 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "latest",
     "@angular/animations": "^6.0.3",
-    "@angular/common": "^6.0.3",
+    "@angular/common": "^6.0.9",
     "@angular/compiler": "^6.0.3",
     "@angular/core": "^6.0.3",
     "@angular/forms": "^6.0.3",
@@ -22,7 +23,8 @@
     "@angular/router": "^6.0.3",
     "angular": "^1.7.2",
     "core-js": "^2.5.4",
-    "rxjs": "^6.0.0",
+    "rxjs": "^6.2.2",
+    "rxjs-compat": "^6.2.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

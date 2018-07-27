@@ -12,24 +12,25 @@ var pool  = mysql.createPool(LOCAL_TEST_DB);
 
 var db = (function () {
 
-    function _query(query, params, callback) {
+    function _query(query, callback) {
         pool.getConnection(function (err, connection) {
             if (err) {
-                //connection.release();
+                connection.release();
                 //callback(null, err);
                 console.log(err)
                 throw err;
             }
 
-            connection.query(query, params, function (err, rows) {
-                connection.release();
+            connection.query(query, function (err, rows) {
                 if (!err) {
-                    callback(rows);
+                    callback(null, rows);
                 }
                 else {
-                    callback(null, err);
-                }
+                    callback(err, null);
 
+                }
+                connection.release();
+                connection.destroy();
             });
 
             connection.on('error', function (err) {
@@ -38,7 +39,9 @@ var db = (function () {
                 connection.release();
                 throw err;
             });
+
         });
+
     };
 
     return {

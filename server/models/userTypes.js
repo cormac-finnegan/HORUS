@@ -30,7 +30,7 @@ exports.getUserTypeByID = function(id, callback) {
 // Get all user types
 exports.getAllUserTypes = function(callback) {
 
-   db.query('SELECT * FROM User_Type;', function (error, results, sql) {
+   db.query('SELECT * FROM User_Type;', function (error, results) {
         //console.log(sql);
         var message = {
             error: undefined,
@@ -59,9 +59,9 @@ exports.addUserType = function(userType, callback) {
 
     let jsonObject = JSON.parse(userType);
 
-    console.log(jsonObject.User_Type.type);
+    console.log(jsonObject.type);
 
-    db.query('INSERT INTO User_Type (id, type) VALUES (\''+jsonObject.User_Type.type+'\');', function (error, results) {
+    db.query('INSERT INTO User_Type (id, type) VALUES (\''+jsonObject.id +'\',\''+jsonObject.type+'\');', function (error, results) {
         //console.log(sql);
         var message = {
             error: undefined,

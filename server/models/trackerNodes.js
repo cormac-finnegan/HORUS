@@ -1,4 +1,4 @@
-var db = require('../AWS_db')
+var db = require('../db')
 
 // Get by ID
 exports.getTrackerNodeByID = function(id, callback) {
@@ -111,11 +111,12 @@ exports.getAllTrackerNodes = function(callback) {
 // Add a new user type
 exports.addTrackerNode = function(TrackerNode, callback) {
 
-    let jsonObject = JSON.parse(TrackerNode);
+    let tracker = JSON.parse(TrackerNode);
 
-    console.log(jsonObject.TrackerNode.type);
+    console.log(tracker.type);
 
-    db.query('INSERT INTO Tracker_Node (id, tool_id_fk, latitude, longitude, enabled, distress, timestamp) VALUES (null, \''+jsonObject.TrackerNode.type+'\');', function (error, results) {
+    db.query('INSERT INTO Tracker_Node (id, tool_id_fk, latitude, longitude, enabled, distress, timestamp) VALUES (\''+tracker.id+'\', ' +
+        '\''+tracker.tool_id_fk+'\', \''+tracker.latitude+'\', \''+tracker.longitude+'\', \''+tracker.enabled+'\', \''+tracker.distress+'\', \''+tracker.timestamp+'\');', function (error, results) {
         //console.log(sql);
         var message = {
             error: undefined,
@@ -157,6 +158,44 @@ exports.deleteTrackerNodeByID = function(id, callback) {
             };
         }else{
             console.log(results);
+            message = {
+                error: null,
+                results: results
+            };
+        }
+        callback(message);
+    });
+};
+
+
+exports.modifyTracker = function (id, tracker, callback) {
+    console.log('ID: ' + id);
+    console.log('\nTracker: ' + tracker.latitude);
+    let newTracker = tracker;
+
+    db.query('UPDATE Tracker_Node '+
+        'SET ' +
+        'id = ' + newTracker.id + ', ' +
+        'tool_id_fk = ' + newTracker.tool_id_fk + ', ' +
+        'latitude = ' + newTracker.latitude + ', ' +
+        'longitude = ' + newTracker.longitude + ', ' +
+        'enabled = ' + newTracker.enabled + ', ' +
+        'distress = ' + newTracker.distress + ', ' +
+        'timestamp = \'' + newTracker.timestamp + '\' ' +
+        ' where id = ' + id + ';', function (error, results) {
+        //console.log(this.sql);
+        var message = {
+            error: undefined,
+            results: undefined
+        };
+        if (error) {
+            //console.log(error);
+            message = {
+                error: error,
+                results: null
+            };
+        } else {
+            //console.log(results);
             message = {
                 error: null,
                 results: results

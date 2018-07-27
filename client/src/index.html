@@ -1,14 +1,67 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html ng-app="trackingApp">
 <head>
-  <meta charset="utf-8">
-  <title>Client</title>
-  <base href="/">
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!-- SPELLS -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+  <script type="text/javascript">// public/core.js
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  var trackingApp = angular.module('trackingApp', []);
+
+  function trackingController($scope, $http) {
+    $scope.formData = {};
+
+
+    // when landing on the page, get all trackingNodes and show them
+    $http.get('/rest/trackerNode')
+
+      .success(function(data) {
+        $scope.trackingNodes = data;
+        console.log('\nInside code data : '+JSON.stringify(data) + '\n');
+      })
+      .error(function(data) {
+        console.log('Error: ' + data);
+      });
+
+  }</script>
 </head>
-<body>
-  <app-root></app-root>
+<body ng-controller="trackingController">
+
+<app-root></app-root>
+
+<script>
+
+  var map = new google.maps.Map(document.getElementById('main-map'), {
+    zoom: 7,
+    center: {lat: 18.1, lng: 79.1},
+    mapTypeId: 'terrain'
+  });
+
+  alert(map)
+
+</script>
+
+<div class="container">
+  <div>
+
+    <p>The ID is {{5 + 5}}</p>
+  </div>
+  <div ng-repeat="trackingNode in trackingNodes">
+    <h3>Tracker {{trackingNode.id}}</h3>
+    <p> <b>ID:</b> {{trackingNode.id}}
+      <b>Associated Tool ID:</b> {{trackingNode.tool_id_fk}}
+      <b>Latitude:</b> {{trackingNode.latitude}}
+      <b>Longitude:</b> {{trackingNode.longitude}}
+      <b>In use:</b> {{trackingNode.enabled}}
+      <b>Distressed:</b> {{trackingNode.distress}}
+      <b>Timestamp:</b> {{trackingNode.timestamp}}</p>
+  </div>
+</div>
+
+
+
+
 </body>
 </html>
