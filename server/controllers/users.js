@@ -1,9 +1,9 @@
-var userTypeModel = require('../models/userTypes.js');
+var userModel = require('../models/users.js');
 module.exports = function (app) {
 
-    app.get("/rest/userTypes", function (req, res) {
+    app.get("/rest/users", function (req, res) {
 
-        userTypeModel.getAllUserTypes(function (callback) {
+        userModel.getAllUsers(function (callback) {
 
             /*var test = JSON.parse(JSON.stringify(callback.results))
 
@@ -22,10 +22,10 @@ module.exports = function (app) {
 
     });
 
-    app.get("/rest/userTypes/:id", function (req, res) {
+    app.get("/rest/users/:id", function (req, res) {
         let id = req.params.id;
 
-        userTypeModel.getUserTypeByID(id, function (callback) {
+        userModel.getUserByID(id, function (callback) {
 
             if (callback.error === null) {
                 res.status(200).send(callback.results);
@@ -35,25 +35,29 @@ module.exports = function (app) {
         });
     });
 
-    app.post("/rest/userTypes", function (req, res) {
+    app.post("/rest/users", function (req, res) {
         let newUser = req.body;
 
-        userTypeModel.addUserType(JSON.stringify(newUser), function (callback) {
-
+        userModel.addUser(JSON.stringify(newUser), function (callback) {
             if (callback.error === null) {
                 res.status(200).send(callback.results);
             } else {
-                res.status(404).send(callback.error.code);
+                if(callback.error.errno === 1062){
+                    res.status(409).send("test EROOR");
+                }else{
+                    res.status(404).send(callback.error);
+                }
+
             }
         });
 
         //res.status(200).send(newUser);
     });
 
-    app.delete("/rest/userTypes/:id", function (req, res) {
+    app.delete("/rest/users/:id", function (req, res) {
         let id = req.params.id;
 
-        userTypeModel.deleteUserTypeByID(id, function (callback) {
+        userModel.deleteUserByID(id, function (callback) {
 
             if (callback.error === null) {
                 res.status(200).send(callback.results);
@@ -66,7 +70,7 @@ module.exports = function (app) {
     });
 
     // home page
-    app.get(BASE_PATH+'/userTypes', function (req, res, next) {
+    app.get(BASE_PATH+'/users', function (req, res, next) {
         //res.send('Hello World');
         console.log('Horus: ' + projRoot + '/public/index.html');
 

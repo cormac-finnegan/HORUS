@@ -115,8 +115,21 @@ exports.addTrackerNode = function(TrackerNode, callback) {
 
     console.log(tracker.type);
 
-    db.query('INSERT INTO Tracker_Node (id, tool_id_fk, latitude, longitude, enabled, distress, timestamp) VALUES (\''+tracker.id+'\', ' +
-        '\''+tracker.tool_id_fk+'\', \''+tracker.latitude+'\', \''+tracker.longitude+'\', \''+tracker.enabled+'\', \''+tracker.distress+'\', \''+tracker.timestamp+'\');', function (error, results) {
+    db.query('INSERT INTO Tracker_Node (' +
+        'id, ' +
+        'tool_id_fk, ' +
+        'latitude, ' +
+        'longitude, ' +
+        'enabled, ' +
+        'distress, ' +
+        'timestamp) VALUES (' +
+        '\''+tracker.id+'\', ' +
+        '\''+tracker.tool_id_fk+'\', ' +
+        '\''+tracker.latitude+'\', ' +
+        '\''+tracker.longitude+'\', ' +
+        '\''+tracker.enabled+'\', ' +
+        '\''+tracker.distress+'\', ' +
+        '\''+tracker.timestamp+'\');', function (error, results) {
         //console.log(sql);
         var message = {
             error: undefined,

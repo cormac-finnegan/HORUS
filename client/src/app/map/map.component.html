@@ -1,0 +1,65 @@
+
+<head>
+  <!-- SPELLS -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+
+<!--  <script type="text/javascript">// public/core.js
+
+
+
+  function trackingController($scope, $http) {
+    $scope.formData = {};
+
+
+    // when landing on the page, get all trackingNodes and show them
+    $http.get('/rest/trackerNode')
+
+      .success(function(data) {
+        $scope.trackingNodes = data;
+        console.log('\nInside code data : '+JSON.stringify(data) + '\n');
+      })
+      .error(function(data) {
+        console.log('Error: ' + data);
+      });
+
+  }</script>-->
+
+</head>
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<agm-map id="main-map" [latitude]="lat" [longitude]="lng">
+  <agm-marker
+    *ngFor="let m of markers; let i = index"
+    [latitude]="m.lat"
+    [longitude]="m.lng"
+    [label]="m.label"
+    [markerDraggable]="m.draggable">
+
+
+    <agm-info-window>
+      <strong>InfoWindow content</strong>
+    </agm-info-window>
+
+  </agm-marker>
+  <!--<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>-->
+</agm-map>
+<body>
+<div class="container" >
+  <div>
+
+    <p>The ID is {{5 + 5}}</p>
+  </div>
+  <div *ngFor="let trackingNode of trackerNodes">
+    <h3>Tracker {{trackingNode.id}}</h3>
+    <p> <b>ID:</b> {{trackingNode.id}}
+      <b>Associated Tool ID:</b> {{trackingNode.tool_id_fk}}
+      <b>Latitude:</b> {{trackingNode.latitude}}
+      <b>Longitude:</b> {{trackingNode.longitude}}
+      <b>In use:</b> {{trackingNode.enabled}}
+      <b>Distressed:</b> {{trackingNode.distress}}
+      <b>Timestamp:</b> {{trackingNode.timestamp}}</p>
+  </div>
+</div>
+</body>
+
