@@ -34,6 +34,10 @@ import {DataTableModule} from 'angular5-data-table';
 import {ToolComponent} from "./_common/tools/tool.component";
 import {EmployeeComponent} from "./_common/employees/employee.component";
 
+import {CalendarModule} from 'primeng/calendar';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -60,7 +64,9 @@ import {EmployeeComponent} from "./_common/employees/employee.component";
     }),
     HttpClientModule,
     routing,
-    DataTableModule
+    DataTableModule,
+    BrowserAnimationsModule,
+    CalendarModule
   ],
   providers: [
     AuthGuard,

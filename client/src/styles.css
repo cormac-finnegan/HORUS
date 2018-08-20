@@ -18,12 +18,28 @@
   overflow: auto;
 }
 
-.modal-body {
+.modal-body, .modal-header, .modal-footer{
   padding: 20px;
   background: #fff;
 
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.modal-body{
   /* margin exposes part of the modal background */
-  margin: 40px;
+  /*margin: 40px;*/
+}
+
+.modal-header{
+
+  /*!* margin exposes part of the modal background *!*/
+  margin-top: 40px;
+}
+
+.modal-footer{
+  /*!* margin exposes part of the modal background *!*/
+  margin-bottom: 40px;
 }
 
 

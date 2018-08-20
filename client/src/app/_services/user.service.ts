@@ -27,4 +27,13 @@ export class UserService {
   delete(id: number) {
     return this.http.delete('/api/users/' + id);
   }
+
+  userExists(username: string) {
+    return this.http.get('/rest/users/search/' + username)
+
+  }
+
+
 }
+
+

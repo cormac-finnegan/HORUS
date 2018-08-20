@@ -18,8 +18,17 @@ module.exports = function (app) {
                 res.status(404).send(callback.error.code);
             }
         });
+    });
 
-
+    app.get("/rest/users/search/:username([A-Za-z0-9@.#_-]{4,32})", function (req, res) {
+        let username = req.params.username;
+        userModel.getUserExistsByUsername(username, function (callback) {
+            if (callback.error === null) {
+                res.status(200).send(callback.results);
+            } else {
+                res.status(404).send(callback.error.code);
+            }
+        });
     });
 
     app.get("/rest/users/:id(\\d+*)", function (req, res) {

@@ -5,13 +5,96 @@
 
 <modal id="custom-modal-1">
   <div class="modal">
-    <div class="modal-body">
-      <h1>A Custom Modal!</h1>
-      <p>
-        Home page text: <input type="text" [(ngModel)]="bodyText"/>
-      </p>
-      <button (click)="closeModal('custom-modal-1');">Close</button>
+    <div class="modal-header">
+      <h5 class="modal-title"> New Employee </h5>
     </div>
+    <form name="form" (ngSubmit)="f.form.valid && saveEmployee()" #f="ngForm">
+      <div class="modal-body">
+
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span *ngIf="f.submitted === false || firstname.valid" class="input-group-text" id="newEmployee-fName">First Name</span>
+            <span *ngIf="f.submitted && !firstname.valid" class="input-group-text alert-danger" role="alert">First Name is required</span>
+          </div>
+          <input type="text" class="form-control form-group" aria-label="Default"
+                 aria-describedby="inputGroup-sizing-default"
+                 [(ngModel)]="employee.first_name" placeholder="{{defaultEmployee.first_name}}" name="firstname"
+                 #firstname="ngModel" required/>
+
+        </div>
+
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span *ngIf="f.submitted === false || lastname.valid" class="input-group-text" >Last Name</span>
+            <span *ngIf="f.submitted && !lastname.valid" class="input-group-text alert-danger" role="alert">Last Name is required</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                 [(ngModel)]="employee.last_name" placeholder="{{defaultEmployee.last_name}}" name="lastname"
+                 #lastname="ngModel" required>
+        </div>
+
+        <div class=" input-group mb-3">
+
+          <div class="row input-group">
+
+            <div class="col input-group-prepend input-group-lg">
+              <span *ngIf="f.submitted === false || dob.valid" class="input-group-text" >Date of Birth</span>
+              <span *ngIf="f.submitted && !dob.valid" class="input-group-text alert-danger" role="alert">Date of Birth is required</span>
+              <p-calendar id="newEmployee-dob" type="date"
+                          [(ngModel)]="employee.dob" dateFormat="yy-mm-dd" placeholder="{{defaultEmployee.dob}}"
+                          name="dob" #dob="ngModel" required></p-calendar>
+            </div>
+
+
+            <div class="col input-group-prepend input-group-lg">
+              <span *ngIf="f.submitted === false || contact_number.valid" class="input-group-text" >Contact Number</span>
+              <span *ngIf="f.submitted && !contact_number.valid" class="input-group-text alert-danger" role="alert">Contact Number is required</span>
+              <input type="tel" [(ngModel)]="employee.contact_number"
+                     ng-pattern="(?:(?:(\s*\(?([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\)?\s*(?:[.-]\s*)?)([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})"
+                     placeholder="{{defaultEmployee.contact_number}}" name="contact_number" #contact_number="ngModel" required>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span *ngIf="f.submitted === false || dob.valid" class="input-group-text" >WT - Channel</span>
+          </div>
+          <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                 [(ngModel)]="employee.walkie_talkie_channel" placeholder="{{defaultEmployee.walkie_talkie_channel}}"
+                 name="walkie_talkie_channel" required>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span *ngIf="f.submitted === false || email.valid" class="input-group-text" >Password</span>
+            <span *ngIf="f.submitted && !email.valid" class="input-group-text alert-danger" role="alert">Password is required</span>
+          </div>
+          <input type="email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                 [(ngModel)]="employee.email" placeholder="{{defaultEmployee.email}}" name="email" #email="ngModel" required>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span *ngIf="f.submitted === false || password.valid" class="input-group-text" >Password</span>
+            <span *ngIf="f.submitted && !password.valid" class="input-group-text alert-danger" role="alert">Password is required</span>
+          </div>
+          <input type="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                 [(ngModel)]="newUserPassword" name="password" #password="ngModel" required>
+        </div>
+        <h1>Is valid {{firstname.valid}}</h1>
+      </div>
+      <div class="modal-footer">
+        <button (click)="saveEmployee();" type="submit" class="btn btn-primary">Next</button>
+        <button (click)="closeModal('custom-modal-1');" class="btn btn-secondary">Discard</button>
+      </div>
+    </form>
+
+
+
   </div>
   <div class="modal-background"></div>
 </modal>

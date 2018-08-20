@@ -29,10 +29,11 @@ exports.getUserByID = function(id, callback) {
 
 // Get by Username
 exports.getUserExistsByUsername = function(username, callback) {
+    console.log("Username = " + username)
     db.query('SELECT count(*) as \'userExists\' FROM User where username = \'' + username + '\';', function (error, results) {
 
         //console.log(this.sql);
-        var message = {
+        let message = {
             error: undefined,
             results: undefined
         };
@@ -43,6 +44,7 @@ exports.getUserExistsByUsername = function(username, callback) {
                 results: null
             };
         }else{
+            console.log(JSON.stringify(results[0]));
             if(JSON.stringify(results[0].userExists) >= 1){
                 message = {
                     error: null,
