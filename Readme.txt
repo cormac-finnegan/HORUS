@@ -1,4 +1,4 @@
-Overview
+<h1>Overview</h1>
 Although there are no official records it is estimated that on the 640 million acres of federally owned land in the United States there are over 1600 missing people who’s cases have long gone cold. The vast majority of federally owned land in the United States belonging to the National Park Service and Forest Service meaning that campers often go missing regularly in the country’s vast wilderness and are never found. Between 2007 and 2013 1025 people died overall between the 59 National Parks meaning the average number of fatalities year by year is 160 [1]. 
 The goal of this project to implement a Single Page Application that acts as a front-end to a theoretical tracking system which is given to campers and hikers when signing in to use the National Park. The Tacking device utilizes a heavy duty, low-power disk which can act as a GPS beacon when connected to one of the many cell towers scattered across the national parks. This system could greatly reduce the time Park Rangers and Search and Rescue Officers spend looking for missing people, thus increasing the likelihood they’ll find the missing person alive. 
 Aims
