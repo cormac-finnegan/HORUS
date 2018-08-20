@@ -1,4 +1,22 @@
-<table class="table table-hover" cellspacing="0">
+<div>
+  <button (click)="openModal('custom-modal-1')">NEW EMPLOYEE</button>
+</div>
+
+
+<modal id="custom-modal-1">
+  <div class="modal">
+    <div class="modal-body">
+      <h1>A Custom Modal!</h1>
+      <p>
+        Home page text: <input type="text" [(ngModel)]="bodyText"/>
+      </p>
+      <button (click)="closeModal('custom-modal-1');">Close</button>
+    </div>
+  </div>
+  <div class="modal-background"></div>
+</modal>
+
+<!--<table class="table table-hover" cellspacing="0">
   <thead>
   <tr>
     <th>ID</th>
@@ -19,4 +37,7 @@
     <td *ngIf="tool.MISC">{{tool.MISC}}</td>
   </tr>
   </tbody>
-</table>
+</table>-->
+
+
+

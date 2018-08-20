@@ -1,43 +1,38 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ApplicationRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule, ApplicationRef} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
-import { AppComponent } from './app.component';
-import { MapComponent } from "./map/index";
+import {AppComponent} from './app.component';
+import {MapComponent} from "./map/index";
 
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 
-import { routing } from './app.routing';
+import {routing} from './app.routing';
 
-import { AgmCoreModule } from '@agm/core';
-import { HomeComponent } from './home/index';
-import { LoginComponent } from './login/login.component';
+import {AgmCoreModule} from '@agm/core';
+import {HomeComponent} from './home/index';
+import {LoginComponent} from './login/login.component';
 import {AuthGuard} from "./_guards/index";
-import {AlertService, AuthenticationService, UserService, UserTypeService} from "./_services";
-import { RegisterComponent } from './register/register.component';
-import {AlertComponent} from "./_directives/index";
+import {
+  AlertService,
+  AuthenticationService,
+  EmployeeService,
+  ToolService,
+  UserService,
+  UserTypeService,
+  ModalService
+} from "./_services";
+import {RegisterComponent} from './register/register.component';
+import {AlertComponent, ModalComponent} from "./_directives/index";
+import {AdminComponent} from './admin/admin.component';
+import {NprComponent} from './npr/npr.component';
+import {SarComponent} from './sar/sar.component';
+import {VisitorComponent} from './visitor/visitor.component';
 
-
-
-/*const appRoutes: Routes = [
-  /!*{ path: 'crisis-center', component: AppComponent },
-  { path: 'hero/:id',      component: HeroDetailComponent },*!/
-/!*  {
-    path: '**',
-    component: PageNotFoundComponent
-  },*!/
-  {
-    path: '',
-    component: MapComponent,
-    data: { title: 'Heroes List' }
-  },
-  { path: '**',
-    redirectTo: '/404',
-    pathMatch: 'full'
-  },
-
-];*/
+import {DataTableModule} from 'angular5-data-table';
+import {ToolComponent} from "./_common/tools/tool.component";
+import {EmployeeComponent} from "./_common/employees/employee.component";
 
 
 @NgModule({
@@ -47,7 +42,15 @@ import {AlertComponent} from "./_directives/index";
     AlertComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent],
+    RegisterComponent,
+    AdminComponent,
+    NprComponent,
+    SarComponent,
+    VisitorComponent,
+    ToolComponent,
+    EmployeeComponent,
+    ModalComponent
+  ],
   imports: [
     BrowserModule,
     CommonModule,
@@ -56,18 +59,22 @@ import {AlertComponent} from "./_directives/index";
       apiKey: 'AIzaSyCXLbMylHUJGEKYbJNv-N1gV68W_8HQ_rw'
     }),
     HttpClientModule,
-    routing
+    routing,
+    DataTableModule
   ],
   providers: [
     AuthGuard,
     AlertService,
     AuthenticationService,
     UserService,
-    UserTypeService
-
+    UserTypeService,
+    ToolService,
+    EmployeeService,
+    ModalService
   ],
 
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}
 

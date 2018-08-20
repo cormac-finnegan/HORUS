@@ -28,7 +28,10 @@ export class RegisterComponent  implements OnInit{
   }
 
   private loadAllUserTypes() {
-    this.userTypeService.getAll().subscribe(userTypes => { this.userTypes = userTypes; });
+    this.userTypeService.getAll()
+      .subscribe(userTypes => {
+        this.userTypes = userTypes;
+      });
   }
 
   register() {

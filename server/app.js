@@ -12,6 +12,7 @@ let userTypes = require("./controllers/userTypes.js");
 let tools = require("./controllers/tools.js");
 let authentication = require("./controllers/auth.js");
 let users = require("./controllers/users.js");
+let employees = require("./controllers/employees.js");
 
 
 global.request = supertest(app);
@@ -78,6 +79,7 @@ tools(app);
 trackerNodes(app);
 users(app);
 authentication(app);
+employees(app);
 
 
 let server = app.listen(3000, function () {

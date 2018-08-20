@@ -62,3 +62,82 @@ exports.updateUserLoginTimestamp = function(username, callback) {
     });
 };
 
+exports.loginUser = function(username, callback) {
+    console.log('Username: ' + username);
+    db.query('UPDATE User SET loggedin = true WHERE username = \''+ username +'\';', function (error, results) {
+
+        //console.log(this.sql);
+        var message = {
+            error: undefined,
+            results: undefined
+        };
+        if(error){
+            //console.log(error);
+            message = {
+                error: error,
+                results: null
+            };
+        }else{
+            //console.log(results);
+            exports.updateUserLoginTimestamp(username, function(callback){
+                console.log("\nLOGIN COMPLETE\n");
+            });
+            message = {
+                error: null,
+                results: results
+            };
+        }
+        callback(message);
+    });
+};
+
+exports.logoutUser = function(username, callback) {
+    console.log('Username: ' + username);
+    db.query('UPDATE User SET loggedin = false WHERE username = \''+ username +'\';', function (error, results) {
+
+        //console.log(this.sql);
+        var message = {
+            error: undefined,
+            results: undefined
+        };
+        if(error){
+            //console.log(error);
+            message = {
+                error: error,
+                results: null
+            };
+        }else{
+            message = {
+                error: null,
+                results: results
+            };
+        }
+        callback(message);
+    });
+};
+
+exports.getUserByUsername = function(username, callback) {
+    console.log('Username: ' + username);
+    db.query('SELECT * FROM User WHERE username = \''+ username +'\';', function (error, results) {
+
+        //console.log(this.sql);
+        var message = {
+            error: undefined,
+            results: undefined
+        };
+        if(error){
+            //console.log(error);
+            message = {
+                error: error,
+                results: null
+            };
+        }else{
+            message = {
+                error: null,
+                results: results
+            };
+        }
+        callback(message);
+    });
+};
+

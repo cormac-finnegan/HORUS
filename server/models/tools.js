@@ -29,9 +29,9 @@ exports.getToolByID = function (id, callback) {
 
 // Get all user types
 exports.getAllTools = function (callback) {
-
+    console.log("Get Tools (Model)")
     db.query('SELECT * FROM Tool_Inventory;', function (error, results, sql) {
-        //console.log(sql);
+        console.log(sql);
         var message = {
             error: undefined,
             results: undefined

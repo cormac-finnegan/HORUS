@@ -22,7 +22,7 @@ module.exports = function (app) {
 
     });
 
-    app.get("/rest/users/:id", function (req, res) {
+    app.get("/rest/users/:id(\\d+*)", function (req, res) {
         let id = req.params.id;
 
         userModel.getUserByID(id, function (callback) {
@@ -54,7 +54,7 @@ module.exports = function (app) {
         //res.status(200).send(newUser);
     });
 
-    app.delete("/rest/users/:id", function (req, res) {
+    app.delete("/rest/users/:id(\\d+*)", function (req, res) {
         let id = req.params.id;
 
         userModel.deleteUserByID(id, function (callback) {
@@ -69,16 +69,27 @@ module.exports = function (app) {
         //res.status(200).send(newUser);
     });
 
-    // home page
-    app.get(BASE_PATH+'/users', function (req, res, next) {
-        //res.send('Hello World');
-        console.log('Horus: ' + projRoot + '/public/index.html');
 
-        res.sendFile('/public/index.html', { root : projRoot});
+    app.get("/rest/users/employees", function (req, res) {
+        console.log('Controller')
+        userModel.getAllEmployees(function (callback) {
 
+            /*var test = JSON.parse(JSON.stringify(callback.results))
 
-        //
+            console.log(test)*/
+
+            //console.log(JSON.stringify(callback.results))
+
+            if (callback.error === null) {
+                res.status(200).send(callback.results);
+                //return callback.results;
+            } else {
+
+                res.status(404).send(callback.error);
+            }
+        });
+
 
     });
 
-}
+};

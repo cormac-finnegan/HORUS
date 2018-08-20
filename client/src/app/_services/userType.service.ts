@@ -12,18 +12,18 @@ export class UserTypeService {
   }
 
   getById(id: number) {
-    return this.http.get('/api/userType/' + id);
+    return this.http.get('/rest/userTypes/' + id);
   }
 
   create(userType: UserType) {
-    return this.http.post('/api/userType', userType);
+    return this.http.post('/rest/userType', userType);
   }
 
   update(userType: UserType) {
-    return this.http.put('/api/userType/' + userType.id, userType);
+    return this.http.put('/rest/userType/' + userType.id, userType);
   }
 
   delete(id: number) {
-    return this.http.delete('/api/userType/' + id);
+    return this.http.delete('/rest/userType/' + id);
   }
 }

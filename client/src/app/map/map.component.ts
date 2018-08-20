@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -15,9 +15,10 @@ export class MapComponent implements OnInit {
   results = '';
 
   markers: marker[] = [];
-  trackerNodes:trackingNode[]=[];
+  trackerNodes: trackingNode[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit(): void {
 
@@ -25,14 +26,14 @@ export class MapComponent implements OnInit {
       //this.markers.push(data);
 
       var data2 = JSON.parse(JSON.stringify(data));
-      for (var i = 0; i < data2.length; i++){
+      for (var i = 0; i < data2.length; i++) {
         var obj = data2[i];
         this.markers.push(
           {
             lat: obj.latitude,
             lng: obj.longitude,
             tool_ref: obj.tool_id_fk,
-            label: ""+obj.tool_id_fk,
+            label: "" + obj.tool_id_fk,
             distress: obj.distress,
             draggable: false
           }

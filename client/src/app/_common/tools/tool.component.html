@@ -1,0 +1,22 @@
+<table class="table table-hover" cellspacing="0">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Tool Type</th>
+    <th>Status</th>
+    <th>Description</th>
+    <th>Induction Date</th>
+    <th>MISC.</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tool of tools">
+    <td>{{tool.id}}</td>
+    <td>{{tool.type}}</td>
+    <td>{{tool.status}}</td>
+    <td>{{tool.description}}</td>
+    <td>{{tool.induction_date}}</td>
+    <td *ngIf="tool.MISC">{{tool.MISC}}</td>
+  </tr>
+  </tbody>
+</table>

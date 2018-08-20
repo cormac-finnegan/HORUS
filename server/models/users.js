@@ -195,3 +195,29 @@ exports.deleteUserByID = function(id, callback) {
         callback(message);
     });
 };
+
+// Get all user types
+exports.getAllEmployees = function(callback) {
+
+    db.query('SELECT * FROM User WHERE type = 3;', function (error, results) {
+        //console.log(sql);
+        var message = {
+            error: undefined,
+            results: undefined
+        };
+        if(error){
+            //console.log(error);
+            message = {
+                error: error,
+                results: null
+            };
+        }else{
+            //console.log(results);
+            message = {
+                error: null,
+                results: results
+            };
+        }
+        callback(message);
+    });
+};

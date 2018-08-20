@@ -1,7 +1,6 @@
 var authModel = require('../models/auth.js');
 
 
-
 module.exports = function (app) {
 
     app.post("/rest/auth/", function (req, res) {
@@ -20,17 +19,25 @@ module.exports = function (app) {
             //console.log(JSON.stringify(callback.results))
 
             if (callback.error === null) {
-                if(JSON.parse(JSON.stringify(callback.results[0])).password === passwordIn){
+                if (JSON.parse(JSON.stringify(callback.results[0])).password === passwordIn) {
                     console.log("THEY MATCH!!")
-                    res.status(200).send();
-                }else if(JSON.parse(JSON.stringify(callback.results[0])).password !== passwordIn){
+                    let userLog = {};
+                    authModel.loginUser(user.username, function(callback){
+                        authModel.getUserByUsername(user.username, function (callback) {
+                            //console.log("\nInside deep function: " + JSON.stringify(callback.results[0]));
+                            userLog = callback.results[0];
+                            //console.log("USerLog: " + JSON.stringify(userLog));
+                            res.status(200).send(userLog);
+                        });
+                    });
+                } else if (JSON.parse(JSON.stringify(callback.results[0])).password !== passwordIn) {
                     console.log("NO MATCH :(")
                     res.status(409).send("Incorrect Username or Password");
                 } else {
-                res.status(404).send(callback.error);
+                    res.status(404).send(callback.error);
                 }
-/*                console.log("DB Password: " + JSON.parse(JSON.stringify(callback.results[0])).password)
-                console.log("PasswordIn: " + passwordIn)*/
+                /*                console.log("DB Password: " + JSON.parse(JSON.stringify(callback.results[0])).password)
+                                console.log("PasswordIn: " + passwordIn)*/
 
                 //res.status(200).send(callback.results);
 
@@ -87,11 +94,11 @@ module.exports = function (app) {
     });
 
     // home page
-    app.get(BASE_PATH+'/users', function (req, res, next) {
+    app.get(BASE_PATH + '/users', function (req, res, next) {
         //res.send('Hello World');
         console.log('Horus: ' + projRoot + '/public/index.html');
 
-        res.sendFile('/public/index.html', { root : projRoot});
+        res.sendFile('/public/index.html', {root: projRoot});
 
 
         //

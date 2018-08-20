@@ -1,35 +1,48 @@
 import {Component, OnInit} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {ToolService} from "../../_services/index";
-import {Tool} from "../../_models/index";
+
+import {EmployeeService, ModalService} from "../../_services/index";
+import {Employee} from "../../_models/index";
 
 @Component({
-  selector: 'tools-admin',
-  templateUrl: './tool.component.html'
+  selector: 'employees-admin',
+  templateUrl: './employee.component.html'
 })
-export class ToolComponent implements OnInit {
-
-  tools: Tool[] = [];
+export class EmployeeComponent implements OnInit {
+  bodyText: string;
+  employees: Employee[] = [];
   user: Object;
   userType: string;
 
-  constructor(private http: HttpClient, private toolService: ToolService) {
+  constructor(private modalService: ModalService, private employeeService: EmployeeService) {
   }
+
 
   ngOnInit() {
 
+    this.bodyText = 'This text can be updated in modal 1';
     this.user = JSON.parse(localStorage.getItem('loggedinUser'));
-    this.getTools()
+    this.getEmployees()
 
   }
 
 
-  private getTools() {
-    this.toolService.getAll()
+  private getEmployees() {
+    this.employeeService.getAll()
       .subscribe(
-        tools => {
-          console.log(tools);
-          this.tools = tools;
+        employees => {
+          console.log(employees);
+          this.employees = employees;
         });
   }
+
+  openModal(id: string) {
+    console.log("Open Modal: " + id)
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
+  }
+
+
 }
