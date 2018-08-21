@@ -1,14 +1,12 @@
-<div>
-  <button (click)="openModal('custom-modal-1')">NEW EMPLOYEE</button>
-</div>
 
 
 <modal id="custom-modal-1">
   <div class="modal">
     <div class="modal-header">
-      <h5 class="modal-title"> New Employee </h5>
+      <h5 *ngIf="!editMode" class="modal-title"> {{modalHeader}} </h5>
+      <h5 *ngIf="editMode" class="modal-title"> {{modalHeader}} - {{employee.first_name}} {{employee.last_name}}</h5>
     </div>
-    <form name="form" (ngSubmit)="f.form.valid && saveEmployee()" #f="ngForm">
+    <form name="form" (ngSubmit)="f.form.valid && saveEmployee()" #f="ngForm" autocomplete="off">
       <div class="modal-body">
 
 
@@ -27,7 +25,7 @@
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span *ngIf="f.submitted === false || lastname.valid" class="input-group-text" >Last Name</span>
+            <span *ngIf="f.submitted === false || lastname.valid" class="input-group-text">Last Name</span>
             <span *ngIf="f.submitted && !lastname.valid" class="input-group-text alert-danger" role="alert">Last Name is required</span>
           </div>
           <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
@@ -40,7 +38,7 @@
           <div class="row input-group">
 
             <div class="col input-group-prepend input-group-lg">
-              <span *ngIf="f.submitted === false || dob.valid" class="input-group-text" >Date of Birth</span>
+              <span *ngIf="f.submitted === false || dob.valid" class="input-group-text">Date of Birth</span>
               <span *ngIf="f.submitted && !dob.valid" class="input-group-text alert-danger" role="alert">Date of Birth is required</span>
               <p-calendar id="newEmployee-dob" type="date"
                           [(ngModel)]="employee.dob" dateFormat="yy-mm-dd" placeholder="{{defaultEmployee.dob}}"
@@ -49,11 +47,12 @@
 
 
             <div class="col input-group-prepend input-group-lg">
-              <span *ngIf="f.submitted === false || contact_number.valid" class="input-group-text" >Contact Number</span>
+              <span *ngIf="f.submitted === false || contact_number.valid" class="input-group-text">Contact Number</span>
               <span *ngIf="f.submitted && !contact_number.valid" class="input-group-text alert-danger" role="alert">Contact Number is required</span>
               <input type="tel" [(ngModel)]="employee.contact_number"
                      ng-pattern="(?:(?:(\s*\(?([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\)?\s*(?:[.-]\s*)?)([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})"
-                     placeholder="{{defaultEmployee.contact_number}}" name="contact_number" #contact_number="ngModel" required>
+                     placeholder="{{defaultEmployee.contact_number}}" name="contact_number" #contact_number="ngModel"
+                     required>
             </div>
           </div>
         </div>
@@ -61,7 +60,7 @@
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" >WT - Channel</span>
+            <span class="input-group-text">WT - Channel</span>
           </div>
           <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
                  [(ngModel)]="employee.walkie_talkie_channel" placeholder="{{defaultEmployee.walkie_talkie_channel}}"
@@ -70,58 +69,75 @@
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span *ngIf="f.submitted === false || email.valid" class="input-group-text" >Password</span>
-            <span *ngIf="f.submitted && !email.valid" class="input-group-text alert-danger" role="alert">Password is required</span>
+            <span *ngIf="f.submitted === false || email.valid" class="input-group-text">Email</span>
+            <span *ngIf="f.submitted && !email.valid" class="input-group-text alert-danger" role="alert">Email is required</span>
           </div>
           <input type="email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
-                 [(ngModel)]="employee.email" placeholder="{{defaultEmployee.email}}" name="email" #email="ngModel" required>
+                 [(ngModel)]="employee.email" placeholder="{{defaultEmployee.email}}" name="email" #email="ngModel" autocomplete="off" required/>
         </div>
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span *ngIf="f.submitted === false || password.valid" class="input-group-text" >Password</span>
+            <span *ngIf="f.submitted === false || password.valid" class="input-group-text">Password</span>
             <span *ngIf="f.submitted && !password.valid" class="input-group-text alert-danger" role="alert">Password is required</span>
           </div>
           <input type="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
                  [(ngModel)]="newUserPassword" name="password" #password="ngModel" required>
         </div>
 
+        <div *ngIf="errorMessage && f.submitted"  type="alert" class="alert alert-danger">{{errorMessage}}</div>
+
+        <div >Edit Mode: {{editMode}}</div>
 
       </div>
       <div class="modal-footer">
-        <button (click)="saveEmployee();" type="submit" class="btn btn-primary">Next</button>
-        <button (click)="closeModal('custom-modal-1');" class="btn btn-secondary">Discard</button>
+        <!--<button  (click)="saveEmployee();" type="submit" class="btn btn-success" disabled>Save</button>-->
+        <button [attr.disabled]="(password.valid && email.valid && firstname.valid && lastname.valid && contact_number.valid && dob.valid) == false ? true : null" type="submit" class="btn btn-success">Save</button>
+
+        <button id="closeButton" (click)="closeModal('custom-modal-1'); f.submitted = false" class="btn btn-secondary">Discard</button>
       </div>
     </form>
-
 
 
   </div>
   <div class="modal-background"></div>
 </modal>
 
-<!--<table class="table table-hover" cellspacing="0">
+<table class="table table-hover" cellspacing="0">
   <thead>
   <tr>
     <th>ID</th>
-    <th>Tool Type</th>
-    <th>Status</th>
-    <th>Description</th>
-    <th>Induction Date</th>
-    <th>MISC.</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Date of Birth</th>
+    <th>Channel</th>
+    <th>Phone Number</th>
+    <th>Email</th>
+    <th>Employed Since</th>
+    <th></th>
+    <th><button class="btn btn-success" (click)="newEmployee('custom-modal-1', 'New Employee')">New Employee</button></th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let tool of tools">
-    <td>{{tool.id}}</td>
-    <td>{{tool.type}}</td>
-    <td>{{tool.status}}</td>
-    <td>{{tool.description}}</td>
-    <td>{{tool.induction_date}}</td>
-    <td *ngIf="tool.MISC">{{tool.MISC}}</td>
+  <tr *ngFor="let employee of employees">
+    <td>{{employee.id}}</td>
+    <td>{{employee.first_name}}</td>
+    <td>{{employee.last_name}}</td>
+    <td>{{employee.dob}}</td>
+    <td>{{employee.walkie_talkie_channel}}</td>
+    <td>{{employee.contact_number}}</td>
+    <td>{{employee.email}}</td>
+    <td>{{employee.hire_date}}</td>
+    <td><button class="btn btn-secondary" (click)="editEmployee(employee, 'custom-modal-1', 'Edit Employee')">Edit</button></td>
+    <td><button class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button></td>
+
+
+
+
+
   </tr>
   </tbody>
-</table>-->
+</table>
 
 
 

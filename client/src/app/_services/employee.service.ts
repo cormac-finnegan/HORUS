@@ -16,8 +16,9 @@ export class EmployeeService {
     return this.http.get('/rest/users/' + id);
   }
 
-  create(user: Employee) {
-    return this.http.post('/rest/users', user);
+  create(employee: Employee) {
+    console.log("\n IN CREATE SERVICE")
+    return this.http.post('/rest/employees', employee);
   }
 
   update(user: Employee) {
@@ -25,6 +26,7 @@ export class EmployeeService {
   }
 
   delete(id: number) {
-    return this.http.delete('/rest/users/' + id);
+    console.log("Service ID = " + id)
+    return this.http.delete('/rest/employees/' + id);
   }
 }

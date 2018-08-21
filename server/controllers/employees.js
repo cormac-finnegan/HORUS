@@ -66,73 +66,47 @@ module.exports = function (app) {
             }
         });
     });
-};
 
-exports.addEmployee = function (employee, password, type, callback) {
-    let employeeObject = JSON.parse(employee);
-    let newPassword = password;
-    let userType = type;
+    app.post("/rest/employees", function (req, res) {
+        console.log("New Employee")
+        let newEmployee= req.body;
+        employeeModel.addEmployee(JSON.stringify(newEmployee), function (callback) {
 
-    /*    exports.getUserExistsByUsername(JSON.parse(user).username,  function (callback){
+            /*var test = JSON.parse(JSON.stringify(callback.results))
 
-            if(callback.results === true){
-                console.log('ERROR: User already Exists')
-                message = {
-                    error: "User Already Exists ",
-                    results: null
-                };
-            }else{
+            console.log(test)*/
+
+            //console.log(JSON.stringify(callback.results))
+
+            if (callback.error === null) {
+                res.status(200).send(callback.results);
+                //return callback.results;
+            } else {
+
+                res.status(404).send(callback.error);
             }
-        });*/
+        });
+    });
 
-    db.query('SELECT * FROM User_Type WHERE type = \'' + userType + '\';', function (error, results) {
-        //console.log(sql);
-        var typeId = JSON.stringify(results[0]);
-        typeId = JSON.parse(typeId).id;
+    app.delete("/rest/employees/:id(\\d+*)", function (req, res) {
+        console.log("Delete Employee");
+        let id = req.params.id;
+        employeeModel.deleteEmployeeByID(id, function (callback) {
 
-        console.log("!!!!!!!!!!!!!!!!!!ID: " + JSON.parse(typeId).id);
+            /*var test = JSON.parse(JSON.stringify(callback.results))
 
-        let message = {
-            error: undefined,
-            results: undefined
-        };
-        if (error) {
-            console.log(error);
-            message = {
-                error: error,
-                results: null
-            };
-        } else {
-            if (employeeObject.password.length <= 4) {
-                message = {
-                    error: 'Password too short, must be greater that 5 characters',
-                    results: null
-                };
+            console.log(test)*/
+
+            //console.log(JSON.stringify(callback.results))
+
+            if (callback.error === null) {
+                res.status(200).send(callback.results);
+                //return callback.results;
+            } else {
+
+                res.status(404).send(callback.error);
             }
-            //Add a new user derived from the passed info first so that
-            db.query('INSERT INTO User (type, username, password, loggedin, last_login) VALUES (' +
-                '\'' + typeId + '\',' +
-                '\'' + employeeObject.email + '\',' +
-                '\'' + newPassword + '\',' +
-                '0,' +
-                'NULL);', function (error, results) {
-                //console.log(sql);
-                if (error) {
-                    console.log(error);
-                    message = {
-                        error: error,
-                        results: null
-                    };
-                } else {
-                    console.log(results);
-                    message = {
-                        error: null,
-                        results: results
-                    };
-                }
-                callback(message);
-            });
-        }
-
+        });
     });
 };
+

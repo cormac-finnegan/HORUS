@@ -105,8 +105,8 @@ exports.addUser = function(user, callback) {
         }
     });*/
 
-    db.query('SELECT * FROM User_Type WHERE type = \''+ userObject.type +'\';', function (error, results) {
-        //console.log(sql);
+    db.query('SELECT * FROM User_Type WHERE id = \''+ userObject.type +'\';', function (error, results) {
+
         var typeId =  JSON.stringify(results[0]);
         typeId = JSON.parse(typeId).id;
 
@@ -123,7 +123,6 @@ exports.addUser = function(user, callback) {
                 results: null
             };
         }else {
-
             if (results.length !== 0) {
                 console.log('Its not NULL: ' + results.length);
                 if (userObject.username.length <= 4) {
