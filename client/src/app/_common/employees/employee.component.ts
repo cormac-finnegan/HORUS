@@ -124,7 +124,7 @@ export class EmployeeComponent implements OnInit {
     newUser.id = null;
     newUser.type = "2";
     newUser.username = this.employee.email;
-    newUser.password = this.password;
+    newUser.password = this.newUserPassword;
     newUser.last_login = null;
     newUser.loggedin = false;
 

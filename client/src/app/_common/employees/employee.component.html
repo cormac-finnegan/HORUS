@@ -61,7 +61,7 @@
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span *ngIf="f.submitted === false || dob.valid" class="input-group-text" >WT - Channel</span>
+            <span class="input-group-text" >WT - Channel</span>
           </div>
           <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
                  [(ngModel)]="employee.walkie_talkie_channel" placeholder="{{defaultEmployee.walkie_talkie_channel}}"
@@ -85,7 +85,8 @@
           <input type="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
                  [(ngModel)]="newUserPassword" name="password" #password="ngModel" required>
         </div>
-        <h1>Is valid {{firstname.valid}}</h1>
+
+
       </div>
       <div class="modal-footer">
         <button (click)="saveEmployee();" type="submit" class="btn btn-primary">Next</button>
