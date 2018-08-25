@@ -1,4 +1,67 @@
-<table class="table table-hover" cellspacing="0">
+<modal id="tool-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h5 *ngIf="!editMode" class="modal-title"> {{modalHeader}} </h5>
+      <h5 *ngIf="editMode" class="modal-title"> {{modalHeader}}</h5>
+    </div>
+    <form name="form" (ngSubmit)="f.form.valid && saveTool()" #f="ngForm" autocomplete="off">
+      <div class="modal-body">
+
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span *ngIf="f.submitted === false || tool_type.valid" class="input-group-text" id="newEmployee-fName">Tool Type</span>
+            <span *ngIf="f.submitted && !tool_type.valid" class="input-group-text alert-danger" role="alert">Tool Type is required</span>
+          </div>
+          <input type="text" class="form-control form-group" aria-label="Default"
+                 aria-describedby="inputGroup-sizing-default"
+                 [(ngModel)]="tool.type" placeholder="Type" name="tool_type"
+                 #tool_type="ngModel" required/>
+
+        </div>
+
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Status</span>
+          </div>
+          <button type="button" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                 [(ngModel)]="tool.status" name="status"
+                  #status="ngModel" required></button>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Status</span>
+          </div>
+          <textarea
+            [(ngModel)]="tool.description" placeholder="Brief product description"
+            name="description" #dob="ngModel" required></textarea>
+        </div>
+
+        <div id="errorMsg" type="alert" class="alert alert-danger" hidden></div>
+
+
+      </div>
+      <div class="modal-footer">
+        <!--<button  (click)="saveEmployee();" type="submit" class="btn btn-success" disabled>Save</button>-->
+        <button
+          type="submit" class="btn btn-success">Save
+        </button>
+
+        <button id="closeButton" class="btn btn-secondary">
+          Discard
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-background"></div>
+</modal>
+
+
+
+
+<table id="toolTable" class="table table-hover" cellspacing="0">
   <thead>
   <tr>
     <th>ID</th>
@@ -7,6 +70,9 @@
     <th>Description</th>
     <th>Induction Date</th>
     <th>MISC.</th>
+    <th>
+      <button class="btn btn-success" (click)="newTool('tool-modal', 'New Employee')">New Employee</button>
+    </th>
   </tr>
   </thead>
   <tbody>
@@ -16,7 +82,13 @@
     <td>{{tool.status}}</td>
     <td>{{tool.description}}</td>
     <td>{{tool.induction_date}}</td>
-    <td *ngIf="tool.MISC">{{tool.MISC}}</td>
+    <td >{{tool.MISC}}</td>
+    <td>
+      <!--<button class="btn btn-secondary" (click)="editTool(tool, 'tool-modal 'Edit Employee')">Edit</button>-->
+    </td>
+    <td>
+      <!--<button class="btn btn-danger" (click)="deleteTool(employee.id)">Delete</button>-->
+    </td>
   </tr>
   </tbody>
 </table>

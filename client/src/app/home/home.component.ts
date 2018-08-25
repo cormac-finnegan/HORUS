@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from "rxjs";
-import {DataTable} from "angular5-data-table";
+
 
 @Component({
   templateUrl: './home.component.html',

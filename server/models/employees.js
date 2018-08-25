@@ -207,3 +207,34 @@ exports.deleteEmployeeByID = function (id, callback) {
     });
 };
 
+// delete a employee by ID
+exports.editEmployee = function (id, employee, callback) {
+
+    console.log("ID??????" + JSON.stringify(employee))
+    let employeeObject = employee;
+
+    db.query('Update Employee SET first_name = \''+employeeObject.first_name + '\', last_name = \'' + employeeObject.last_name + '\',dob = \''+employeeObject.dob + '\',contact_number = \'' + employeeObject.contact_number + '\', walkie_talkie_channel = '+employeeObject.walkie_talkie_channel+
+        ',hire_date = \'' + employeeObject.hire_date + '\',email = \''+employeeObject.email +'\' WHERE id = '+id +';', function (error, results) {
+
+        //console.log(this.sql);
+        var message = {
+            error: undefined,
+            results: undefined
+        };
+        if (error) {
+            console.log(error);
+            message = {
+                error: error,
+                results: null
+            };
+        } else {
+            console.log(results);
+            message = {
+                error: null,
+                results: results
+            };
+        }
+        callback(message);
+    });
+};
+

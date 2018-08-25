@@ -1,5 +1,3 @@
-
-
 <modal id="custom-modal-1">
   <div class="modal">
     <div class="modal-header">
@@ -73,7 +71,8 @@
             <span *ngIf="f.submitted && !email.valid" class="input-group-text alert-danger" role="alert">Email is required</span>
           </div>
           <input type="email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
-                 [(ngModel)]="employee.email" placeholder="{{defaultEmployee.email}}" name="email" #email="ngModel" autocomplete="off" required/>
+                 [(ngModel)]="employee.email" placeholder="{{defaultEmployee.email}}" name="email" #email="ngModel"
+                 autocomplete="off" required/>
         </div>
 
         <div class="input-group mb-3">
@@ -85,16 +84,20 @@
                  [(ngModel)]="newUserPassword" name="password" #password="ngModel" required>
         </div>
 
-        <div *ngIf="errorMessage && f.submitted"  type="alert" class="alert alert-danger">{{errorMessage}}</div>
+        <div id="errorMsg" type="alert" class="alert alert-danger" hidden></div>
 
-        <div >Edit Mode: {{editMode}}</div>
 
       </div>
       <div class="modal-footer">
         <!--<button  (click)="saveEmployee();" type="submit" class="btn btn-success" disabled>Save</button>-->
-        <button [attr.disabled]="(password.valid && email.valid && firstname.valid && lastname.valid && contact_number.valid && dob.valid) == false ? true : null" type="submit" class="btn btn-success">Save</button>
+        <button
+          [attr.disabled]="(password.valid && email.valid && firstname.valid && lastname.valid && contact_number.valid && dob.valid) == false ? true : null"
+          type="submit" class="btn btn-success">Save
+        </button>
 
-        <button id="closeButton" (click)="closeModal('custom-modal-1'); f.submitted = false" class="btn btn-secondary">Discard</button>
+        <button id="closeButton" (click)="closeModal('custom-modal-1'); f.submitted = false" class="btn btn-secondary">
+          Discard
+        </button>
       </div>
     </form>
 
@@ -103,7 +106,8 @@
   <div class="modal-background"></div>
 </modal>
 
-<table class="table table-hover" cellspacing="0">
+
+<table id="employeeTable" class="table table-hover" cellspacing="0">
   <thead>
   <tr>
     <th>ID</th>
@@ -115,7 +119,9 @@
     <th>Email</th>
     <th>Employed Since</th>
     <th></th>
-    <th><button class="btn btn-success" (click)="newEmployee('custom-modal-1', 'New Employee')">New Employee</button></th>
+    <th>
+      <button class="btn btn-success" (click)="newEmployee('custom-modal-1', 'New Employee')">New Employee</button>
+    </th>
   </tr>
   </thead>
   <tbody>
@@ -128,16 +134,109 @@
     <td>{{employee.contact_number}}</td>
     <td>{{employee.email}}</td>
     <td>{{employee.hire_date}}</td>
-    <td><button class="btn btn-secondary" (click)="editEmployee(employee, 'custom-modal-1', 'Edit Employee')">Edit</button></td>
-    <td><button class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button></td>
-
-
-
-
-
+    <td>
+      <button class="btn btn-secondary" (click)="editEmployee(employee, 'custom-modal-1', 'Edit Employee')">Edit
+      </button>
+    </td>
+    <td>
+      <button class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button>
+    </td>
   </tr>
   </tbody>
 </table>
+
+
+
+<!--<table id="employeeTable" class="table table-hover" cellspacing="0">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Date of Birth</th>
+    <th>Channel</th>
+    <th>Phone Number</th>
+    <th>Email</th>
+    <th>Employed Since</th>
+    <th></th>
+    <th>
+      <button class="btn btn-success" (click)="newEmployee('custom-modal-1', 'New Employee')">New Employee</button>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employee of employees">
+    <td>{{employee.id}}</td>
+    <td>{{employee.first_name}}</td>
+    <td>{{employee.last_name}}</td>
+    <td>{{employee.dob}}</td>
+    <td>{{employee.walkie_talkie_channel}}</td>
+    <td>{{employee.contact_number}}</td>
+    <td>{{employee.email}}</td>
+    <td>{{employee.hire_date}}</td>
+    <td>
+      <button class="btn btn-secondary" (click)="editEmployee(employee, 'custom-modal-1', 'Edit Employee')">Edit
+      </button>
+    </td>
+    <td>
+      <button class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>-->
+
+
+<!--<div class="col-md-12">
+  <data-table
+    title="Test Table"
+    [items]=employees
+    [itemCount]=employees.length
+  >
+    <data-table-column
+      [property]="'id'"
+      [header]="'ID'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      [property]="'first_name'"
+      [header]="'First Name'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      [property]="'last_name'"
+      [header]="'Last Name'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      [property]="'dob'"
+      [header]="'Date of Birth'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      [property]="'walkie_talkie_channel'"
+      [header]="'Channel'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      [property]="'contact_number'"
+      [header]="'Phone Number'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      [property]="'email'"
+      [header]="'Email'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      [property]="'hire_date'"
+      [header]="'Employed Since'"
+      [sortable]="true">
+    </data-table-column>
+
+
+
+  </data-table>
+</div>-->
 
 
 

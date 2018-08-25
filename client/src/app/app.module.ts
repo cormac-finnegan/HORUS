@@ -30,13 +30,11 @@ import {NprComponent} from './npr/npr.component';
 import {SarComponent} from './sar/sar.component';
 import {VisitorComponent} from './visitor/visitor.component';
 
-import {DataTableModule} from 'angular5-data-table';
 import {ToolComponent} from "./_common/tools/tool.component";
 import {EmployeeComponent} from "./_common/employees/employee.component";
 
 import {CalendarModule} from 'primeng/calendar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 
 
 @NgModule({
@@ -64,9 +62,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     }),
     HttpClientModule,
     routing,
-    DataTableModule,
     BrowserAnimationsModule,
-    CalendarModule
+    CalendarModule,
   ],
   providers: [
     AuthGuard,

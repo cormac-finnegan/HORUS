@@ -66,11 +66,12 @@
 
 .modal-open {
   /* body overflow is hidden to hide main scrollbar when modal window is open */
-
-
-
 }
 
+
+.dataTables_filter label{
+  display:none;
+}
 
 /*agm-map {
   height: 600px;

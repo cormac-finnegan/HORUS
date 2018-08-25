@@ -21,8 +21,8 @@ export class EmployeeService {
     return this.http.post('/rest/employees', employee);
   }
 
-  update(user: Employee) {
-    return this.http.put('/rest/users/' + user.id, user);
+  update(employee: Employee) {
+    return this.http.put('/rest/employees/' + employee.id, employee);
   }
 
   delete(id: number) {

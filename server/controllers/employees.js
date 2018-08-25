@@ -108,5 +108,23 @@ module.exports = function (app) {
             }
         });
     });
+
+
+    app.put("/rest/employees/:id(\\d+*)", function (req, res) {
+
+        let id = req.params.id;
+        let employee = req.body;
+
+        employeeModel.editEmployee(id, employee, function (callback) {
+
+            if (callback.error === null) {
+                res.status(200).send(callback.results);
+                //return callback.results;
+            } else {
+
+                res.status(404).send(callback.error);
+            }
+        });
+    });
 };
 

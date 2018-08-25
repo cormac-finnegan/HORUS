@@ -1,17 +1,18 @@
-import {Component, OnInit, ViewChild} from "@angular/core";
+import {ChangeDetectorRef, Component, OnInit, ViewChild} from "@angular/core";
 
 import {EmployeeService, ModalService, UserService} from "../../_services/index";
 import {Employee, User} from "../../_models/index";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, FormGroupDirective, Validators} from "@angular/forms";
 import {DateFormatter} from "ng-bootstrap";
+import * as $ from 'jquery';
+import 'datatables.net';
+import 'datatables.net-bs4';
 
 @Component({
   selector: 'employees-admin',
   templateUrl: './employee.component.html'
 })
 export class EmployeeComponent implements OnInit {
-  hasError: boolean;
-  errorMessage: string;
   newUserPassword: string;
   employees: Employee[] = [];
   user: Object;
@@ -19,48 +20,89 @@ export class EmployeeComponent implements OnInit {
   employee: Employee;
   defaultEmployee: Employee;
   modalHeader: string;
-  editMode:boolean;
+  editMode: boolean;
 
   isSaved: boolean;
 
-  constructor(private modalService: ModalService, private employeeService: EmployeeService, private userService: UserService) {
+  dataTable: any;
+
+
+  constructor(private modalService: ModalService, private employeeService: EmployeeService, private userService: UserService, private chRef: ChangeDetectorRef) {
   }
 
-
   ngOnInit() {
-    this.createDefaultEmployee()
+    this.getEmployees();
+    this.createDefaultEmployee();
     //this.createUser();
     this.isSaved = false;
 
-
     this.employee = new Employee();
-    this.errorMessage = "";
-    this.hasError = true;
-
 
     var myDate = new Date(Date.now())
     console.log(new DateFormatter().format(myDate, "YYYY-MM-DD"));
 
     this.user = JSON.parse(localStorage.getItem('loggedinUser'));
-    this.getEmployees()
+
+    //this.initTable().search('TEST')
+
+    $(document).ready(function () {
+
+      $('#employeeTable_filter input').css("display:none")
+
+      $('#employeeTable')
+        .on('order.dt', function () {
+          console.log('Order');
+        })
+        .on('search.dt', function () {
+          console.log('Search');
+        })
+        .on('page.dt', function () {
+          console.log('Page');
+        })
+        .on('length.dt', function () {
+          console.log('Show');
+        });
+
+      $('#searchbox')
+        .on('keyup', function () {
+          $('#employeeTable').DataTable({
+            "searching": true,
+            retrieve: true
+          }).on('length.dt', function () {
+            console.log("Length Event");
+          }).search(this.value).draw();
+        })
+    });
 
   }
 
-
   private getEmployees() {
+    /*    const modalName: any = $('modal')[0].id;
+
+        console.log(document.getElementById(modalName))
+        //this.closeModal(modalName);*/
+
     this.employeeService.getAll()
       .subscribe(
-        employees => {
-          console.log(employees);
+        (employees: any[]) => {
           this.employees = employees;
+
+          this.chRef.detectChanges();
+          const table: any = $('table');
+          this.dataTable = table.DataTable({
+            "searching": true,
+            retrieve: true
+          });
+
         });
   }
 
-  openModal(id: string, header: string, newUser:boolean) {
-    if(newUser == true){
+  openModal(id: string, header: string, newUser: boolean) {
+    if (newUser == true) {
       this.editMode = false;
-    }else if(newUser == false){
+    } else if (newUser == false) {
       this.editMode = true;
+      this.discard()
     }
     console.log("Open Modal: " + id)
     this.modalHeader = header;
@@ -70,7 +112,6 @@ export class EmployeeComponent implements OnInit {
 
   closeModal(id: string) {
     this.modalService.close(id);
-    this.discard()
   }
 
   private createDefaultEmployee() {
@@ -90,14 +131,11 @@ export class EmployeeComponent implements OnInit {
 
   showError(message: string) {
     if (message != null) {
-      console.log(message);
-      this.errorMessage = message;
+      document.getElementById("errorMsg").hidden = false;
+      document.getElementById("errorMsg").textContent = message;
     } else {
-      this.errorMessage = null;
-      this.hasError = false;
+
     }
-
-
   }
 
   deleteEmployee(id: number) {
@@ -149,8 +187,7 @@ export class EmployeeComponent implements OnInit {
     newUser.last_login = null;
     newUser.loggedin = false;
 
-    console.log("Error Message: " + this.hasError)
-    if (this.validateUser(newUser) !== false && this.hasError === false) {
+    if (this.validateUser(newUser) !== false) {
       console.log("Create User = true")
       this.userService.userExists(newUser.username)
         .subscribe(
@@ -172,6 +209,10 @@ export class EmployeeComponent implements OnInit {
           });
 
     }
+  }
+
+  onSubmit() {
+    console.log("S U B M I T ")
   }
 
   editEmployee(employee: Employee, modalName: string, header: string) {
@@ -210,22 +251,17 @@ export class EmployeeComponent implements OnInit {
   }
 
   saveEmployee() {
-    //console.log("Save: C L I C K ")
+    console.log("Save: C L I C K ")
 
-    if(!this.editMode){
+    if (!this.editMode) {
       this.createUser();
-    }else{
-      let user = new Employee();
-      this.userService.getById(this.employee.user_ref)
-        .subscribe(data =>{
-          user = data[0];
-          console.log("User from DB = " + JSON.stringify(user))
-        });
-
+    } else {
+      this.employeeService.update(this.employee)
+        .subscribe(data => {
+          console.log("OK?" + data)
+        })
     }
 
-
-    document.getElementById('closeButton').click();
   }
 
   discard() {
@@ -234,13 +270,7 @@ export class EmployeeComponent implements OnInit {
     }
   }
 
-  safeClose(id: string) {
-    if (this.isSaved) {
-      this.closeModal(id)
-    }
-  }
-
-  parseDate(date:string){
+  parseDate(date: string) {
     return new Date(date).toISOString().split('T')[0]
 
 
