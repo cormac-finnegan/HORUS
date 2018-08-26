@@ -1,0 +1,143 @@
+<div id="newVisitor">
+
+  <form (ngSubmit)="f.form.valid && submit()" #f="ngForm"  autocomplete="off" novalidate>
+    <div class="modal-body">
+
+
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span *ngIf="firstname.pristine || validateName(visitor.first_name) === true" class="input-group-text" id="newVisitor-fName">First Name</span>
+          <span *ngIf="!firstname.pristine && validateName(visitor.first_name) === false" class="input-group-text alert-danger" role="alert">First Name is required</span>
+        </div>
+        <input type="text" class="form-control form-group" aria-label="Default"
+               aria-describedby="inputGroup-sizing-default"
+               [(ngModel)]="visitor.first_name" placeholder="First Name" name="firstname"
+               #firstname="ngModel" required/>
+
+      </div>
+
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span *ngIf="lastname.pristine || validateName(visitor.last_name) === true" class="input-group-text">Last Name</span>
+          <span *ngIf="!lastname.pristine && validateName(visitor.last_name) === false" class="input-group-text alert-danger" role="alert">Last Name is required</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+               [(ngModel)]="visitor.last_name" placeholder="Last Name" name="lastname"
+               #lastname="ngModel" required>
+      </div>
+
+      <div class=" input-group mb-3">
+        <div class="input-group-prepend">
+          <span *ngIf="f.submitted === false || dob.valid" class="input-group-text">Date of Birth</span>
+          <span *ngIf="f.submitted && !dob.valid" class="input-group-text alert-danger" role="alert">Date of Birth is required</span>
+          <p-calendar id="newVisitor-dob" type="date"
+                      [(ngModel)]="visitor.dob" dateFormat="yy-mm-dd" placeholder="{{parseDate(minAgeDate)}}"
+                      name="dob" #dob="ngModel" required [maxDate]="minAgeDate" [defaultDate]="minAgeDate"></p-calendar>
+        </div>
+      </div>
+
+
+
+
+      <div class=" input-group mb-3">
+        <div class="row input-group">
+
+          <div class="col input-group-prepend input-group-lg">
+            <span *ngIf="contact_number.pristine || validatePhoneNumber(visitor.contact_number) === true" class="input-group-text">Contact Number</span>
+            <span *ngIf="!contact_number.pristine && validatePhoneNumber(visitor.contact_number) === false" class="input-group-text alert-danger" role="alert">Contact Number is required</span>
+            <input ng-model="phone" type="tel" [(ngModel)]="visitor.contact_number"
+                   ng-pattern="(?:(?:(\s*\(?([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\)?\s*(?:[.-]\s*)?)([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})"
+                   placeholder="{{visitor.contact_number}}" name="contact_number" #contact_number="ngModel"
+                   required>
+          </div>
+
+          <div class="col input-group-prepend input-group-lg">
+            <span *ngIf="next_of_kin_contact_number.pristine || validatePhoneNumber(visitor.next_of_kin_contact_number) === true" class="input-group-text">Next of Kin Contact Number</span>
+            <span *ngIf="!next_of_kin_contact_number.pristine && validatePhoneNumber(visitor.next_of_kin_contact_number) === false" class="input-group-text alert-danger" role="alert">Contact Number is required for Next of Kin</span>
+            <input type="tel" [(ngModel)]="visitor.next_of_kin_contact_number"
+                   placeholder="{{visitor.next_of_kin_contact_number}}" name="next_of_kin_contact_number" #next_of_kin_contact_number="ngModel"
+                   required maxlength="10" minlength="7">
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <div class=" input-group mb-3">
+
+        <div class="row input-group">
+
+          <div class="col input-group-prepend input-group-lg">
+            <span *ngIf="f.submitted === false || checkin_date.valid" class="input-group-text">Check-in Date</span>
+            <span *ngIf="f.submitted && !checkin_date.valid" class="input-group-text alert-danger" role="alert">Check-in Date is required</span>
+            <p-calendar id="newVisitor-checkin_date" type="date"
+                        [(ngModel)]="visitor.checkin_date" dateFormat="yy-mm-dd" placeholder="{{getDateNow()}}"
+                        name="checkin_date" #checkin_date="ngModel" required [minDate]="getDateNowAsDate()"></p-calendar>
+          </div>
+
+          <div class="col input-group-prepend input-group-lg">
+            <span *ngIf="f.submitted === false || checkout_date.valid" class="input-group-text">Check-out Date</span>
+            <span *ngIf="f.submitted && !checkout_date.valid" class="input-group-text alert-danger" role="alert">Check-out Date is required</span>
+            <p-calendar id="newVisitor-checkout_date" type="date"
+                        [(ngModel)]="visitor.checkout_date" dateFormat="yy-mm-dd" placeholder="{{getDateNow()}}"
+                        name="checkout_date" #checkout_date="ngModel" [minDate]="f.value.checkin_date" [defaultDate]="f.value.checkin_date" required></p-calendar>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span *ngIf="firstname.pristine || validateName(visitor.next_of_kin) === true" class="input-group-text" >Next of Kin</span>
+          <span *ngIf="!firstname.pristine && validateName(visitor.next_of_kin) === false" class="input-group-text alert-danger" role="alert">Next of Kin is required</span>
+        </div>
+        <input type="text" class="form-control form-group" aria-label="Default"
+               aria-describedby="inputGroup-sizing-default"
+               [(ngModel)]="visitor.next_of_kin" placeholder="Next of Kin full name" name="next_of_kin"
+               #firstname="ngModel" required/>
+
+      </div>
+
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span *ngIf="email.pristine || validateEmail(visitor.email) === true" class="input-group-text">Email</span>
+          <span *ngIf="!email.pristine && validateEmail(visitor.email) === false" class="input-group-text alert-danger"
+                role="alert">Email is required</span>
+        </div>
+        <input type="email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+               [(ngModel)]="visitor.email" placeholder="{{visitor.email}}" name="email" #email="ngModel"
+               autocomplete="off" required/>
+      </div>
+
+      <!--<div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span *ngIf="f.submitted === false || password.valid" class="input-group-text">Password</span>
+          <span *ngIf="f.submitted && !password.valid" class="input-group-text alert-danger" role="alert">Password is required</span>
+        </div>
+        <input type="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+               [(ngModel)]="newUserPassword" name="password" #password="ngModel" required>
+      </div>-->
+
+      <div id="errorMsg" type="alert" class="alert alert-danger" hidden></div>
+
+
+    </div>
+    <div class="modal-footer">
+      <!--<button  (click)="saveVisitor();" type="submit" class="btn btn-success" disabled>Save</button>-->
+      <button
+        [attr.disabled]="(email.valid && firstname.valid && lastname.valid && contact_number.valid && dob.valid) == false ? true : null"
+        type="submit" class="btn btn-success">Save
+      </button>
+
+      <button id="closeButton" (click)="closeModal('custom-modal-1'); f.submitted = false" class="btn btn-secondary">
+        Discard
+      </button>
+    </div>
+  </form>
+
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthGuard} from "../_guards";
+import {UserTypeService} from "../_services";
 
 @Component({
   selector: 'app-sar',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userTypeService:UserTypeService, private authGuard:AuthGuard) { }
+
+  userType:string;
 
   ngOnInit() {
+
+    this.getUserTypeString()
+
+
+  }
+
+  getUserTypeString() {
+    this.userTypeService.getById(this.authGuard.getUserType())
+      .subscribe(data => {
+        this.userType =  data[0].type;
+      });
   }
 
 }

@@ -108,28 +108,10 @@ exports.getAllTrackerNodes = function(callback) {
 };
 
 
-// Add a new user type
-exports.addTrackerNode = function(TrackerNode, callback) {
+// Get all user types
+exports.getUserFromTool = function(callback) {
 
-    let tracker = JSON.parse(TrackerNode);
-
-    console.log(tracker.type);
-
-    db.query('INSERT INTO Tracker_Node (' +
-        'id, ' +
-        'tool_id_fk, ' +
-        'latitude, ' +
-        'longitude, ' +
-        'enabled, ' +
-        'distress, ' +
-        'timestamp) VALUES (' +
-        '\''+tracker.id+'\', ' +
-        '\''+tracker.tool_id_fk+'\', ' +
-        '\''+tracker.latitude+'\', ' +
-        '\''+tracker.longitude+'\', ' +
-        '\''+tracker.enabled+'\', ' +
-        '\''+tracker.distress+'\', ' +
-        '\''+tracker.timestamp+'\');', function (error, results) {
+    db.query('SELECT * FROM Tracker_Node;', function (error, results, sql) {
         //console.log(sql);
         var message = {
             error: undefined,
@@ -153,67 +135,7 @@ exports.addTrackerNode = function(TrackerNode, callback) {
 };
 
 
-// delete a Tracker_Node by ID
-exports.deleteTrackerNodeByID = function(id, callback) {
-    console.log('ID: ' + id);
-    db.query('DELETE FROM Tracker_Node where id = ' + id + ';', function (error, results) {
-
-        //console.log(this.sql);
-        var message = {
-            error: undefined,
-            results: undefined
-        };
-        if(error){
-            console.log(error);
-            message = {
-                error: error,
-                results: null
-            };
-        }else{
-            console.log(results);
-            message = {
-                error: null,
-                results: results
-            };
-        }
-        callback(message);
-    });
-};
 
 
-exports.modifyTracker = function (id, tracker, callback) {
-    console.log('ID: ' + id);
-    console.log('\nTracker: ' + tracker.latitude);
-    let newTracker = tracker;
 
-    db.query('UPDATE Tracker_Node '+
-        'SET ' +
-        'id = ' + newTracker.id + ', ' +
-        'tool_id_fk = ' + newTracker.tool_id_fk + ', ' +
-        'latitude = ' + newTracker.latitude + ', ' +
-        'longitude = ' + newTracker.longitude + ', ' +
-        'enabled = ' + newTracker.enabled + ', ' +
-        'distress = ' + newTracker.distress + ', ' +
-        'timestamp = \'' + newTracker.timestamp + '\' ' +
-        ' where id = ' + id + ';', function (error, results) {
-        //console.log(this.sql);
-        var message = {
-            error: undefined,
-            results: undefined
-        };
-        if (error) {
-            //console.log(error);
-            message = {
-                error: error,
-                results: null
-            };
-        } else {
-            //console.log(results);
-            message = {
-                error: null,
-                results: results
-            };
-        }
-        callback(message);
-    });
-};
+

@@ -6,10 +6,11 @@ import {UserTypeService} from "../_services";
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor(private router: Router, private userTypeService: UserTypeService) {
+  constructor(private router: Router) {
   }
 
   user: User;
+  userTypeString:string;
 
   admin:boolean = false;
   npr:boolean = false;
@@ -44,9 +45,7 @@ export class AuthGuard implements CanActivate {
     return parseInt(this.user.type);
   }
 
-  getUserTypeString() {
-    this.userTypeService.getById(this.getUserType());
-  }
+
 
   public isAdmin(){
     return this.admin;

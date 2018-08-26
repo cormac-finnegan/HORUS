@@ -30,7 +30,7 @@
 <!-- the component as the initial center of the map: -->
 <agm-map id="main-map" [latitude]="lat" [longitude]="lng">
   <agm-marker
-    *ngFor="let m of markers; let i = index"
+    *ngFor="let m of markers;"
     [latitude]="m.lat"
     [longitude]="m.lng"
     [label]="m.label"
@@ -45,21 +45,6 @@
   <!--<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>-->
 </agm-map>
 <body>
-<div class="container" >
-  <div>
 
-    <p>The ID is {{5 + 5}}</p>
-  </div>
-  <div *ngFor="let trackingNode of trackerNodes">
-    <h3>Tracker {{trackingNode.id}}</h3>
-    <p> <b>ID:</b> {{trackingNode.id}}
-      <b>Associated Tool ID:</b> {{trackingNode.tool_id_fk}}
-      <b>Latitude:</b> {{trackingNode.latitude}}
-      <b>Longitude:</b> {{trackingNode.longitude}}
-      <b>In use:</b> {{trackingNode.enabled}}
-      <b>Distressed:</b> {{trackingNode.distress}}
-      <b>Timestamp:</b> {{trackingNode.timestamp}}</p>
-  </div>
-</div>
 </body>
 

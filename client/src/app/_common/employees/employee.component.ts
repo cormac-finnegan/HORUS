@@ -77,11 +77,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   private getEmployees() {
-    /*    const modalName: any = $('modal')[0].id;
-
-        console.log(document.getElementById(modalName))
-        //this.closeModal(modalName);*/
-
     this.employeeService.getAll()
       .subscribe(
         (employees: any[]) => {
@@ -102,9 +97,7 @@ export class EmployeeComponent implements OnInit {
       this.editMode = false;
     } else if (newUser == false) {
       this.editMode = true;
-      this.discard()
     }
-    console.log("Open Modal: " + id)
     this.modalHeader = header;
     //this.employee = new Employee();
     this.modalService.open(id);
@@ -130,12 +123,9 @@ export class EmployeeComponent implements OnInit {
   }
 
   showError(message: string) {
-    if (message != null) {
       document.getElementById("errorMsg").hidden = false;
       document.getElementById("errorMsg").textContent = message;
-    } else {
 
-    }
   }
 
   deleteEmployee(id: number) {
@@ -188,7 +178,7 @@ export class EmployeeComponent implements OnInit {
     newUser.loggedin = false;
 
     if (this.validateUser(newUser) !== false) {
-      console.log("Create User = true")
+      console.log("Create User = true");
       this.userService.userExists(newUser.username)
         .subscribe(
           data => {
@@ -204,9 +194,16 @@ export class EmployeeComponent implements OnInit {
                     console.log("G O O D")
                     this.createEmployee(JSON.parse(JSON.stringify(data)).insertId)
                   }
-                })
+                }),
+                error => {
+
+                }
             }
-          });
+          },
+          error => {
+
+          })
+
 
     }
   }
@@ -218,6 +215,7 @@ export class EmployeeComponent implements OnInit {
   editEmployee(employee: Employee, modalName: string, header: string) {
     employee.dob = this.parseDate(employee.dob);
     this.employee = employee;
+    console.log(JSON.stringify(this.employee))
 
     this.openModal(modalName, header, false);
   }
@@ -242,11 +240,21 @@ export class EmployeeComponent implements OnInit {
       .subscribe(data => {
         console.log("Data : " + JSON.stringify(data))
         if (JSON.parse(JSON.stringify(data)).insertId) {
-          this.isSaved = true;
+          //this.isSaved = true;
+          var elements = document.getElementsByTagName('modal');
+          var id = elements[0].getAttribute('id');
+
+          this.closeModal(id);
+
           this.getEmployees();
+
+
         }
 
-      })
+      }),
+      error => {
+        this.showError(error)
+      }
 
   }
 
@@ -265,9 +273,9 @@ export class EmployeeComponent implements OnInit {
   }
 
   discard() {
-    if (this.isSaved) {
-      this.employee = new Employee();
-    }
+
+    this.employee = new Employee();
+
   }
 
   parseDate(date: string) {

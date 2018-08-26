@@ -49,8 +49,6 @@ export class MapComponent implements OnInit {
             timestamp: obj.timestamp
           }
         );
-        //console.log("MARKERS: "+this.markers)
-
       }
     });
 

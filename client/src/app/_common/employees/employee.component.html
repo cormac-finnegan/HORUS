@@ -39,7 +39,7 @@
               <span *ngIf="f.submitted === false || dob.valid" class="input-group-text">Date of Birth</span>
               <span *ngIf="f.submitted && !dob.valid" class="input-group-text alert-danger" role="alert">Date of Birth is required</span>
               <p-calendar id="newEmployee-dob" type="date"
-                          [(ngModel)]="employee.dob" dateFormat="yy-mm-dd" placeholder="{{defaultEmployee.dob}}"
+                          [(ngModel)]="employee.dob" dateFormat="yy-mm-dd" placeholder="{{parseDate(defaultEmployee.dob)}}"
                           name="dob" #dob="ngModel" required></p-calendar>
             </div>
 
@@ -147,96 +147,7 @@
 
 
 
-<!--<table id="employeeTable" class="table table-hover" cellspacing="0">
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Date of Birth</th>
-    <th>Channel</th>
-    <th>Phone Number</th>
-    <th>Email</th>
-    <th>Employed Since</th>
-    <th></th>
-    <th>
-      <button class="btn btn-success" (click)="newEmployee('custom-modal-1', 'New Employee')">New Employee</button>
-    </th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let employee of employees">
-    <td>{{employee.id}}</td>
-    <td>{{employee.first_name}}</td>
-    <td>{{employee.last_name}}</td>
-    <td>{{employee.dob}}</td>
-    <td>{{employee.walkie_talkie_channel}}</td>
-    <td>{{employee.contact_number}}</td>
-    <td>{{employee.email}}</td>
-    <td>{{employee.hire_date}}</td>
-    <td>
-      <button class="btn btn-secondary" (click)="editEmployee(employee, 'custom-modal-1', 'Edit Employee')">Edit
-      </button>
-    </td>
-    <td>
-      <button class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button>
-    </td>
-  </tr>
-  </tbody>
-</table>-->
 
-
-<!--<div class="col-md-12">
-  <data-table
-    title="Test Table"
-    [items]=employees
-    [itemCount]=employees.length
-  >
-    <data-table-column
-      [property]="'id'"
-      [header]="'ID'"
-      [sortable]="true">
-    </data-table-column>
-    <data-table-column
-      [property]="'first_name'"
-      [header]="'First Name'"
-      [sortable]="true">
-    </data-table-column>
-    <data-table-column
-      [property]="'last_name'"
-      [header]="'Last Name'"
-      [sortable]="true">
-    </data-table-column>
-    <data-table-column
-      [property]="'dob'"
-      [header]="'Date of Birth'"
-      [sortable]="true">
-    </data-table-column>
-    <data-table-column
-      [property]="'walkie_talkie_channel'"
-      [header]="'Channel'"
-      [sortable]="true">
-    </data-table-column>
-    <data-table-column
-      [property]="'contact_number'"
-      [header]="'Phone Number'"
-      [sortable]="true">
-    </data-table-column>
-    <data-table-column
-      [property]="'email'"
-      [header]="'Email'"
-      [sortable]="true">
-    </data-table-column>
-    <data-table-column
-      [property]="'hire_date'"
-      [header]="'Employed Since'"
-      [sortable]="true">
-    </data-table-column>
-
-
-
-  </data-table>
-</div>-->
 
 
 

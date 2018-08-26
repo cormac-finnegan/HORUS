@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, ApplicationRef} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule, NgForm} from '@angular/forms';
+import {FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {MapComponent} from "./map/index";
@@ -13,7 +13,7 @@ import {routing} from './app.routing';
 import {AgmCoreModule} from '@agm/core';
 import {HomeComponent} from './home/index';
 import {LoginComponent} from './login/login.component';
-import {AdminGuard, AuthGuard} from "./_guards/index";
+import {AdminGuard, AuthGuard, SARGuard} from "./_guards/index";
 import {
   AlertService,
   AuthenticationService,
@@ -35,6 +35,7 @@ import {EmployeeComponent} from "./_common/employees/employee.component";
 
 import {CalendarModule} from 'primeng/calendar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {VisitorNPRComponent} from "./npr/AddVisitor/visitor-npr.component";
 
 
 @NgModule({
@@ -51,7 +52,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     VisitorComponent,
     ToolComponent,
     EmployeeComponent,
-    ModalComponent
+    ModalComponent,
+    VisitorNPRComponent
+
   ],
   imports: [
     BrowserModule,
@@ -64,10 +67,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     routing,
     BrowserAnimationsModule,
     CalendarModule,
+    ReactiveFormsModule
+
   ],
   providers: [
     AuthGuard,
     AdminGuard,
+    SARGuard,
     AlertService,
     AuthenticationService,
     UserService,

@@ -27,6 +27,7 @@
     "core-js": "^2.5.4",
     "datatables.net": "^1.10.19",
     "datatables.net-bs4": "^1.10.19",
+    "google-libphonenumber": "^3.1.11",
     "jquery": "^3.3.1",
     "ng-bootstrap": "^1.6.3",
     "popper": "^1.0.1",
@@ -35,7 +36,8 @@
     "primeng": "^6.1.2",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "libphonenumber-js": "latest"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^6.0.3",

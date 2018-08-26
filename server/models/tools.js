@@ -144,29 +144,3 @@ exports.modifyTool = function (id, tool, callback) {
         callback(message);
     });
 };
-
-// count the total number of tools
-exports.toolCount = function (callback) {
-    db.query('SELECT count(*) FROM Tool_Inventory;', function (error, results, row) {
-        //console.log(this.sql);
-        var message = {
-            error: undefined,
-            results: undefined
-        };
-        if (error) {
-            //console.log(error);
-            message = {
-                error: error,
-                results: null
-            };
-        } else {
-            message = {
-                error: null,
-                results: {
-                    "count": results[0]['count(*)']
-                }
-            };
-        }
-        callback(message);
-    });
-};
