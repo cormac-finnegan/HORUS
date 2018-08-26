@@ -13,7 +13,7 @@ import {routing} from './app.routing';
 import {AgmCoreModule} from '@agm/core';
 import {HomeComponent} from './home/index';
 import {LoginComponent} from './login/login.component';
-import {AuthGuard} from "./_guards/index";
+import {AdminGuard, AuthGuard} from "./_guards/index";
 import {
   AlertService,
   AuthenticationService,
@@ -67,6 +67,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   ],
   providers: [
     AuthGuard,
+    AdminGuard,
     AlertService,
     AuthenticationService,
     UserService,

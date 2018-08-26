@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {UserTypeService} from "../_services/index";
 import {Observable} from "rxjs";
+import {User} from "../_models";
 
 
 @Component({
@@ -14,7 +15,7 @@ export class AdminComponent implements OnInit {
   toolViewEnabled: boolean;
   employeesViewEnabled: boolean;
 
-  user: Object;
+  user: User;
   userType: string;
 
   constructor(private http: HttpClient, private userTypeService: UserTypeService) {
