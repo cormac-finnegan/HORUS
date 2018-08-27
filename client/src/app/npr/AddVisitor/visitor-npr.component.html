@@ -92,13 +92,13 @@
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span *ngIf="firstname.pristine || validateName(visitor.next_of_kin) === true" class="input-group-text" >Next of Kin</span>
-          <span *ngIf="!firstname.pristine && validateName(visitor.next_of_kin) === false" class="input-group-text alert-danger" role="alert">Next of Kin is required</span>
+          <span *ngIf="next_of_kin.pristine || validateName(visitor.next_of_kin) === true" class="input-group-text" >Next of Kin</span>
+          <span *ngIf="!next_of_kin.pristine && validateName(visitor.next_of_kin) === false" class="input-group-text alert-danger" role="alert">Next of Kin is required</span>
         </div>
         <input type="text" class="form-control form-group" aria-label="Default"
                aria-describedby="inputGroup-sizing-default"
                [(ngModel)]="visitor.next_of_kin" placeholder="Next of Kin full name" name="next_of_kin"
-               #firstname="ngModel" required/>
+               #next_of_kin="ngModel" required/>
 
       </div>
 
@@ -123,7 +123,8 @@
                [(ngModel)]="newUserPassword" name="password" #password="ngModel" required>
       </div>-->
 
-      <div id="errorMsg" type="alert" class="alert alert-danger" hidden></div>
+      <div id="errorMsg" type="alert" class="alert alert-danger" hidden>{{errorMessage}}</div>
+      <div id="successMsg" type="alert" class="alert alert-success" hidden>User created successfully!</div>
 
 
     </div>
@@ -132,10 +133,6 @@
       <button
         [attr.disabled]="(email.valid && firstname.valid && lastname.valid && contact_number.valid && dob.valid) == false ? true : null"
         type="submit" class="btn btn-success">Save
-      </button>
-
-      <button id="closeButton" (click)="closeModal('custom-modal-1'); f.submitted = false" class="btn btn-secondary">
-        Discard
       </button>
     </div>
   </form>

@@ -36,6 +36,9 @@ import {EmployeeComponent} from "./_common/employees/employee.component";
 import {CalendarModule} from 'primeng/calendar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {VisitorNPRComponent} from "./npr/AddVisitor/visitor-npr.component";
+import {VisitorService} from "./_services/visitor.service";
+import {ViewAllComponent} from "./npr/ViewAll/view-all.component";
+
 
 
 @NgModule({
@@ -53,7 +56,8 @@ import {VisitorNPRComponent} from "./npr/AddVisitor/visitor-npr.component";
     ToolComponent,
     EmployeeComponent,
     ModalComponent,
-    VisitorNPRComponent
+    VisitorNPRComponent,
+    ViewAllComponent,
 
   ],
   imports: [
@@ -80,7 +84,8 @@ import {VisitorNPRComponent} from "./npr/AddVisitor/visitor-npr.component";
     UserTypeService,
     ToolService,
     EmployeeService,
-    ModalService
+    ModalService,
+    VisitorService
   ],
 
   bootstrap: [AppComponent]

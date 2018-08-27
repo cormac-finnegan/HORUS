@@ -12,7 +12,7 @@ export class UserTypeService {
   }
 
   getById(id: number) {
-    return this.http.get('/rest/userTypes/' + id);
+    return this.http.get<UserType>('/rest/userTypes/' + id);
   }
 
   create(userType: UserType) {

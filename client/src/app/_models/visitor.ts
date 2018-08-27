@@ -10,5 +10,6 @@ export class Visitor{
   checkout_date: string;
   email: string;
   tracker_id:number;
+  user_ref:number;
 
 }

@@ -28,4 +28,16 @@ module.exports = function (app) {
     });
 
 
+    app.post("/rest/visitors", function (req, res) {
+        let newVisitor = req.body;
+
+        visitorModel.addVisitor(JSON.stringify(newVisitor), function (callback) {
+            if (callback.error === null) {
+                res.status(200).send(callback.results);
+            } else {
+                res.status(404).send(callback.error);
+            }
+        });
+    });
+
 };

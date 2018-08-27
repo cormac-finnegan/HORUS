@@ -1,11 +1,11 @@
 import {ChangeDetectorRef, Component, OnInit, SimpleChanges, ViewChild} from "@angular/core";
 
-import { parse, format, AsYouType } from 'libphonenumber-js';
 import 'datatables.net';
 import 'datatables.net-bs4';
 import {Visitor} from "../../_models/visitor";
 import {User} from "../../_models";
-
+import {UserService} from "../../_services";
+import {VisitorService} from "../../_services/visitor.service";
 
 
 @Component({
@@ -13,53 +13,52 @@ import {User} from "../../_models";
   templateUrl: './visitor-npr.component.html'
 })
 export class VisitorNPRComponent implements OnInit {
-  visitor:Visitor;
-  errorMessage:string;
-  minAgeDate:Date;
+  visitor: Visitor;
+  errorMessage: string;
+  minAgeDate: Date;
 
 
-  constructor() {
+  constructor(private userService: UserService, private visitorService: VisitorService) {
     this.visitor = new Visitor();
 
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log("SUBMIT")
   }
 
   ngOnInit() {
 
-    this.getMinAgeDate()
+    this.getMinAgeDate();
 
   }
 
-  ngOnChanges(){
-    console.log("TEST")
+  showError(message:string){
+    this.errorMessage = message;
+    document.getElementById('errorMsg').hidden = false;
   }
 
-  validateEmail(email:string){
+  showSuccess(){
+    this.errorMessage = null;
+    document.getElementById('errorMsg').hidden = true;
+    document.getElementById('successMsg').hidden = false;
+    this.visitor= null;
+  }
+
+
+  validateEmail(email: string) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
   }
 
-  validateName(name:string){
+  validateName(name: string) {
     return /^[a-z ,.'-]+$/i.test(name);
   }
 
-  validatePhoneNumber(number:string){
+  validatePhoneNumber(number: string) {
     return /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/.test(number);
   }
 
-  validateDates(){
-    if(new Date(this.visitor.dob).getFullYear() < new Date(Date.now()).getFullYear() - 18){
-      this.errorMessage = "Visitor must be over the age of 18"
-      return false;
-    }
-
-
-  }
-
-
-  getMinAgeDate(){
+  getMinAgeDate() {
     var date = new Date(Date.now()).setFullYear(new Date(Date.now()).getFullYear() - 18);
     this.minAgeDate = new Date(date)
   }
@@ -76,11 +75,8 @@ export class VisitorNPRComponent implements OnInit {
     return new Date(date).toISOString().split('T')[0]
   }
 
-  saveVisitor( visitor:Visitor){
 
-  }
-
-  private saveUser(){
+  private saveUser() {
     let newUser = new User();
     newUser.id = null;
     newUser.type = "4";
@@ -89,15 +85,39 @@ export class VisitorNPRComponent implements OnInit {
     newUser.password = passString.toLowerCase();
     newUser.last_login = null;
     newUser.loggedin = false;
-    console.log(JSON.stringify(newUser))
+
+    this.userService.userExists(newUser.username)
+      .subscribe(data => {
+        if (data === false) {
+          this.userService.create(newUser)
+            .subscribe((data) =>{
+              let ref_id = JSON.parse(JSON.stringify(data)).insertId;
+
+              this.visitor.user_ref = ref_id;
+              this.visitor.tracker_id = null;
+
+              this.visitorService.create(this.visitor)
+                .subscribe(data => {
+                  console.log("Final Pass = " + JSON.stringify(data))
+                  this.showSuccess()
+                })
+
+            }),
+          error => {
+            this.showError(error)
+            console.log('Internal error' + error)
+          }
+        } else {
+          this.showError('User ' + newUser.username + ' already exists')
+        }
+      });
   }
 
   submit() {
-    console.log("SUBMIT")
-    let newVisitor = this.visitor;
+    console.log("SUBMIT");
 
-    this.saveUser()
-    console.log(JSON.stringify(this.visitor))
+    this.saveUser();
+
     return false;
   }
 }

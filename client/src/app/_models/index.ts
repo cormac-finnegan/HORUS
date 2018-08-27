@@ -2,3 +2,4 @@
 export * from './userType';
 export * from './tool';
 export * from './employee';
+export * from './visitor';
