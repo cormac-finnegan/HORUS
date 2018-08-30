@@ -2,9 +2,6 @@
 
   <form (ngSubmit)="f.form.valid && submit()" #f="ngForm"  autocomplete="off" novalidate>
     <div class="modal-body">
-
-
-
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span *ngIf="firstname.pristine || validateName(visitor.first_name) === true" class="input-group-text" id="newVisitor-fName">First Name</span>
@@ -123,8 +120,8 @@
                [(ngModel)]="newUserPassword" name="password" #password="ngModel" required>
       </div>-->
 
-      <div id="errorMsg" type="alert" class="alert alert-danger" hidden>{{errorMessage}}</div>
-      <div id="successMsg" type="alert" class="alert alert-success" hidden>User created successfully!</div>
+      <div id="newErrorMsg" type="alert" class="alert alert-danger" hidden>{{errorMessage}}</div>
+      <div id="newSuccessMsg" type="alert" class="alert alert-success" hidden>User created successfully!</div>
 
 
     </div>

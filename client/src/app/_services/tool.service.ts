@@ -16,6 +16,10 @@ export class ToolService {
     return this.http.get('/rest/toolInventory/' + id);
   }
 
+  getAllTrackers(){
+    return this.http.get<Tool[]>('/rest/toolInventory/type=\'tracker\'');
+  }
+
   create(user: Tool) {
     return this.http.post('/rest/toolInventory', user);
   }

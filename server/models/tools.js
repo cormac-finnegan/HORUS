@@ -53,6 +53,33 @@ exports.getAllTools = function (callback) {
     });
 };
 
+// Get by ID
+exports.getAllTrackers = function (callback) {
+    //console.log('ID: ' + id);
+    db.query('SELECT * FROM Tool_Inventory where type LIKE \'%tracker%\';', function (error, results) {
+
+        //console.log(this.sql);
+        var message = {
+            error: undefined,
+            results: undefined
+        };
+        if (error) {
+            //console.log(error);
+            message = {
+                error: error,
+                results: null
+            };
+        } else {
+            //console.log(results);
+            message = {
+                error: null,
+                results: results
+            };
+        }
+        callback(message);
+    });
+};
+
 
 // Add a new user type
 exports.addTool = function (Tool, callback) {

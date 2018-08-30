@@ -208,9 +208,6 @@ export class EmployeeComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    console.log("S U B M I T ")
-  }
 
   editEmployee(employee: Employee, modalName: string, header: string) {
     employee.dob = this.parseDate(employee.dob);

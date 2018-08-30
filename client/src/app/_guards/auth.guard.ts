@@ -24,11 +24,11 @@ export class AuthGuard implements CanActivate {
 
       if(this.getUserType() === 1){
         this.admin = true;
-      }else if(this.user.type === '2'){
+      }else if(this.getUserType() === 2){
         this.sar = true;
-      }else if(this.user.type === '3'){
+      }else if(this.getUserType() === 3){
         this.npr = true;
-      }else if(this.user.type === '4'){
+      }else if(this.getUserType() === 4){
         this.visitor = true;
       }
 

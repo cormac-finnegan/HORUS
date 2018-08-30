@@ -6,10 +6,10 @@
     <th>Last Name</th>
     <th>Checkin Date</th>
     <th>Checkout Date</th>
+    <th>Date of Birth</th>
+    <th>Assigned Tracker</th>
     <th></th>
-    <th>
-      <button class="btn btn-success" (click)="newEmployee('custom-modal-1', 'New Employee')">New Employee</button>
-    </th>
+
   </tr>
   </thead>
   <tbody>
@@ -17,11 +17,19 @@
     <td>{{visitor.id}}</td>
     <td>{{visitor.first_name}}</td>
     <td>{{visitor.last_name}}</td>
-    <td>{{visitor.checkin_date}}</td>
-    <td>{{visitor.checkout_date}}</td>
-    <td>{{visitor.checkout_date}}</td>
+    <td>{{parseDate(visitor.checkin_date)}}</td>
+    <td>{{parseDate(visitor.checkout_date)}}</td>
+    <td>{{parseDate(visitor.dob)}}</td>
     <td>
-      <button class="btn btn-secondary" (click)="editEmployee(employee, 'custom-modal-1', 'Edit Employee')">Edit
+      <button *ngIf="!visitor.tracker_id" class="btn btn-secondary" (click)="editVisitor(visitor, 'assign-visitor-tracker'); getAllTrackers();">
+        Assign Tracker
+      </button>
+      <button *ngIf="visitor.tracker_id" class="btn btn-danger" style="background-color: darkgreen;color:white" (click)="removeTracker(visitor.id, visitor.tracker_id)">
+        Tracker # {{visitor.tracker_id}}
+      </button>
+    </td>
+    <td>
+      <button class="btn btn-secondary" (click)="editVisitor(visitor, 'edit-visitor-modal')">Edit
       </button>
     </td>
     <td>
@@ -30,4 +38,186 @@
   </tr>
   </tbody>
 </table>
+
+
+<modal id="edit-visitor-modal" style="display: none">
+  <div class="modal">
+    <div class="modal-header">
+      <h5 class="modal-title"> Edit Visitor Info</h5>
+    </div>
+    <form (ngSubmit)="f.form.valid && submit()" #f="ngForm" autocomplete="off" novalidate>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span *ngIf="firstname.pristine || validateName(visitor.first_name) === true" class="input-group-text"
+                  id="newVisitor-fName">First Name</span>
+            <span *ngIf="!firstname.pristine && validateName(visitor.first_name) === false"
+                  class="input-group-text alert-danger" role="alert">First Name is required</span>
+          </div>
+          <input type="text" class="form-control form-group" aria-label="Default"
+                 aria-describedby="inputGroup-sizing-default"
+                 [(ngModel)]="visitor.first_name" placeholder="First Name" name="firstname"
+                 #firstname="ngModel" required/>
+
+        </div>
+
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span *ngIf="lastname.pristine || validateName(visitor.last_name) === true" class="input-group-text">Last Name</span>
+            <span *ngIf="!lastname.pristine && validateName(visitor.last_name) === false"
+                  class="input-group-text alert-danger" role="alert">Last Name is required</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                 [(ngModel)]="visitor.last_name" placeholder="Last Name" name="lastname"
+                 #lastname="ngModel" required>
+        </div>
+
+        <div class=" input-group mb-3">
+          <div class="input-group-prepend">
+            <span *ngIf="f.submitted === false || dob.valid" class="input-group-text">Date of Birth</span>
+            <span *ngIf="f.submitted && !dob.valid" class="input-group-text alert-danger" role="alert">Date of Birth is required</span>
+            <p-calendar id="newVisitor-dob" type="date"
+                        [(ngModel)]="visitor.dob" dateFormat="yy-mm-dd"
+                        name="dob" #dob="ngModel" required></p-calendar>
+          </div>
+        </div>
+
+
+        <div class=" input-group mb-3">
+          <div class="row input-group">
+
+            <div class="col input-group-prepend input-group-lg">
+              <span *ngIf="contact_number.pristine || validatePhoneNumber(visitor.contact_number) === true"
+                    class="input-group-text">Contact Number</span>
+              <span *ngIf="!contact_number.pristine && validatePhoneNumber(visitor.contact_number) === false"
+                    class="input-group-text alert-danger" role="alert">Contact Number is required</span>
+              <input ng-model="phone" type="tel" [(ngModel)]="visitor.contact_number"
+                     ng-pattern="(?:(?:(\s*\(?([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\)?\s*(?:[.-]\s*)?)([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})"
+                     placeholder="{{visitor.contact_number}}" name="contact_number" #contact_number="ngModel"
+                     required>
+            </div>
+
+            <div class="col input-group-prepend input-group-lg">
+              <span
+                *ngIf="next_of_kin_contact_number.pristine || validatePhoneNumber(visitor.next_of_kin_contact_number) === true"
+                class="input-group-text">Next of Kin Contact Number</span>
+              <span
+                *ngIf="!next_of_kin_contact_number.pristine && validatePhoneNumber(visitor.next_of_kin_contact_number) === false"
+                class="input-group-text alert-danger" role="alert">Contact Number is required for Next of Kin</span>
+              <input type="tel" [(ngModel)]="visitor.next_of_kin_contact_number"
+                     placeholder="{{visitor.next_of_kin_contact_number}}" name="next_of_kin_contact_number"
+                     #next_of_kin_contact_number="ngModel"
+                     required maxlength="10" minlength="7">
+            </div>
+
+          </div>
+        </div>
+
+        <div class=" input-group mb-3">
+          <div class="row input-group">
+            <div class="col input-group-prepend input-group-lg">
+              <span *ngIf="f.submitted === false || checkin_date.valid" class="input-group-text">Check-in Date</span>
+              <span *ngIf="f.submitted && !checkin_date.valid" class="input-group-text alert-danger" role="alert">Check-in Date is required</span>
+              <p-calendar id="newVisitor-checkin_date" type="date"
+                          [(ngModel)]="visitor.checkin_date" dateFormat="yy-mm-dd"
+                          name="checkin_date" #checkin_date="ngModel" required></p-calendar>
+            </div>
+
+            <div class="col input-group-prepend input-group-lg">
+              <span *ngIf="f.submitted === false || checkout_date.valid" class="input-group-text">Check-out Date</span>
+              <span *ngIf="f.submitted && !checkout_date.valid" class="input-group-text alert-danger" role="alert">Check-out Date is required</span>
+              <p-calendar id="newVisitor-checkout_date" type="date"
+                          [(ngModel)]="visitor.checkout_date" dateFormat="yy-mm-dd"
+                          name="checkout_date" #checkout_date="ngModel" required></p-calendar>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span *ngIf="next_of_kin.pristine || validateName(visitor.next_of_kin) === true" class="input-group-text">Next of Kin</span>
+            <span *ngIf="!next_of_kin.pristine && validateName(visitor.next_of_kin) === false"
+                  class="input-group-text alert-danger" role="alert">Next of Kin is required</span>
+          </div>
+          <input type="text" class="form-control form-group" aria-label="Default"
+                 aria-describedby="inputGroup-sizing-default"
+                 [(ngModel)]="visitor.next_of_kin" placeholder="Next of Kin full name" name="next_of_kin"
+                 #next_of_kin="ngModel" required/>
+
+        </div>
+
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span *ngIf="email.pristine || validateEmail(visitor.email) === true" class="input-group-text">Email</span>
+            <span *ngIf="!email.pristine && validateEmail(visitor.email) === false"
+                  class="input-group-text alert-danger"
+                  role="alert">Email is required</span>
+          </div>
+          <input type="email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                 [(ngModel)]="visitor.email" placeholder="{{visitor.email}}" name="email" #email="ngModel"
+                 autocomplete="off" required/>
+        </div>
+
+        <!--<div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span *ngIf="f.submitted === false || password.valid" class="input-group-text">Password</span>
+            <span *ngIf="f.submitted && !password.valid" class="input-group-text alert-danger" role="alert">Password is required</span>
+          </div>
+          <input type="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+                 [(ngModel)]="newUserPassword" name="password" #password="ngModel" required>
+        </div>-->
+
+        <div id="errorMsg" type="alert" class="alert alert-danger" hidden>{{errorMessage}}</div>
+        <div id="successMsg" type="alert" class="alert alert-success" hidden>User saved successfully!</div>
+
+
+      </div>
+      <div class="modal-footer">
+        <!--<button  (click)="saveVisitor();" type="submit" class="btn btn-success" disabled>Save</button>-->
+        <button
+          [attr.disabled]="(email.valid && firstname.valid && lastname.valid && contact_number.valid && dob.valid) == false ? true : null"
+          type="submit" class="btn btn-success">Save
+        </button>
+        <button id="closeButton" (click)="closeModal('edit-visitor-modal'); f.submitted = false"
+                class="btn btn-secondary">
+          Discard
+        </button>
+      </div>
+    </form>
+
+  </div>
+  <div class="modal-background"></div>
+</modal>
+
+
+<modal id="assign-visitor-tracker" style="display: none">
+  <div class="modal">
+    <div class="modal-header">
+      <h5 class="modal-title"> Assign tracker to {{visitor.first_name}} {{visitor.last_name}}</h5>
+    </div>
+    <form (ngSubmit)="assignTrackerForm.form.valid" #assignTrackerForm="ngForm" autocomplete="off"
+          novalidate>
+      <div class="modal-body">
+
+        <div *ngFor="let tracker of trackerList; " >
+          {{tracker.id}} <input type="radio" name="{{tracker.type}}" (click)="selectedTracker = tracker.id" [attr.disabled]="tracker.status== true ? false : null"> - {{tracker.description}} - {{tracker.MISC}}
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <!--<button  (click)="saveVisitor();" type="submit" class="btn btn-success" disabled>Save</button>-->
+        <button type="submit" class="btn btn-success" (click)="selectTracker(selectedTracker)" [attr.disabled]="selectedTracker == null ? false : null">Save</button>
+        <button (click)="closeModal('assign-visitor-tracker'); assignTrackerForm.submitted = false"
+                class="btn btn-secondary">
+          Discard
+        </button>
+      </div>
+    </form>
+
+  </div>
+  <div class="modal-background"></div>
+</modal>
+
 

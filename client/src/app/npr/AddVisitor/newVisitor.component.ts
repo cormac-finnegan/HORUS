@@ -10,38 +10,34 @@ import {VisitorService} from "../../_services/visitor.service";
 
 @Component({
   selector: 'visitors-npr',
-  templateUrl: './visitor-npr.component.html'
+  templateUrl: './newVisitorcomponent.html'
 })
-export class VisitorNPRComponent implements OnInit {
+export class NewVisitorComponent implements OnInit {
   visitor: Visitor;
   errorMessage: string;
   minAgeDate: Date;
 
 
   constructor(private userService: UserService, private visitorService: VisitorService) {
-    this.visitor = new Visitor();
 
-  }
 
-  onSubmit() {
-    console.log("SUBMIT")
   }
 
   ngOnInit() {
-
+    this.visitor = new Visitor();
     this.getMinAgeDate();
 
   }
 
   showError(message:string){
     this.errorMessage = message;
-    document.getElementById('errorMsg').hidden = false;
+    document.getElementById('newErrorMsg').hidden = false;
   }
 
   showSuccess(){
     this.errorMessage = null;
-    document.getElementById('errorMsg').hidden = true;
-    document.getElementById('successMsg').hidden = false;
+    document.getElementById('newErrorMsg').hidden = true;
+    document.getElementById('newSuccessMsg').hidden = false;
     this.visitor= null;
   }
 

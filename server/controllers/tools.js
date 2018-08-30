@@ -14,6 +14,18 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/rest/toolInventory/type=\'tracker\'", function (req, res) {
+
+        toolModel.getAllTrackers(function (callback) {
+
+            if (callback.error === null) {
+                res.status(200).send(callback.results);
+            } else {
+                res.status(404).send(callback.error.code);
+            }
+        });
+    });
+
     app.get("/rest/toolInventory/:id(\\d+*)", function (req, res) {
         let id = req.params.id;
 

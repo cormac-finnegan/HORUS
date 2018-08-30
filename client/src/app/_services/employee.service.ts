@@ -16,6 +16,10 @@ export class EmployeeService {
     return this.http.get('/rest/users/' + id);
   }
 
+  getEmployeeByUserID<Employee>(id:number){
+    return this.http.get('/rest/employees/users/id/' + id);
+  }
+
   create(employee: Employee) {
     console.log("\n IN CREATE SERVICE")
     return this.http.post('/rest/employees', employee);

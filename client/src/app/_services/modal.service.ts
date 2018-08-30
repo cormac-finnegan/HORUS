@@ -2,7 +2,7 @@ export class ModalService {
   private modals: any[] = [];
 
   add(modal: any) {
-    console.log("service add" + JSON.stringify(modal))
+    //console.log("service add" + JSON.stringify(modal))
     // add modal to array of active modals
     this.modals.push(modal);
   }

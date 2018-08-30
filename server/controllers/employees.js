@@ -45,6 +45,21 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/rest/employees/users/id/:id(\\d+*)", function (req, res) {
+        console.log('Controller');
+        let id = req.params.id;
+        employeeModel.getEmployeeByUserID(id, function (callback) {
+
+            if (callback.error === null) {
+                res.status(200).send(callback.results);
+                //return callback.results;
+            } else {
+
+                res.status(404).send(callback.error);
+            }
+        });
+    });
+
 
     app.get("/rest/employees/user/:id(\\d+*)", function (req, res) {
         console.log('Controller');

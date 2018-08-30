@@ -87,7 +87,144 @@ exports.addVisitor = function (visitor, callback) {
         }
         callback(message);
     });
+};
+
+exports.editVisitor = function (id, visitor, callback) {
+
+    console.log("ID??????" + JSON.stringify(visitor))
+    let visitorObject = visitor;
+
+    db.query('Update Visitors SET ' +
+        'first_name = \'' + visitorObject.first_name + '\',' +
+        'last_name = \'' + visitorObject.last_name + '\',' +
+        'dob = \'' + visitorObject.dob + '\',' +
+        'contact_number = \'' + visitorObject.contact_number + '\',' +
+        'next_of_kin = \'' + visitorObject.next_of_kin + '\',' +
+        'next_of_kin_contact_number = \'' + visitorObject.next_of_kin_contact_number + '\',' +
+        'checkin_date = \'' + visitorObject.checkin_date + '\',' +
+        'checkout_date = \'' + visitorObject.checkout_date + '\',' +
+        'email = \'' + visitorObject.email + '\',' +
+        'tracker_id = ' + visitorObject.tracker_id + ',' +
+        'user_ref = ' + visitorObject.user_ref +
+        ' WHERE id = ' + id + ';', function (error, results) {
+
+        //console.log(this.sql);
+        var message = {
+            error: undefined,
+            results: undefined
+        };
+        if (error) {
+            console.log(error);
+            message = {
+                error: error,
+                results: null
+            };
+        } else {
+            console.log(results);
+            message = {
+                error: null,
+                results: results
+            };
+        }
+        callback(message);
+    });
+
 
 };
 
+exports.assignTracker = function (visitorID, trackerID, callback) {
+
+    console.log("Model " + trackerID + " ; " + visitorID)
+
+    db.query('Update Visitors SET ' +
+        'tracker_id = ' + trackerID +
+
+        ' WHERE id = ' + visitorID + ';', function (error, results) {
+
+        //console.log(this.sql);
+        var message = {
+            error: undefined,
+            results: undefined
+        };
+        if (error) {
+            console.log(error);
+            message = {
+                error: error,
+                results: null
+            };
+        } else {
+            db.query('Update Tool_Inventory SET status = 1' +
+                ' WHERE id = ' + trackerID + ';', function (error, results) {
+
+                //console.log(this.sql);
+                var message = {
+                    error: undefined,
+                    results: undefined
+                };
+                if (error) {
+                    console.log(error);
+                    message = {
+                        error: error,
+                        results: null
+                    };
+                } else {
+                    console.log(results);
+                    message = {
+                        error: null,
+                        results: results
+                    };
+                }
+                callback(message);
+            });
+        }
+    });
+};
+
+
+exports.deleteTracker = function (visitorID, trackerID, callback) {
+
+    console.log("Model " + trackerID + " ; " + visitorID)
+
+    db.query('Update Visitors SET ' +
+        'tracker_id = NULL'  +
+        ' WHERE id = ' + visitorID + ';', function (error, results) {
+
+        //console.log(this.sql);
+        var message = {
+            error: undefined,
+            results: undefined
+        };
+        if (error) {
+            console.log(error);
+            message = {
+                error: error,
+                results: null
+            };
+        } else {
+            db.query('Update Tool_Inventory SET status = 0' +
+                ' WHERE id = ' + trackerID + ';', function (error, results) {
+
+                //console.log(this.sql);
+                var message = {
+                    error: undefined,
+                    results: undefined
+                };
+                if (error) {
+                    console.log(error);
+                    message = {
+                        error: error,
+                        results: null
+                    };
+                } else {
+                    console.log(results);
+                    message = {
+                        error: null,
+                        results: results
+                    };
+                }
+                callback(message);
+            });
+        }
+    });
+};
 

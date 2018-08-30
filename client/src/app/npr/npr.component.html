@@ -17,10 +17,13 @@
         <a (click)="viewAll();" class="nav-link" style="cursor: pointer">Visitor List</a>
       </li>
       <li class="nav-item active">
-        <a (click)="toolView();" class="nav-link" style="cursor: pointer">Tools</a>
+        <a (click)="newVisitor();" class="nav-link" style="cursor: pointer">Add Visitor</a>
+      </li>
+      <li class="nav-item active">
+        <a (click)="trackerView();" class="nav-link" style="cursor: pointer">Visitor Tracker</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown03" data-toggle="dropdown"
+        <a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">Dropdown</a>
         <div class="dropdown-menu" aria-labelledby="dropdown03">
           <a class="dropdown-item" href="#">Action</a>
@@ -40,7 +43,13 @@
   </div>
 </nav>
 
+<div id="userInfo" *ngIf="homeViewEnabled">
+  <p>Hello <b>{{employee.first_name}} {{employee.last_name}}</b></p>
+  <p>You are currently logged-in as <b>{{user.username}}</b></p>
+</div>
+
 <div id="npr-main-div">
-  <view-all-visitors *ngIf="viewAllEnabled"></view-all-visitors>
-  <app-npr *ngIf="newVisitorEnabled"></app-npr>
+  <view-all-visitors *ngIf="viewAllEnabled"><div style="text-align: center"> <img src="assets/loading.gif" style="display: block; margin-left: auto; margin-right: auto;"></div></view-all-visitors>
+  <visitors-npr *ngIf="newVisitorEnabled"><div style="text-align: center"> <img src="assets/loading.gif" style="display: block; margin-left: auto; margin-right: auto;"></div></visitors-npr>
+  <app-map *ngIf="trackerViewEnabled"><div style="text-align: center"> <img src="assets/loading.gif" style="display: block; margin-left: auto; margin-right: auto;"></div></app-map>
 </div>
