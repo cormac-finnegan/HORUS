@@ -3,33 +3,18 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/client/src/app/_common/employees/employee.component.ts" line="2" />
     <bookmark url="file://$PROJECT_DIR$/client/src/app/_common/employees/employee.component.html" line="0" />
+    <bookmark url="file://$PROJECT_DIR$/server/test/connectionTests.js" line="159" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cf46914-7638-45b5-a056-f7364c020451" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/app/_guards/npr.guard.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/_common/employees/employee.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/_common/employees/employee.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/_guards/auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/_guards/auth.guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/_services/employee.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/_services/employee.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/_services/modal.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/_services/modal.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/_services/tool.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/_services/tool.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/_services/visitor.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/_services/visitor.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.routing.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/npr/AddVisitor/visitor-npr.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/npr/AddVisitor/newVisitorcomponent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/npr/AddVisitor/visitor-npr.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/npr/AddVisitor/newVisitor.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/npr/ViewAll/view-all.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/npr/ViewAll/view-all.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/npr/ViewAll/view-all.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/npr/ViewAll/view-all.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/npr/npr.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/npr/npr.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/npr/npr.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/npr/npr.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/employees.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/employees.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/tools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/visitors.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/visitors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/models/tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/tools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/visitors.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/visitors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/connectionTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/connectionTests.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -41,7 +26,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/HORUS$Mocha.dat" NAME="Mocha Coverage Results" MODIFIED="1535753209738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/HORUS$Rerun_Failed_Tests.dat" NAME="Rerun Failed Tests Coverage Results" MODIFIED="1535748405847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/HORUS$server_test_connectionTests_js.dat" NAME="server/test/connectionTests.js Coverage Results" MODIFIED="1532706104923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="588" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1270961259">
@@ -70,9 +60,10 @@
           <entry key="gif" value="1" />
           <entry key="html" value="61" />
           <entry key="ico" value="2" />
-          <entry key="js" value="101" />
-          <entry key="json" value="14" />
+          <entry key="js" value="110" />
+          <entry key="json" value="15" />
           <entry key="less" value="3" />
+          <entry key="otherTests" value="1" />
           <entry key="ts" value="229" />
         </counts>
       </usages-collector>
@@ -81,9 +72,10 @@
           <entry key="CSS" value="16" />
           <entry key="HTML" value="61" />
           <entry key="Image" value="3" />
-          <entry key="JSON" value="13" />
-          <entry key="JavaScript" value="101" />
+          <entry key="JSON" value="14" />
+          <entry key="JavaScript" value="110" />
           <entry key="Less" value="3" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="TypeScript" value="230" />
           <entry key="tsconfig" value="1" />
         </counts>
@@ -93,8 +85,8 @@
           <entry key="controller" value="21" />
           <entry key="css" value="430" />
           <entry key="html" value="7885" />
-          <entry key="js" value="4944" />
-          <entry key="json" value="52" />
+          <entry key="js" value="6410" />
+          <entry key="json" value="53" />
           <entry key="less" value="6" />
           <entry key="ts" value="20968" />
         </counts>
@@ -103,8 +95,8 @@
         <counts>
           <entry key="CSS" value="430" />
           <entry key="HTML" value="7881" />
-          <entry key="JSON" value="50" />
-          <entry key="JavaScript" value="4948" />
+          <entry key="JSON" value="51" />
+          <entry key="JavaScript" value="6414" />
           <entry key="Less" value="6" />
           <entry key="TypeScript" value="20989" />
           <entry key="tsconfig" value="2" />
@@ -117,32 +109,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/npr/ViewAll/view-all.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="31" column="97" selection-start-line="31" selection-start-column="97" selection-end-line="31" selection-end-column="97" />
-              <folding>
-                <element signature="n#style#0;n#button#1;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#modal#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#modal#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/app.routing.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="10" column="73" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
-              <folding>
-                <element signature="e#0#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/app/app.component.html">
           <provider selected="true" editor-type-id="text-editor" />
@@ -157,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#app-root#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#app-root#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -171,60 +137,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/_services/visitor.service.ts">
+        <entry file="file://$PROJECT_DIR$/server/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="187">
+              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/controllers/visitors.js">
+        <entry file="file://$PROJECT_DIR$/server/test/connectionTests.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="245">
+              <caret line="202" column="51" selection-start-line="202" selection-start-column="51" selection-end-line="202" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/controllers/tools.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="52" column="54" lean-forward="true" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/models/visitors.js">
+        <entry file="file://$PROJECT_DIR$/server/models/tools.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3451">
-              <caret line="203" column="58" selection-start-line="203" selection-start-column="58" selection-end-line="203" selection-end-column="58" />
+            <state relative-caret-position="384">
+              <caret line="101" column="35" lean-forward="true" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/npr/npr.component.html">
+        <entry file="file://$PROJECT_DIR$/server/db.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#view-all-visitors#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#view-all-visitors#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#visitors-npr#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#visitors-npr#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#app-map#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#app-map#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/_services/modal.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+            <state relative-caret-position="272">
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -313,9 +265,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/app/_common/datatable/data-table-demo1-data.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/_common/datatable/datatable.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/home/home.component.ts" />
         <option value="$PROJECT_DIR$/client/package.json" />
         <option value="$PROJECT_DIR$/client/src/app/_directives/modal.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/_common/validators/email.validator.ts" />
@@ -352,8 +301,6 @@
         <option value="$PROJECT_DIR$/client/src/app/_common/employees/employee.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/npr/AddVisitor/newVisitorcomponent.html" />
         <option value="$PROJECT_DIR$/client/src/app/npr/AddVisitor/newVisitor.component.ts" />
-        <option value="$PROJECT_DIR$/server/models/tools.js" />
-        <option value="$PROJECT_DIR$/server/controllers/tools.js" />
         <option value="$PROJECT_DIR$/client/src/app/_services/modal.service.ts" />
         <option value="$PROJECT_DIR$/client/src/app/npr/npr.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/_services/tool.service.ts" />
@@ -364,6 +311,11 @@
         <option value="$PROJECT_DIR$/client/src/app/npr/ViewAll/view-all.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/client/src/index.html" />
+        <option value="$PROJECT_DIR$/server/package.json" />
+        <option value="$PROJECT_DIR$/server/db.js" />
+        <option value="$PROJECT_DIR$/server/test/connectionTests.js" />
+        <option value="$PROJECT_DIR$/server/models/tools.js" />
+        <option value="$PROJECT_DIR$/server/controllers/tools.js" />
       </list>
     </option>
   </component>
@@ -479,6 +431,12 @@
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="HORUS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HORUS" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -526,7 +484,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.Angular CLI Server">
+  <component name="RunManager" selected="Mocha.Mocha">
     <configuration name="app.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="app.js" working-dir="$PROJECT_DIR$/server">
       <method v="2" />
     </configuration>
@@ -636,56 +594,56 @@
       <workItem from="1535037021129" duration="16194000" />
       <workItem from="1535154596588" duration="22855000" />
       <workItem from="1535373224662" duration="40235000" />
-      <workItem from="1535640062515" duration="1980000" />
+      <workItem from="1535640062515" duration="15877000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Mocha - 2018.08.02 at 16h 40m 24s.xml">
+    <history-entry file="Mocha - 2018.08.31 at 22h 50m 30s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.08.02 at 16h 41m 00s.xml">
+    <history-entry file="Mocha - 2018.08.31 at 22h 50m 53s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.08.02 at 16h 41m 11s.xml">
+    <history-entry file="Mocha - 2018.08.31 at 22h 51m 09s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.08.02 at 16h 42m 43s.xml">
+    <history-entry file="Mocha - 2018.08.31 at 23h 00m 13s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.08.02 at 16h 42m 52s.xml">
+    <history-entry file="Mocha - 2018.08.31 at 23h 01m 10s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.08.02 at 16h 44m 09s.xml">
+    <history-entry file="Mocha - 2018.08.31 at 23h 01m 47s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.08.02 at 16h 44m 38s.xml">
+    <history-entry file="Mocha - 2018.08.31 at 23h 01m 59s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.08.02 at 16h 46m 20s.xml">
+    <history-entry file="Mocha - 2018.08.31 at 23h 03m 41s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.08.02 at 16h 47m 13s.xml">
+    <history-entry file="Mocha - 2018.08.31 at 23h 05m 28s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.08.02 at 16h 48m 33s.xml">
+    <history-entry file="Mocha - 2018.08.31 at 23h 06m 03s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="379249000" />
+    <option name="totallyTimeSpent" value="393146000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="27" width="1920" height="1013" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.63223785" visible="true" weight="0.18819188" />
-      <window_info id="Structure" order="1" sideWeight="0.36776212" side_tool="true" weight="0.15867159" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.63067293" visible="true" weight="0.1905016" />
+      <window_info id="Structure" order="1" sideWeight="0.36932707" side_tool="true" visible="true" weight="0.1905016" />
       <window_info id="npm" order="2" sideWeight="0.34674922" side_tool="true" weight="0.15228426" />
       <window_info id="Favorites" order="3" sideWeight="0.34674922" side_tool="true" weight="0.15228426" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3280543" />
-      <window_info anchor="bottom" x="212" y="641" width="1610" height="807" id="Run" order="2" visible="true" weight="0.27714932" />
+      <window_info active="true" anchor="bottom" x="212" y="641" width="1610" height="807" id="Run" order="2" visible="true" weight="0.27714932" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990878" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -698,7 +656,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="3" side_tool="true" visible="true" weight="0.33569586" />
+      <window_info anchor="right" id="Coverage" order="3" side_tool="true" visible="true" weight="0.3719317" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,44 +666,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/app/sar/sar.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/sar/sar.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="82" lean-forward="true" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/trackerNodes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="111" column="23" selection-start-line="111" selection-start-column="23" selection-end-line="111" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/_models/employee.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" lean-forward="true" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/_common/validators/email.validator.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="195" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/_services/map.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -919,20 +839,6 @@
     <entry file="file://$PROJECT_DIR$/server/controllers/trackerNodes.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/tools.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="71" column="16" lean-forward="true" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/tools.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="73" lean-forward="true" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/assets/loading.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -973,13 +879,6 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/visitors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
         </state>
       </provider>
     </entry>
@@ -1037,9 +936,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1050,11 +946,72 @@
     <entry file="file://$PROJECT_DIR$/client/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="n#style#0;n#div#0;n#app-root#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#app-root#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/local_db.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/test/otherTests">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/home.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/visitors.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="65" column="33" lean-forward="true" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/test/connectionTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="202" column="51" selection-start-line="202" selection-start-column="51" selection-end-line="202" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/tools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="101" column="35" lean-forward="true" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/tools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="52" column="54" lean-forward="true" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
         </state>
       </provider>
     </entry>
