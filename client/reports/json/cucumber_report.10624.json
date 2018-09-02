@@ -1,0 +1,121 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "login - We want to test the login process",
+    "line": 1,
+    "id": "login---we-want-to-test-the-login-process",
+    "tags": [],
+    "uri": "e2e/features/login.feature",
+    "elements": [
+      {
+        "description": "  Verify that the user can enter in the application using correct credentials and the cookies are created successfully.",
+        "id": "login---we-want-to-test-the-login-process;sc01.check-the-user-can-login-into-the-application",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "SC01.Check the user can login into the application",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is in the Login page",
+            "match": {
+              "location": "e2e/features/step_definitions/login.e2e-spec.ts:14"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5009000000,
+              "error_message": "Error: function timed out, ensure the callback is executed within 5000 milliseconds\n    at Timeout._onTimeout (/home/cormac/Code/HORUS-git/HORUS/client/node_modules/cucumber/src/user_code_runner.js:61:18)\n    at ontimeout (timers.js:498:11)\n    at tryOnTimeout (timers.js:323:5)\n    at Timer.listOnTimeout (timers.js:290:5)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "the user set the username 'guest'",
+            "match": {
+              "location": "e2e/features/step_definitions/login.e2e-spec.ts:20"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "the user set the password 'guest123'",
+            "match": {
+              "location": "e2e/features/step_definitions/login.e2e-spec.ts:24"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "the user logs in the application",
+            "match": {
+              "location": "e2e/features/step_definitions/login.e2e-spec.ts:28"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the user is redirected to the Welcome page",
+            "match": {
+              "location": "e2e/features/step_definitions/login.e2e-spec.ts:32"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "a cookie with name 'user' is created with the value 'guest'",
+            "match": {
+              "location": "e2e/features/step_definitions/login.e2e-spec.ts:39"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "a cookie with name 'token' is created with the value 'fake-jwt-token'",
+            "match": {
+              "location": "e2e/features/step_definitions/login.e2e-spec.ts:39"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "e2e/support/hooks.js:17"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5005000000,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout._onTimeout (/home/cormac/Code/HORUS-git/HORUS/client/node_modules/cucumber/src/user_code_runner.js:61:18)\n    at ontimeout (timers.js:498:11)\n    at tryOnTimeout (timers.js:323:5)\n    at Timer.listOnTimeout (timers.js:290:5)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

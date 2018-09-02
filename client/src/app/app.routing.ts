@@ -22,13 +22,15 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'admin', component: AdminComponent , canActivate:[AuthGuard, AdminGuard]},
   { path: 'sar', component: SarComponent , canActivate:[AuthGuard]},
-  { path: 'npr', component: NprComponent },
+  { path: 'npr', component: NprComponent, canActivate:[AuthGuard, NPRGuard] },
   { path: 'npr/viewAll', component: ViewAllComponent },
   { path: 'npr/addVisitor', component: NewVisitorComponent },
 
 
-  // otherwise redirect to home
-  { path: '**', redirectTo: '' }
+  // otherwise redirect to 404
+  { path: '**', redirectTo: '' },
+
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+export const routing = RouterModule.forRoot(appRoutes, {useHash:false});
+

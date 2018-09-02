@@ -5,13 +5,14 @@ import { AlertService, AuthenticationService } from '../_services/index';
 
 @Component({
   selector: 'app-login',
-  templateUrl: 'login.component.html'
+  templateUrl: 'login.component.html',
 })
 
 export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
   returnUrl: string;
+  title:string;
 
   constructor(
     private route: ActivatedRoute,
