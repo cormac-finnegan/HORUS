@@ -105,7 +105,6 @@ exports.addTool = function (Tool, callback) {
                 results: results
             };
         }
-        
         callback(message);
     });
 };
@@ -133,6 +132,37 @@ exports.deleteToolByID = function (id, callback) {
                 error: null,
                 results: results
             };
+
+
+        }
+        callback(message);
+    });
+};
+
+
+exports.toolCount = function (callback) {
+    //console.log('ID: ' + id);
+    db.query('SELECT count(*) AS \'count\' FROM Tool_Inventory;', function (error, results) {
+
+        //console.log(this.sql);
+        var message = {
+            error: undefined,
+            results: undefined
+        };
+        if (error) {
+            //console.log(error);
+            message = {
+                error: error,
+                results: null
+            };
+        } else {
+            //console.log(results);
+            message = {
+                error: null,
+                results: results[0]
+            };
+
+            console.log("Tool Count: " + JSON.stringify(results))
         }
         callback(message);
     });

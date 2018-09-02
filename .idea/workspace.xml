@@ -3,6 +3,7 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/client/src/app/_common/employees/employee.component.ts" line="2" />
     <bookmark url="file://$PROJECT_DIR$/client/src/app/_common/employees/employee.component.html" line="0" />
+    <bookmark url="file://$PROJECT_DIR$/server/test/connectionTests.js" line="159" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cf46914-7638-45b5-a056-f7364c020451" name="Default" comment="">
@@ -49,7 +50,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/HORUS$Mocha.dat" NAME="Mocha Coverage Results" MODIFIED="1535753209738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/HORUS$Rerun_Failed_Tests.dat" NAME="Rerun Failed Tests Coverage Results" MODIFIED="1535748405847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/HORUS$server_test_connectionTests_js.dat" NAME="server/test/connectionTests.js Coverage Results" MODIFIED="1532706104923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="588" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1270961259">
@@ -78,9 +84,10 @@
           <entry key="gif" value="1" />
           <entry key="html" value="61" />
           <entry key="ico" value="2" />
-          <entry key="js" value="101" />
-          <entry key="json" value="14" />
+          <entry key="js" value="110" />
+          <entry key="json" value="15" />
           <entry key="less" value="3" />
+          <entry key="otherTests" value="1" />
           <entry key="ts" value="229" />
         </counts>
       </usages-collector>
@@ -89,9 +96,10 @@
           <entry key="CSS" value="16" />
           <entry key="HTML" value="61" />
           <entry key="Image" value="3" />
-          <entry key="JSON" value="13" />
-          <entry key="JavaScript" value="101" />
+          <entry key="JSON" value="14" />
+          <entry key="JavaScript" value="110" />
           <entry key="Less" value="3" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="TypeScript" value="230" />
           <entry key="tsconfig" value="1" />
         </counts>
@@ -101,8 +109,8 @@
           <entry key="controller" value="21" />
           <entry key="css" value="430" />
           <entry key="html" value="7885" />
-          <entry key="js" value="4944" />
-          <entry key="json" value="52" />
+          <entry key="js" value="6410" />
+          <entry key="json" value="53" />
           <entry key="less" value="6" />
           <entry key="ts" value="20968" />
         </counts>
@@ -111,8 +119,8 @@
         <counts>
           <entry key="CSS" value="430" />
           <entry key="HTML" value="7881" />
-          <entry key="JSON" value="50" />
-          <entry key="JavaScript" value="4948" />
+          <entry key="JSON" value="51" />
+          <entry key="JavaScript" value="6414" />
           <entry key="Less" value="6" />
           <entry key="TypeScript" value="20989" />
           <entry key="tsconfig" value="2" />
@@ -336,8 +344,6 @@
         <option value="$PROJECT_DIR$/client/src/app/_common/employees/employee.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/npr/AddVisitor/newVisitorcomponent.html" />
         <option value="$PROJECT_DIR$/client/src/app/npr/AddVisitor/newVisitor.component.ts" />
-        <option value="$PROJECT_DIR$/server/models/tools.js" />
-        <option value="$PROJECT_DIR$/server/controllers/tools.js" />
         <option value="$PROJECT_DIR$/client/src/app/_services/modal.service.ts" />
         <option value="$PROJECT_DIR$/client/src/app/_services/tool.service.ts" />
         <option value="$PROJECT_DIR$/client/src/app/_services/visitor.service.ts" />
@@ -530,6 +536,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="npr" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HORUS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HORUS" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />

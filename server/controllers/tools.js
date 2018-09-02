@@ -14,10 +14,8 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/rest/toolInventory/type=\'tracker\'", function (req, res) {
-
+    app.get("/rest/toolInventory/type=tracker", function (req, res) {
         toolModel.getAllTrackers(function (callback) {
-
             if (callback.error === null) {
                 res.status(200).send(callback.results);
             } else {
@@ -46,7 +44,6 @@ module.exports = function (app) {
         toolModel.toolCount(function (callback) {
             var JSONObj = JSON.parse(newTool);
             JSONObj.id = callback.results.count + 1;
-            newTool = JSON.stringify(JSONObj);
 
             toolModel.addTool(newTool, function (callback) {
                 if (callback.error === null) {
