@@ -24,7 +24,7 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/rest/toolInventory/:id(\\d+*)", function (req, res) {
+    app.get("/rest/toolInventory/:id(\\d+)", function (req, res) {
         let id = req.params.id;
 
         toolModel.getToolByID(id, function (callback) {
@@ -38,21 +38,33 @@ module.exports = function (app) {
     });
 
     app.post("/rest/toolInventory", function (req, res) {
-        let newTool = req.body;
-        newTool = JSON.stringify(newTool);
 
-        toolModel.toolCount(function (callback) {
-            var JSONObj = JSON.parse(newTool);
-            JSONObj.id = callback.results.count + 1;
 
-            toolModel.addTool(newTool, function (callback) {
-                if (callback.error === null) {
-                    res.status(200).send(callback.results);
-                } else {
-                    res.status(404).send(callback.error.code);
+            let newTool = req.body;
+            newTool = JSON.stringify(req.body);
+
+            toolModel.toolCount(function (callback) {
+                var JSONObj = JSON.parse(newTool);
+                JSONObj.id = callback.results.count + 1;
+                JSONObj = JSON.stringify(JSONObj)
+
+
+                if(req.body.constructor === Object && Object.keys(req.body).length === 0){
+                    res.status(404).send({error:"Error parsing Tool: empty Object"});
+                }else{
+                    toolModel.addTool(JSONObj, function (callback) {
+                        if (callback.error === null) {
+                            res.status(200).send(callback.results);
+                        } else {
+                            res.status(404).send(callback.error.code);
+                        }
+                    });
                 }
             });
-        });
+
+
+
+
     });
 
     app.delete("/rest/toolInventory/:id", function (req, res) {

@@ -85,6 +85,7 @@ exports.getAllTrackers = function (callback) {
 exports.addTool = function (Tool, callback) {
 
     let jsonObject = JSON.parse(Tool);
+    console.log("Tool in COntroller = " + jsonObject.id)
 
     db.query('INSERT INTO Tool_Inventory (id,type,description,status,induction_date,MISC) VALUES (\'' + jsonObject.id + '\', \'' + jsonObject.type + '\', \'' + jsonObject.description + '\', \'' + jsonObject.status + '\', \'' + jsonObject.induction_date + '\', \'' + jsonObject.MISC + '\' );', function (error, results) {
         //console.log(sql);

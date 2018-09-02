@@ -108,31 +108,6 @@ exports.getAllTrackerNodes = function(callback) {
 };
 
 
-// Get all user types
-exports.getUserFromTool = function(callback) {
-
-    db.query('SELECT * FROM Tracker_Node;', function (error, results, sql) {
-        //console.log(sql);
-        var message = {
-            error: undefined,
-            results: undefined
-        };
-        if(error){
-            console.log(error);
-            message = {
-                error: error,
-                results: null
-            };
-        }else{
-            console.log(results);
-            message = {
-                error: null,
-                results: results
-            };
-        }
-        callback(message);
-    });
-};
 
 
 

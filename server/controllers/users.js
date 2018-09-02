@@ -31,8 +31,10 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/rest/users/:id(\\d+*)", function (req, res) {
+    app.get("/rest/users/:id(\\d+)", function (req, res) {
         let id = req.params.id;
+
+        console.log("Passed ID: " + id)
 
         userModel.getUserByID(id, function (callback) {
 
@@ -51,8 +53,11 @@ module.exports = function (app) {
             if (callback.error === null) {
                 res.status(200).send(callback.results);
             } else {
+                console.log("Controller Error Msg: " + JSON.stringify(callback))
                 if(callback.error.errno === 1062){
-                    res.status(409).send("test EROOR");
+                    res.status(409).send(callback.error);
+                }else if(callback.error.errno === 1101){
+                    res.status(406).send(callback.error);
                 }else{
                     res.status(404).send(callback.error);
                 }
@@ -63,15 +68,15 @@ module.exports = function (app) {
         //res.status(200).send(newUser);
     });
 
-    app.delete("/rest/users/:id(\\d+*)", function (req, res) {
+    app.delete("/rest/users/:id(\\d+)", function (req, res) {
         let id = req.params.id;
 
         userModel.deleteUserByID(id, function (callback) {
 
-            if (callback.error === null) {
+            if (callback.error === null && callback.results.affectedRows === 1) {
                 res.status(200).send(callback.results);
             } else {
-                res.status(404).send(callback.error.code);
+                res.status(404).send("User not in database");
             }
         });
 
@@ -97,6 +102,24 @@ module.exports = function (app) {
                 res.status(404).send(callback.error);
             }
         });
+    });
+
+    app.put("/rest/users/:id(\\d+)", function (req, res) {
+        let id = req.params.id;
+        let newUser = JSON.stringify(req.body);
+
+        userModel.modifyUser(id, newUser, function (callback) {
+
+            if (callback.error === null) {
+                res.status(200).send(callback.results);
+                //return callback.results;
+            } else {
+
+                res.status(404).send(callback.error);
+            }
+        });
+
+
 
 
     });
