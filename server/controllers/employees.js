@@ -24,7 +24,7 @@ module.exports = function (app) {
 
     });
 
-    app.get("/rest/employees/:id(\\d+*)", function (req, res) {
+    app.get("/rest/employees/:id(\\d+)", function (req, res) {
         console.log('Controller');
         let id = req.params.id;
         employeeModel.getEmployeeByID(id, function (callback) {
@@ -49,28 +49,6 @@ module.exports = function (app) {
         console.log('Controller');
         let id = req.params.id;
         employeeModel.getEmployeeByUserID(id, function (callback) {
-
-            if (callback.error === null) {
-                res.status(200).send(callback.results);
-                //return callback.results;
-            } else {
-
-                res.status(404).send(callback.error);
-            }
-        });
-    });
-
-
-    app.get("/rest/employees/user/:id(\\d+*)", function (req, res) {
-        console.log('Controller');
-        let id = req.params.id;
-        employeeModel.getEmployeeByUserID(id, function (callback) {
-
-            /*var test = JSON.parse(JSON.stringify(callback.results))
-
-            console.log(test)*/
-
-            //console.log(JSON.stringify(callback.results))
 
             if (callback.error === null) {
                 res.status(200).send(callback.results);

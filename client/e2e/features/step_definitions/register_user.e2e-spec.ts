@@ -11,7 +11,7 @@ const {defineSupportCode} = require('cucumber');
 
 defineSupportCode(({Given, When, Then}) => {
 
-  Given(/^the user is in the Login page$/, (done: any) => {
+  Given(/^the user is logged in as a National Park Ranger$/, (done: any) => {
     browser.wait(page.getElementRequired().isPresent(), 5000).then(() => {
       done();
     });

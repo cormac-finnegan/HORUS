@@ -13,7 +13,7 @@ global.request = supertest(app);
 var mysql = require('mysql');
 
 
-let testDBParams = require('../config/test.json').AWS;
+let testDBParams = require('../config/test.json').local;
 
 
 it('Successful connection to AWS test database', function (done) {
@@ -27,8 +27,8 @@ it('Successful connection to AWS test database', function (done) {
 it('Failure to connect to AWS test database', function (done) {
     var connection = mysql.createConnection('testDBParams');
     connection.connect(function (err) {
-        //console.log(err)
-        assert.equal(err.code, 'ECONNREFUSED');
+        console.log(err)
+        assert.equal(err.code, 'ER_ACCESS_DENIED_ERROR');
         done()
     });
 });

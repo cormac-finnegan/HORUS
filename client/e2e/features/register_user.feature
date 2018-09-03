@@ -1,7 +1,7 @@
-Feature: login - The the user login
+Feature: register a new visitor via the National Park Ranger
 
-  Scenario Outline: SC01.Check the user can login into the application
-    Given the user is in the Login page
+  Scenario Outline: As a National Park Ranger I want to register a new visitor
+    Given the user is logged in as a National Park Ranger
     And the user set the username '<userId>'
     And the user set the password '<password>'
     When the user logs in the application

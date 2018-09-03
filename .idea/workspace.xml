@@ -6,23 +6,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cf46914-7638-45b5-a056-f7364c020451" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/server/test/employeeTests.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/test/toolTests.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/test/tracker_nodeTests.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/test/userTests.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/test/visitorTests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/e2e/features/register_user.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/e2e/features/step_definitions/register_user.e2e-spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/e2e/pages/new_visitor.po.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.nyc_output/66c54896-1be2-4fc0-a275-b1d10f285c39.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/tools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/trackerNodes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/trackerNodes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/tools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/trackerNodes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/trackerNodes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nyc_output/bb0e1f9d-646b-4515-9589-741e10a310fb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/e2e/features/login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/client/e2e/features/login.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/e2e/features/step_definitions/login.e2e-spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/e2e/features/step_definitions/login.e2e-spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/AWS_db.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/AWS_db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/test.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/employees.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/employees.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/db.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/test/connectionTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/connectionTests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/otherTests" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/employeeTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/employeeTests.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,29 +30,31 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/HORUS$Mocha.dat" NAME="Mocha Coverage Results" MODIFIED="1535912147279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/HORUS$Rerun_Failed_Tests.dat" NAME="Rerun Failed Tests Coverage Results" MODIFIED="1535912155889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/HORUS$Mocha.dat" NAME="Mocha Coverage Results" MODIFIED="1535923058858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/HORUS$Rerun_Failed_Tests.dat" NAME="Rerun Failed Tests Coverage Results" MODIFIED="1535919374635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/HORUS$server_test_connectionTests_js.dat" NAME="server/test/connectionTests.js Coverage Results" MODIFIED="1532706104923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageOptionsProvider">
     <option name="myAddOrReplace" value="1" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="535" />
+    <option name="myElementSize" value="587" />
   </component>
   <component name="DockManager">
     <window id="3">
       <content type="file-editors">
         <state>
           <leaf>
-            <file pinned="false" current-in-tab="true">
+            <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/server/controllers/visitors.js">
                 <provider selected="true" editor-type-id="text-editor" />
               </entry>
             </file>
-            <file pinned="false" current-in-tab="false">
+            <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/server/models/visitors.js">
-                <provider selected="true" editor-type-id="text-editor" />
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="-3124" />
+                </provider>
               </entry>
             </file>
           </leaf>
@@ -88,26 +86,28 @@
         <counts>
           <entry key="controller" value="1" />
           <entry key="css" value="16" />
+          <entry key="feature" value="2" />
           <entry key="gif" value="1" />
-          <entry key="html" value="61" />
+          <entry key="html" value="62" />
           <entry key="ico" value="2" />
-          <entry key="js" value="156" />
-          <entry key="json" value="16" />
+          <entry key="js" value="168" />
+          <entry key="json" value="18" />
           <entry key="less" value="3" />
           <entry key="otherTests" value="3" />
-          <entry key="ts" value="230" />
+          <entry key="ts" value="237" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="16" />
-          <entry key="HTML" value="61" />
+          <entry key="Cucumber" value="2" />
+          <entry key="HTML" value="62" />
           <entry key="Image" value="3" />
-          <entry key="JSON" value="15" />
-          <entry key="JavaScript" value="156" />
+          <entry key="JSON" value="17" />
+          <entry key="JavaScript" value="168" />
           <entry key="Less" value="3" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="TypeScript" value="231" />
+          <entry key="TypeScript" value="238" />
           <entry key="tsconfig" value="1" />
         </counts>
       </usages-collector>
@@ -115,21 +115,23 @@
         <counts>
           <entry key="controller" value="21" />
           <entry key="css" value="430" />
+          <entry key="feature" value="184" />
           <entry key="html" value="7885" />
-          <entry key="js" value="9568" />
-          <entry key="json" value="53" />
+          <entry key="js" value="10736" />
+          <entry key="json" value="112" />
           <entry key="less" value="6" />
-          <entry key="ts" value="20968" />
+          <entry key="ts" value="20973" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="430" />
+          <entry key="Cucumber" value="184" />
           <entry key="HTML" value="7881" />
-          <entry key="JSON" value="51" />
-          <entry key="JavaScript" value="9572" />
+          <entry key="JSON" value="110" />
+          <entry key="JavaScript" value="10740" />
           <entry key="Less" value="6" />
-          <entry key="TypeScript" value="20989" />
+          <entry key="TypeScript" value="20994" />
           <entry key="tsconfig" value="2" />
         </counts>
       </usages-collector>
@@ -141,49 +143,93 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/test/userTests.js">
+        <entry file="file://$PROJECT_DIR$/client/src/app/npr/AddVisitor/newVisitorcomponent.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="43" lean-forward="true" selection-end-line="401" />
-            </state>
+            <state relative-caret-position="-1656" />
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/controllers/employees.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/test/visitorTests.js">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/test/employeeTests.js">
+        <entry file="file://$PROJECT_DIR$/server/node_modules/mysql/lib/protocol/sequences/Sequence.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+            <state relative-caret-position="390">
+              <caret line="57" column="20" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/_models/employee.ts">
+        <entry file="file://$PROJECT_DIR$/client/e2e/features/login.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="9" selection-end-column="18" />
+            <state>
+              <caret selection-end-line="11" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/test/toolTests.js">
+        <entry file="file://$PROJECT_DIR$/client/e2e/features/register_user.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+            <state relative-caret-position="51">
+              <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="57" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/e2e/features/step_definitions/login.e2e-spec.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#104#151#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/e2e/features/step_definitions/register_user.e2e-spec.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/e2e/pages/login.po.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/e2e/pages/new_visitor.po.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="22" column="32" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/app/npr/AddVisitor/newVisitor.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#93#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/e2e/pages/common.po.ts">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -273,13 +319,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/app/npr/AddVisitor/newVisitorcomponent.html" />
-        <option value="$PROJECT_DIR$/client/src/app/npr/AddVisitor/newVisitor.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/_services/modal.service.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/_services/tool.service.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/_services/visitor.service.ts" />
-        <option value="$PROJECT_DIR$/server/controllers/visitors.js" />
-        <option value="$PROJECT_DIR$/server/models/visitors.js" />
         <option value="$PROJECT_DIR$/client/src/app/npr/ViewAll/view-all.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/npr/ViewAll/view-all.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/app.component.ts" />
@@ -304,10 +343,8 @@
         <option value="$PROJECT_DIR$/client/src/index.html" />
         <option value="$PROJECT_DIR$/client/src/app/login/login.component.html" />
         <option value="$PROJECT_DIR$/client/e2e/pages/login.po.ts" />
-        <option value="$PROJECT_DIR$/client/e2e/features/login.feature" />
         <option value="$PROJECT_DIR$/client/src/app/login/login.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/npr/npr.component.html" />
-        <option value="$PROJECT_DIR$/client/e2e/features/step_definitions/login.e2e-spec.ts" />
         <option value="$PROJECT_DIR$/client/src/app/_services/authentication.service.ts" />
         <option value="$PROJECT_DIR$/client/src/app/app.routing.ts" />
         <option value="$PROJECT_DIR$/server/models/tools.js" />
@@ -321,9 +358,18 @@
         <option value="$PROJECT_DIR$/server/controllers/trackerNodes.js" />
         <option value="$PROJECT_DIR$/server/models/trackerNodes.js" />
         <option value="$PROJECT_DIR$/server/test/toolTests.js" />
-        <option value="$PROJECT_DIR$/server/test/connectionTests.js" />
         <option value="$PROJECT_DIR$/server/test/userTests.js" />
+        <option value="$PROJECT_DIR$/client/src/app/_models/employee.ts" />
+        <option value="$PROJECT_DIR$/server/controllers/employees.js" />
         <option value="$PROJECT_DIR$/server/test/employeeTests.js" />
+        <option value="$PROJECT_DIR$/server/AWS_db.js" />
+        <option value="$PROJECT_DIR$/server/config/test.json" />
+        <option value="$PROJECT_DIR$/server/test/connectionTests.js" />
+        <option value="$PROJECT_DIR$/server/db.js" />
+        <option value="$PROJECT_DIR$/client/e2e/features/step_definitions/login.e2e-spec.ts" />
+        <option value="$PROJECT_DIR$/client/e2e/features/login.feature" />
+        <option value="$PROJECT_DIR$/client/e2e/features/register_user.feature" />
+        <option value="$PROJECT_DIR$/client/e2e/features/step_definitions/register_user.e2e-spec.ts" />
       </list>
     </option>
   </component>
@@ -376,14 +422,36 @@
               <item name="HORUS" type="b2602c69:ProjectViewProjectNode" />
               <item name="HORUS" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="reports" type="462c0819:PsiDirectoryNode" />
+              <item name="e2e" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HORUS" type="b2602c69:ProjectViewProjectNode" />
               <item name="HORUS" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="reports" type="462c0819:PsiDirectoryNode" />
-              <item name="json" type="462c0819:PsiDirectoryNode" />
+              <item name="e2e" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HORUS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HORUS" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="e2e" type="462c0819:PsiDirectoryNode" />
+              <item name="features" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HORUS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HORUS" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="e2e" type="462c0819:PsiDirectoryNode" />
+              <item name="features" type="462c0819:PsiDirectoryNode" />
+              <item name="step_definitions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HORUS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HORUS" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="e2e" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HORUS" type="b2602c69:ProjectViewProjectNode" />
@@ -427,6 +495,15 @@
               <item name="HORUS" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="npr" type="462c0819:PsiDirectoryNode" />
+              <item name="AddVisitor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HORUS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HORUS" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -438,6 +515,12 @@
               <item name="HORUS" type="b2602c69:ProjectViewProjectNode" />
               <item name="HORUS" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HORUS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HORUS" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HORUS" type="b2602c69:ProjectViewProjectNode" />
@@ -465,8 +548,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="ToolWindowStructure.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../angular4-protractor-cucumber" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/test" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/server/node_modules/mocha" />
     <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/client/node_modules/protractor" />
@@ -487,11 +571,11 @@
       <recent name="$PROJECT_DIR$/client/src" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/e2e/pages" />
+      <recent name="$PROJECT_DIR$/client/e2e/features/step_definitions" />
       <recent name="$PROJECT_DIR$/server/test" />
       <recent name="$PROJECT_DIR$/client" />
       <recent name="$PROJECT_DIR$/client/test/e2e/features/step_definitions" />
-      <recent name="$PROJECT_DIR$/client/test/e2e/pages" />
-      <recent name="$PROJECT_DIR$/client/test/e2e/step_definitions" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -506,7 +590,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.Angular CLI Server">
+  <component name="RunManager" selected="Node.js.db.js">
     <configuration name="Protractor + Cucumber" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
       <config-file value="$PROJECT_DIR$/client/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -516,10 +600,10 @@
     <configuration name="app.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="app.js" working-dir="$PROJECT_DIR$/server">
       <method v="2" />
     </configuration>
-    <configuration name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/controllers">
+    <configuration name="db.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="db.js" working-dir="$PROJECT_DIR$/server">
       <method v="2" />
     </configuration>
-    <configuration name="test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="test.js" working-dir="$PROJECT_DIR$/controllers">
+    <configuration name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/controllers">
       <method v="2" />
     </configuration>
     <configuration name="userTypes.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/models/userTypes.js" working-dir="$PROJECT_DIR$/models">
@@ -574,17 +658,17 @@
       <item itemvalue="Protractor.Protractor + Cucumber" />
       <item itemvalue="Mocha.server/test/connectionTests.js" />
       <item itemvalue="Node.js.index.js" />
-      <item itemvalue="Node.js.test.js" />
       <item itemvalue="Node.js.app.js" />
       <item itemvalue="Node.js.userTypes.js" />
+      <item itemvalue="Node.js.db.js" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Node.js.app.js" />
+        <item itemvalue="Node.js.db.js" />
         <item itemvalue="Mocha.server/test/connectionTests.js" />
         <item itemvalue="Node.js.index.js" />
         <item itemvalue="Node.js.userTypes.js" />
-        <item itemvalue="Node.js.test.js" />
       </list>
     </recent_temporary>
   </component>
@@ -630,52 +714,52 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Mocha - 2018.09.02 at 18h 41m 13s.xml">
+    <history-entry file="Mocha - 2018.09.02 at 22h 12m 01s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.09.02 at 18h 41m 43s.xml">
+    <history-entry file="Mocha - 2018.09.02 at 22h 12m 18s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.09.02 at 18h 42m 02s.xml">
+    <history-entry file="Mocha - 2018.09.02 at 22h 13m 57s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.09.02 at 18h 42m 58s.xml">
+    <history-entry file="Mocha - 2018.09.02 at 22h 15m 04s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.09.02 at 18h 43m 36s.xml">
+    <history-entry file="Mocha - 2018.09.02 at 22h 16m 31s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.09.02 at 18h 44m 07s.xml">
+    <history-entry file="Mocha - 2018.09.02 at 22h 16m 58s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.09.02 at 18h 44m 17s.xml">
+    <history-entry file="Mocha - 2018.09.02 at 22h 17m 38s.xml">
       <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Mocha - 2018.09.02 at 18h 46m 11s.xml">
-      <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Protractor_+_Cucumber - 2018.09.02 at 22h 19m 11s.xml">
+      <configuration name="Protractor + Cucumber" configurationId="JavaScriptTestRunnerProtractor" />
     </history-entry>
-    <history-entry file="Mocha - 2018.09.02 at 19h 15m 45s.xml">
-      <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Protractor_+_Cucumber - 2018.09.02 at 22h 38m 01s.xml">
+      <configuration name="Protractor + Cucumber" configurationId="JavaScriptTestRunnerProtractor" />
     </history-entry>
-    <history-entry file="Mocha - 2018.09.02 at 19h 15m 55s.xml">
-      <configuration name="Mocha" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Protractor_+_Cucumber - 2018.09.02 at 22h 41m 10s.xml">
+      <configuration name="Protractor + Cucumber" configurationId="JavaScriptTestRunnerProtractor" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="422480000" />
+    <option name="totallyTimeSpent" value="434566000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="27" width="1920" height="1013" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62910795" visible="true" weight="0.1905016" />
-      <window_info id="Structure" order="1" sideWeight="0.37089202" side_tool="true" weight="0.1905016" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7026604" visible="true" weight="0.1905016" />
+      <window_info id="Structure" order="1" sideWeight="0.2973396" side_tool="true" visible="true" weight="0.1905016" />
       <window_info id="npm" order="2" sideWeight="0.34674922" side_tool="true" weight="0.15228426" />
       <window_info id="Favorites" order="3" sideWeight="0.34674922" side_tool="true" weight="0.15228426" />
       <window_info anchor="bottom" id="Inspection Results" weight="0.32918552" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32692307" />
-      <window_info anchor="bottom" x="212" y="641" width="1610" height="807" id="Run" order="2" visible="true" weight="0.27714932" />
+      <window_info active="true" anchor="bottom" x="212" y="641" width="1610" height="807" id="Run" order="2" visible="true" weight="0.27714932" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990878" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -688,7 +772,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="3" side_tool="true" visible="true" weight="0.3660619" />
+      <window_info anchor="right" id="Coverage" order="3" side_tool="true" visible="true" weight="0.16221985" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -698,82 +782,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/e2e/support/hooks.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/login/index.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#app-root#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#app-root#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/e2e/tsconfig.e2e.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/e2e/support/reporter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="3" column="48" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/e2e/config/helpers/chai-imports.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="58" column="21" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/e2e/features/login.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="44" lean-forward="true" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/login/login.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="57" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/e2e/pages/welcome.po.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/e2e/features/step_definitions/login.e2e-spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="32" column="77" lean-forward="true" selection-start-line="32" selection-start-column="77" selection-end-line="32" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/home/home.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/polyfills.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-360" />
@@ -781,13 +789,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/main.ts">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/e2e/pages/login.po.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/npr/npr.component.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -861,24 +862,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/models/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2316">
           <caret line="284" selection-start-line="284" selection-end-line="284" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-969">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
@@ -946,13 +933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/test/toolTests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/controllers/trackerNodes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -970,9 +950,6 @@
     <entry file="file://$PROJECT_DIR$/server/test/otherTests">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/visitors.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/test/tracker_nodeTests.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -980,40 +957,161 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/_models/employee.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/test/toolTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/employees.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3019">
+          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/employees.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="101" column="11" lean-forward="true" selection-start-line="101" selection-start-column="11" selection-end-line="101" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/test/userTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="132" selection-start-line="132" selection-end-line="137" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/visitors.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/visitors.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3124" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/AWS_db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/test/connectionTests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        <state relative-caret-position="364">
+          <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/config/test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="29" lean-forward="true" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/test/visitorTests.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/visitors.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/employees.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/test/userTests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="43" lean-forward="true" selection-end-line="401" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/_models/employee.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/test/employeeTests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+        <state relative-caret-position="313">
+          <caret line="248" column="26" lean-forward="true" selection-start-line="248" selection-start-column="26" selection-end-line="248" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/e2e/pages/common.po.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/e2e/features/login.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/e2e/features/step_definitions/login.e2e-spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#104#151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/e2e/features/register_user.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/e2e/features/step_definitions/register_user.e2e-spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/e2e/pages/login.po.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/e2e/pages/new_visitor.po.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="32" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/npr/AddVisitor/newVisitor.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/npr/AddVisitor/newVisitorcomponent.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1656" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/node_modules/mysql/lib/protocol/sequences/Sequence.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="57" column="20" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
         </state>
       </provider>
     </entry>
