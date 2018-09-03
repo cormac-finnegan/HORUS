@@ -2,10 +2,11 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import {Employee} from '../_models/index';
+import {UserService} from "./user.service";
 
 @Injectable()
 export class EmployeeService {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UserService) {
   }
 
   getAll() {
@@ -16,7 +17,7 @@ export class EmployeeService {
     return this.http.get('/rest/users/' + id);
   }
 
-  getEmployeeByUserID<Employee>(id:number){
+  getEmployeeByUserID<Employee>(id: number) {
     return this.http.get('/rest/employees/users/id/' + id);
   }
 
@@ -30,7 +31,6 @@ export class EmployeeService {
   }
 
   delete(id: number) {
-    console.log("Service ID = " + id)
     return this.http.delete('/rest/employees/' + id);
   }
 }

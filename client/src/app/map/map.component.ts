@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {UserType} from "../_models";
+import {AuthenticationService, UserTypeService} from "../_services";
 
 @Component({
   selector: 'app-map',
@@ -17,10 +19,17 @@ export class MapComponent implements OnInit {
   markers: marker[] = [];
   trackerNodes: trackingNode[] = [];
 
+  userType:UserType;
+
   constructor(private http: HttpClient) {
   }
 
   ngOnInit(): void {
+
+    let user = localStorage.getItem('loggedinUser');
+    this.userType = JSON.parse(user)
+
+
 
     this.http.get('/rest/trackerNode').subscribe(data => {
       //this.markers.push(data);

@@ -256,7 +256,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   saveEmployee() {
-    console.log("Save: C L I C K ")
 
     if (!this.editMode) {
       this.createUser();

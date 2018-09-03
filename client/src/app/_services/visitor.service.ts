@@ -34,7 +34,7 @@ export class VisitorService {
   }
 
   delete(id: number) {
-    return this.http.delete('/api/users/' + id);
+    return this.http.delete('/rest/visitors/' + id);
   }
 
   userExists(username: string) {

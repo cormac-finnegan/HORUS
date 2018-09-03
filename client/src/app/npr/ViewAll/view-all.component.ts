@@ -19,6 +19,9 @@ export class ViewAllComponent implements OnInit {
   errorMessage: string;
   minAgeDate: Date;
   selectedTracker:number;
+  currentDate:Date;
+  datesValid:boolean;
+  deletionDate:Date = new Date();
 
   visitorList: Visitor[] = [];
   trackerList:Tool[] = [];
@@ -32,9 +35,13 @@ export class ViewAllComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.currentDate = this.getDateNowAsDate()
     this.getMinAgeDate()
     this.getAll();
-
+    this.datesValid = false;
+    let newDate = new Date();
+    this.deletionDate.setDate(newDate.getDate()+14);
+    console.log("Init Delete Date " + this.deletionDate)
   }
 
 
@@ -44,6 +51,7 @@ export class ViewAllComponent implements OnInit {
         this.visitorList = visitors
 
       })
+
   }
 
   getAllTrackers(){
@@ -57,6 +65,7 @@ export class ViewAllComponent implements OnInit {
     this.visitorService.delete(id)
       .subscribe(data => {
         console.log(data)
+        this.getAll()
 
       })
   }
@@ -74,6 +83,17 @@ export class ViewAllComponent implements OnInit {
     //this.visitor = null;
   }
 
+  checkDateLessThanDeletionDate(dateString:string){
+    let datein = new Date(dateString);
+    if(datein <= this.deletionDate){
+      if(datein <= this.currentDate){
+        return false;
+      }else{
+        return true;
+      }
+    }
+    return false;
+  }
 
   private hideMessages(){
     document.getElementById('errorMsg').hidden = true;
@@ -121,11 +141,20 @@ export class ViewAllComponent implements OnInit {
 
   }
 
+  validateDates(){
+    if(new Date(this.visitor.checkin_date) > new Date(this.visitor.checkout_date)){
+      return false;
+    }
+    return true;
+  }
+
   submit() {
     console.log("SUBMIT");
-
-    this.saveVisitor();
-
+    if(this.validateDates()){
+      this.saveVisitor();
+    }else{
+      this.showError("Check-out Date cannot be before checkin-date")
+    }
   }
 
 
@@ -153,6 +182,7 @@ export class ViewAllComponent implements OnInit {
 
   removeTracker(visitorId:number, trackerId:number){
     console.log("Visitor ID: " + visitorId + "  TrackerID: " + trackerId)
+    this.selectedTracker = null;
     this.visitorService.removeTracker(visitorId, trackerId)
       .subscribe(data=>{
         console.log(typeof  data);

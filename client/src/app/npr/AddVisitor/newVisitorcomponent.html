@@ -72,15 +72,15 @@
             <span *ngIf="f.submitted && !checkin_date.valid" class="input-group-text alert-danger" role="alert">Check-in Date is required</span>
             <p-calendar id="newVisitor-checkin_date" type="date"
                         [(ngModel)]="visitor.checkin_date" dateFormat="yy-mm-dd" placeholder="{{getDateNow()}}"
-                        name="checkin_date" #checkin_date="ngModel" required [minDate]="getDateNowAsDate()"></p-calendar>
+                        name="checkin_date" #checkin_date="ngModel" required [minDate]="getDateNowAsDate()" ></p-calendar>
           </div>
 
           <div class="col input-group-prepend input-group-lg">
             <span *ngIf="f.submitted === false || checkout_date.valid" class="input-group-text">Check-out Date</span>
             <span *ngIf="f.submitted && !checkout_date.valid" class="input-group-text alert-danger" role="alert">Check-out Date is required</span>
             <p-calendar id="newVisitor-checkout_date" type="date"
-                        [(ngModel)]="visitor.checkout_date" dateFormat="yy-mm-dd" placeholder="{{getDateNow()}}"
-                        name="checkout_date" #checkout_date="ngModel" [minDate]="f.value.checkin_date" [defaultDate]="f.value.checkin_date" required></p-calendar>
+                        [(ngModel)]="visitor.checkout_date" dateFormat="yy-mm-dd" placeholder="{{visitor.checkin_date}}"
+                        name="checkout_date" #checkout_date="ngModel" [minDate]="f.value.checkin_date"  required></p-calendar>
           </div>
 
 

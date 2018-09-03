@@ -65,7 +65,7 @@
                  name="walkie_talkie_channel" required>
         </div>
 
-        <div class="input-group mb-3">
+        <div *ngIf="!editMode" class="input-group mb-3">
           <div class="input-group-prepend">
             <span *ngIf="f.submitted === false || email.valid" class="input-group-text">Email</span>
             <span *ngIf="f.submitted && !email.valid" class="input-group-text alert-danger" role="alert">Email is required</span>
@@ -75,7 +75,7 @@
                  autocomplete="off" required/>
         </div>
 
-        <div class="input-group mb-3">
+        <div *ngIf="!editMode" class="input-group mb-3">
           <div class="input-group-prepend">
             <span *ngIf="f.submitted === false || password.valid" class="input-group-text">Password</span>
             <span *ngIf="f.submitted && !password.valid" class="input-group-text alert-danger" role="alert">Password is required</span>
@@ -91,7 +91,7 @@
       <div class="modal-footer">
         <!--<button  (click)="saveEmployee();" type="submit" class="btn btn-success" disabled>Save</button>-->
         <button
-          [attr.disabled]="(password.valid && email.valid && firstname.valid && lastname.valid && contact_number.valid && dob.valid) == false ? true : null"
+          [attr.disabled]="(firstname.valid && lastname.valid && contact_number.valid && dob.valid) == false ? true : null"
           type="submit" class="btn btn-success">Save
         </button>
 

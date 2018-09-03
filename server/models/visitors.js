@@ -181,12 +181,39 @@ exports.assignTracker = function (visitorID, trackerID, callback) {
 };
 
 
-exports.deleteTracker = function (visitorID, trackerID, callback) {
+exports.deleteVisitor = function (visitorID, callback) {
+
+    db.query('DELETE from Visitors  WHERE id = ' + visitorID + ';', function (error, results) {
+
+        //console.log(this.sql);
+        var message = {
+            error: undefined,
+            results: undefined
+        };
+        if (error) {
+            console.log(error);
+            message = {
+                error: error,
+                results: null
+            };
+        } else {
+            console.log(results);
+            message = {
+                error: null,
+                results: results
+            };
+        }
+        callback(message);
+    });
+
+};
+
+exports.unassignTracker = function (visitorID, trackerID, callback) {
 
     console.log("Model " + trackerID + " ; " + visitorID)
 
     db.query('Update Visitors SET ' +
-        'tracker_id = NULL'  +
+        'tracker_id = NULL' +
         ' WHERE id = ' + visitorID + ';', function (error, results) {
 
         //console.log(this.sql);

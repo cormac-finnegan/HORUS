@@ -17,7 +17,7 @@ export class ToolService {
   }
 
   getAllTrackers(){
-    return this.http.get<Tool[]>('/rest/toolInventory/type=\'tracker\'');
+    return this.http.get<Tool[]>('/rest/toolInventory/type=tracker');
   }
 
   create(user: Tool) {

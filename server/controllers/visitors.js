@@ -77,6 +77,24 @@ module.exports = function (app) {
         });
     });
 
+    app.delete("/rest/visitors/:visitorID(\\d+)", function (req, res) {
+
+        console.log(JSON.stringify(req.params));
+
+        let visitorID = req.params.visitorID;
+
+        visitorModel.deleteVisitor(visitorID, function (callback) {
+
+            if (callback.error === null) {
+                res.status(200).send(callback.results);
+                //return callback.results;
+            } else {
+
+                res.status(404).send(callback.error);
+            }
+        });
+    });
+
     app.delete("/rest/visitors/:visitorID(\\d+)/tracker/:trackerID(\\d+)", function (req, res) {
 
         console.log(JSON.stringify(req.params));
@@ -84,7 +102,7 @@ module.exports = function (app) {
         let visitorID = req.params.visitorID;
         let trackerID = req.params.trackerID;
 
-        visitorModel.deleteTracker(visitorID, trackerID, function (callback) {
+        visitorModel.unassignTracker(visitorID, trackerID, function (callback) {
 
             if (callback.error === null) {
                 res.status(200).send(callback.results);

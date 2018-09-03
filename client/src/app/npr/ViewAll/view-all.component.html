@@ -1,4 +1,6 @@
-<table id="employeeTable" class="table table-hover" cellspacing="0">
+<div *ngIf="visitorList.length == 0" style="text-align: center"> <img src="assets/loading-please-wait.gif" style="display: block; margin-left: auto; margin-right: auto;"></div>
+
+<table id="employeeTable" class="table table-hover" cellspacing="0" *ngIf="visitorList.length > 0">
   <thead>
   <tr>
     <th>ID</th>
@@ -9,10 +11,9 @@
     <th>Date of Birth</th>
     <th>Assigned Tracker</th>
     <th></th>
-
   </tr>
   </thead>
-  <tbody>
+  <tbody *ngIf="visitorList.length > 0">
   <tr *ngFor="let visitor of visitorList">
     <td>{{visitor.id}}</td>
     <td>{{visitor.first_name}}</td>
@@ -33,7 +34,8 @@
       </button>
     </td>
     <td>
-      <button class="btn btn-danger" (click)="deleteVisitor(visitor.id)">Delete</button>
+      <button class="btn btn-danger" (click)="deleteVisitor(visitor.id)" [attr.disabled]="(visitor.tracker_id != null ? false : null) ">Delete</button>
+      <!--<button class="btn btn-danger" (click)="deleteVisitor(visitor.id)" [attr.disabled]="checkDateLessThanDeletionDate(visitor.checkout_date) ? true : null">Delete</button>-->
     </td>
   </tr>
   </tbody>
@@ -160,22 +162,12 @@
                  autocomplete="off" required/>
         </div>
 
-        <!--<div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span *ngIf="f.submitted === false || password.valid" class="input-group-text">Password</span>
-            <span *ngIf="f.submitted && !password.valid" class="input-group-text alert-danger" role="alert">Password is required</span>
-          </div>
-          <input type="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
-                 [(ngModel)]="newUserPassword" name="password" #password="ngModel" required>
-        </div>-->
-
         <div id="errorMsg" type="alert" class="alert alert-danger" hidden>{{errorMessage}}</div>
         <div id="successMsg" type="alert" class="alert alert-success" hidden>User saved successfully!</div>
 
 
       </div>
       <div class="modal-footer">
-        <!--<button  (click)="saveVisitor();" type="submit" class="btn btn-success" disabled>Save</button>-->
         <button
           [attr.disabled]="(email.valid && firstname.valid && lastname.valid && contact_number.valid && dob.valid) == false ? true : null"
           type="submit" class="btn btn-success">Save
@@ -193,13 +185,15 @@
 
 
 <modal id="assign-visitor-tracker" style="display: none">
-  <div class="modal">
+
+  <div class="modal" >
     <div class="modal-header">
       <h5 class="modal-title"> Assign tracker to {{visitor.first_name}} {{visitor.last_name}}</h5>
     </div>
     <form (ngSubmit)="assignTrackerForm.form.valid" #assignTrackerForm="ngForm" autocomplete="off"
           novalidate>
-      <div class="modal-body">
+      <div *ngIf="trackerList.length == 0" style="text-align: center" class="modal-body"> <img src="assets/loading-please-wait.gif" style="display: block; margin-left: auto; margin-right: auto;"></div>
+      <div class="modal-body" *ngIf="trackerList.length > 0">
 
         <div *ngFor="let tracker of trackerList; " >
           {{tracker.id}} <input type="radio" name="{{tracker.type}}" (click)="selectedTracker = tracker.id" [attr.disabled]="tracker.status== true ? false : null"> - {{tracker.description}} - {{tracker.MISC}}

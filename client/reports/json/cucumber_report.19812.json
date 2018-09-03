@@ -1,0 +1,83 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "register a new visitor via the National Park Ranger",
+    "line": 1,
+    "id": "register-a-new-visitor-via-the-national-park-ranger",
+    "tags": [],
+    "uri": "e2e/features/register_user.feature",
+    "elements": [
+      {
+        "id": "register-a-new-visitor-via-the-national-park-ranger;as-a-national-park-ranger-i-want-to-register-a-new-visitor",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "As a National Park Ranger I want to register a new visitor",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "the user is logged in as a National Park Ranger",
+            "match": {
+              "location": "e2e/features/step_definitions/register_user.e2e-spec.ts:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 5,
+            "name": "the user set the username 'test'",
+            "result": {
+              "status": "ambiguous"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "the user set the password 'test'",
+            "result": {
+              "status": "ambiguous"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "the user logs in the application",
+            "result": {
+              "status": "ambiguous"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "the user is redirected to the Welcome page",
+            "result": {
+              "status": "ambiguous"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "e2e/support/hooks.js:17"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5008000000,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout._onTimeout (/home/cormac/Code/HORUS-git/HORUS/client/node_modules/cucumber/src/user_code_runner.js:61:18)\n    at ontimeout (timers.js:424:11)\n    at tryOnTimeout (timers.js:288:5)\n    at listOnTimeout (timers.js:251:5)\n    at Timer.processTimers (timers.js:211:10)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

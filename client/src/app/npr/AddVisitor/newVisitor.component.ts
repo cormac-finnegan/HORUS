@@ -54,6 +54,14 @@ export class NewVisitorComponent implements OnInit {
     return /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/.test(number);
   }
 
+  validateDates(){
+    if(new Date(this.visitor.checkin_date) > new Date(this.visitor.checkout_date)){
+      console.log("Date 1" + new Date(this.visitor.checkin_date) )
+      return false;
+    }
+    return true;
+  }
+
   getMinAgeDate() {
     var date = new Date(Date.now()).setFullYear(new Date(Date.now()).getFullYear() - 18);
     this.minAgeDate = new Date(date)
@@ -111,8 +119,13 @@ export class NewVisitorComponent implements OnInit {
 
   submit() {
     console.log("SUBMIT");
+    if(this.validateDates()){
+      this.saveUser();
+    }else{
+      this.showError("Check-out date cannot be before check-in date")
+    }
 
-    this.saveUser();
+
 
     return false;
   }

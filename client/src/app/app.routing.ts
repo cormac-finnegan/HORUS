@@ -15,20 +15,20 @@ import {NPRGuard} from "./_guards/npr.guard";
 
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent, canActivate:[AuthGuard]},
+  /*{ path: '', component: HomeComponent, canActivate:[AuthGuard]},*/
   { path: 'login', component: LoginComponent },
   { path: 'sar/tracker', component: MapComponent, canActivate:[AuthGuard, SARGuard] },
   { path: 'npr/tracker', component: MapComponent, canActivate:[AuthGuard, NPRGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'admin', component: AdminComponent , canActivate:[AuthGuard, AdminGuard]},
-  { path: 'sar', component: SarComponent , canActivate:[AuthGuard]},
+  { path: 'sar', component: SarComponent , canActivate:[AuthGuard, SARGuard]},
   { path: 'npr', component: NprComponent, canActivate:[AuthGuard, NPRGuard] },
   { path: 'npr/viewAll', component: ViewAllComponent },
   { path: 'npr/addVisitor', component: NewVisitorComponent },
 
 
   // otherwise redirect to 404
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: '/login' },
 
 ];
 
