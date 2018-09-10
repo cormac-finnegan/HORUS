@@ -4,13 +4,6 @@ module.exports = function (app) {
     app.get("/rest/users", function (req, res) {
 
         userModel.getAllUsers(function (callback) {
-
-            /*var test = JSON.parse(JSON.stringify(callback.results))
-
-            console.log(test)*/
-
-            //console.log(JSON.stringify(callback.results))
-
             if (callback.error === null) {
                 res.status(200).send(callback.results);
                 //return callback.results;

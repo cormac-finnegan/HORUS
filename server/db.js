@@ -8,17 +8,6 @@ let TEST_DB = require('./config/test.json').AWS;
 exports.DEV_DB = require('./config/dev.json').AWS;
 let LOCAL_TEST_DB = require('./config/test.json').local;
 
-/*var connection = mysql.createConnection(TEST_DB);
-
-connection.connect(function(error){
-    if(error){
-        console.log("Couldn't connect :(    Error: " + error);
-    } else {
-        console.log("Connected successfully~!");
-    }
-});*/
-
-
 let pool  = mysql.createPool(TEST_DB);
 
 let db = (function () {
@@ -26,9 +15,6 @@ let db = (function () {
     function _query(query, callback) {
         pool.getConnection(function (err, connection) {
             if (err) {
-                //connection.release();
-                //callback(null, err);
-                //console.log(err);
                 throw err;
             }else{
                 connection.query(query, function (err, rows) {
@@ -37,7 +23,6 @@ let db = (function () {
                     }
                     else {
                         callback(err, null);
-
                     }
                     connection.release();
                     connection.destroy();
@@ -51,7 +36,6 @@ let db = (function () {
                 });
             }
         });
-
     }
     return {
         query: _query

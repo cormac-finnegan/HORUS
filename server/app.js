@@ -25,7 +25,6 @@ global.appRoot = path.resolve(__dirname);
 
 global.projRoot = path.resolve(__dirname + '/..');
 
-console.log('\nProject Root: ' + projRoot)
 
 AWS_DB = require(appRoot + '/AWS_db');
 LOCAL_DB = require(appRoot + '/local_db');
@@ -54,20 +53,15 @@ app.use(express.static(path.join(__dirname + 'client')));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-//app.use(require('./controllers'));
+
 
 /**********************************************************************************************************************/
 
 router.use(function (req, res, next) {
     console.log("/" + req.method + ": res " + res);
-    //res.header("Content-Type",'application/json');
     next();
 });
 
-
-/*app.get('*', function(req,res){
-    res.sendFile(projRoot, '/public/index.html');
-});*/
 
 
 app.use("/", router);
@@ -81,7 +75,7 @@ trackerNodes(app);
 users(app);
 authentication(app);
 employees(app);
-visitors(app)
+visitors(app);
 
 
 let server = app.listen(3000, function () {

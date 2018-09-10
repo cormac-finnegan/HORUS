@@ -29,18 +29,10 @@ module.exports = function (app) {
                 } else {
                     res.status(404).send(callback.error);
                 }
-                /*                console.log("DB Password: " + JSON.parse(JSON.stringify(callback.results[0])).password)
-                                console.log("PasswordIn: " + passwordIn)*/
-
-                //res.status(200).send(callback.results);
-
-                //return callback.results;
             } else {
                 res.status(404).send(callback.error);
             }
         });
-
-
     });
 
 }
